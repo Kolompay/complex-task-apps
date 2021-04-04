@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {}
+    "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {}
   },
   "projects": {
-    "E:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {
+    "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+        "projectUniqueName": "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
         "projectName": "RentCarsProject",
-        "projectPath": "E:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
-        "packagesPath": "C:\\Users\\shiha\\.nuget\\packages\\",
-        "outputPath": "E:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
+        "projectPath": "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+        "packagesPath": "C:\\Users\\shikh\\.nuget\\packages\\",
+        "outputPath": "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\shiha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shikh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +44,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "EntityFramework6.Npgsql": {
+              "target": "Package",
+              "version": "[6.4.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.4, )"
