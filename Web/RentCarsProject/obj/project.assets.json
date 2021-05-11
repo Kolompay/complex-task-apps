@@ -2296,24 +2296,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shikh\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\shiha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+      "projectUniqueName": "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
       "projectName": "RentCarsProject",
-      "projectPath": "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
-      "packagesPath": "C:\\Users\\shikh\\.nuget\\packages\\",
-      "outputPath": "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
+      "projectPath": "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+      "packagesPath": "C:\\Users\\shiha\\.nuget\\packages\\",
+      "outputPath": "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\shikh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\shiha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
