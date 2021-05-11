@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {}
+    "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {}
   },
   "projects": {
-    "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {
+    "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+        "projectUniqueName": "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
         "projectName": "RentCarsProject",
-        "projectPath": "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+        "projectPath": "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
         "packagesPath": "C:\\Users\\shikh\\.nuget\\packages\\",
-        "outputPath": "D:\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
+        "outputPath": "D:\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[6.4.1, )"
             },
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.4, )"
@@ -67,6 +71,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.4, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -91,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
