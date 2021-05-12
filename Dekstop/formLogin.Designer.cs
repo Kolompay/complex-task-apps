@@ -32,65 +32,84 @@ namespace WindowsFormsApp1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLogin));
             this.labelLogin = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonEnter = new System.Windows.Forms.Button();
+            this.checkBoxPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
-            this.labelLogin.Location = new System.Drawing.Point(32, 22);
+            this.labelLogin.Location = new System.Drawing.Point(24, 18);
+            this.labelLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(51, 17);
+            this.labelLogin.Size = new System.Drawing.Size(41, 13);
             this.labelLogin.TabIndex = 0;
             this.labelLogin.Text = "Логин:";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(22, 57);
+            this.labelPassword.Location = new System.Drawing.Point(16, 46);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(61, 17);
+            this.labelPassword.Size = new System.Drawing.Size(48, 13);
             this.labelPassword.TabIndex = 1;
             this.labelPassword.Text = "Пароль:";
             // 
-            // textBox1
+            // textBoxLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 22);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxLogin.Location = new System.Drawing.Point(67, 15);
+            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(197, 20);
+            this.textBoxLogin.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(89, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(261, 22);
-            this.textBox2.TabIndex = 3;
+            this.textBoxPassword.Location = new System.Drawing.Point(67, 46);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(197, 20);
+            this.textBoxPassword.TabIndex = 3;
             // 
             // buttonEnter
             // 
-            this.buttonEnter.Location = new System.Drawing.Point(174, 95);
+            this.buttonEnter.Location = new System.Drawing.Point(167, 100);
+            this.buttonEnter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(75, 23);
+            this.buttonEnter.Size = new System.Drawing.Size(76, 24);
             this.buttonEnter.TabIndex = 4;
             this.buttonEnter.Text = "Войти";
             this.buttonEnter.UseVisualStyleBackColor = true;
             this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
             // 
+            // checkBoxPassword
+            // 
+            this.checkBoxPassword.AutoSize = true;
+            this.checkBoxPassword.Location = new System.Drawing.Point(67, 72);
+            this.checkBoxPassword.Name = "checkBoxPassword";
+            this.checkBoxPassword.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxPassword.TabIndex = 5;
+            this.checkBoxPassword.Text = "Показать пароль";
+            this.checkBoxPassword.UseVisualStyleBackColor = true;
+            this.checkBoxPassword.CheckedChanged += new System.EventHandler(this.checkBoxPassword_CheckedChanged);
+            // 
             // formLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 138);
+            this.ClientSize = new System.Drawing.Size(278, 135);
+            this.Controls.Add(this.checkBoxPassword);
             this.Controls.Add(this.buttonEnter);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "formLogin";
             this.Text = "Авторазиция";
             this.ResumeLayout(false);
@@ -102,8 +121,9 @@ namespace WindowsFormsApp1
 
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxLogin;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonEnter;
+        private System.Windows.Forms.CheckBox checkBoxPassword;
     }
 }

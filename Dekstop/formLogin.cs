@@ -17,15 +17,27 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonEnter_Click(object sender, EventArgs e)
         {
-            formManager formManager = new formManager();
-            formManager.Show();
+            string cod = "admin";
+            if (textBoxLogin.Text == cod && textBoxPassword.Text == cod)
+            {
+                formManager formManager = new formManager();
+                formManager.Show();
+            }
+            else if (textBoxLogin.Text == "" || textBoxPassword.Text == "")
+            {
+                MessageBox.Show("Одно или несколько полей не заполнены!");
+            }
+            else
+            {
+                MessageBox.Show("Данные введены неверно, повторите попытку!");
+            }
+        }
+
+        private void checkBoxPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxPassword.PasswordChar = checkBoxPassword.Checked ? '\0' : '*';
         }
     }
 }
