@@ -101,6 +101,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formAddCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAddCar.Designer.cs">
+      <DependentUpon>formAddCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEditCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditCar.Designer.cs">
+      <DependentUpon>formEditCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +132,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rentcarsdbDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="formAddCar.resx">
+      <DependentUpon>formAddCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEditCar.resx">
+      <DependentUpon>formEditCar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>

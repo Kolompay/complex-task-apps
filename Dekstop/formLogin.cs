@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
             {
                 formManager formManager = new formManager();
                 formManager.Show();
+                this.Hide();
             }
             else if (textBoxLogin.Text == "" || textBoxPassword.Text == "")
             {
@@ -38,6 +39,11 @@ namespace WindowsFormsApp1
         private void checkBoxPassword_CheckedChanged(object sender, EventArgs e)
         {
             textBoxPassword.PasswordChar = checkBoxPassword.Checked ? '\0' : '*';
+        }
+
+        private void formLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

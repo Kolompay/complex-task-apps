@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
 
         private void LoadData(String strSQL, DataGridView dataGrid, ComboBox comboBox)
         {
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 try
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1
 
         private void buttonAddBonus_Click(object sender, EventArgs e)
         {
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 try
@@ -127,7 +127,7 @@ namespace WindowsFormsApp1
             DataGridView dataGrid = dataGridViewListCarsNotInRent;
             ComboBox comboBox = comboBoxSearchAvailable;
             LoadData(strSQL, dataGrid, comboBox);
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 npgSqlConnection.Open();
@@ -173,7 +173,7 @@ namespace WindowsFormsApp1
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 npgSqlConnection.Open();
@@ -196,7 +196,7 @@ namespace WindowsFormsApp1
             DataGridView dataGrid = dataGridViewCarList;
             ComboBox comboBox = comboBoxSearchCar;
             LoadData(strSQL, dataGrid, comboBox);
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 npgSqlConnection.Open();
@@ -242,7 +242,7 @@ namespace WindowsFormsApp1
 
         private void comboBoxSearchCarList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 npgSqlConnection.Open();
@@ -270,6 +270,27 @@ namespace WindowsFormsApp1
             DataGridView dataGrid = dataGridViewCarList;
             ComboBox comboBox = comboBoxSearchCar;
             LoadData(strSQL, dataGrid, comboBox);
+        }
+
+        private void formManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnAddCar_Click(object sender, EventArgs e)
+        {
+            formAddCar formAddCars = new formAddCar();
+            formAddCars.Show();
+        }
+
+        private void btnEditCar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelCar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
