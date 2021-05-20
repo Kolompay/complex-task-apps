@@ -51,11 +51,6 @@ namespace WindowsFormsApp1
             this.buttonUpdateListNotInRent = new System.Windows.Forms.Button();
             this.buttonAddOrder = new System.Windows.Forms.Button();
             this.dataGridViewListCarsNotInRent = new System.Windows.Forms.DataGridView();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTransmisson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageCarsInRent = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxSearchRentList = new System.Windows.Forms.ComboBox();
@@ -74,11 +69,6 @@ namespace WindowsFormsApp1
             this.btnEditCar = new System.Windows.Forms.Button();
             this.btnAddCar = new System.Windows.Forms.Button();
             this.dataGridViewCarList = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonAddBonus = new System.Windows.Forms.Button();
@@ -89,6 +79,18 @@ namespace WindowsFormsApp1
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.rentcarsdbDataSet = new WindowsFormsApp1.rentcarsdbDataSet();
             this.rentcarsdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClassCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTransmisson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -114,11 +116,11 @@ namespace WindowsFormsApp1
             this.tabPageClients.Controls.Add(this.button9);
             this.tabPageClients.Controls.Add(this.button10);
             this.tabPageClients.Controls.Add(this.dataGridView3);
-            this.tabPageClients.Location = new System.Drawing.Point(4, 27);
+            this.tabPageClients.Location = new System.Drawing.Point(4, 24);
             this.tabPageClients.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageClients.Name = "tabPageClients";
             this.tabPageClients.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageClients.Size = new System.Drawing.Size(954, 537);
+            this.tabPageClients.Size = new System.Drawing.Size(954, 540);
             this.tabPageClients.TabIndex = 2;
             this.tabPageClients.Text = "Клиенты";
             this.tabPageClients.UseVisualStyleBackColor = true;
@@ -170,11 +172,11 @@ namespace WindowsFormsApp1
             this.tabPageOrders.Controls.Add(this.button6);
             this.tabPageOrders.Controls.Add(this.button7);
             this.tabPageOrders.Controls.Add(this.dataGridView2);
-            this.tabPageOrders.Location = new System.Drawing.Point(4, 27);
+            this.tabPageOrders.Location = new System.Drawing.Point(4, 24);
             this.tabPageOrders.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageOrders.Name = "tabPageOrders";
             this.tabPageOrders.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageOrders.Size = new System.Drawing.Size(954, 537);
+            this.tabPageOrders.Size = new System.Drawing.Size(954, 540);
             this.tabPageOrders.TabIndex = 1;
             this.tabPageOrders.Text = "Заказы";
             this.tabPageOrders.UseVisualStyleBackColor = true;
@@ -224,11 +226,11 @@ namespace WindowsFormsApp1
             // 
             this.tabPageAutopark.Controls.Add(this.tabControlAutopark);
             this.tabPageAutopark.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabPageAutopark.Location = new System.Drawing.Point(4, 27);
+            this.tabPageAutopark.Location = new System.Drawing.Point(4, 24);
             this.tabPageAutopark.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageAutopark.Name = "tabPageAutopark";
             this.tabPageAutopark.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageAutopark.Size = new System.Drawing.Size(954, 537);
+            this.tabPageAutopark.Size = new System.Drawing.Size(954, 540);
             this.tabPageAutopark.TabIndex = 0;
             this.tabPageAutopark.Text = "Автопарк";
             this.tabPageAutopark.UseVisualStyleBackColor = true;
@@ -255,11 +257,11 @@ namespace WindowsFormsApp1
             this.tabPageCarsNotInRent.Controls.Add(this.buttonUpdateListNotInRent);
             this.tabPageCarsNotInRent.Controls.Add(this.buttonAddOrder);
             this.tabPageCarsNotInRent.Controls.Add(this.dataGridViewListCarsNotInRent);
-            this.tabPageCarsNotInRent.Location = new System.Drawing.Point(4, 27);
+            this.tabPageCarsNotInRent.Location = new System.Drawing.Point(4, 24);
             this.tabPageCarsNotInRent.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageCarsNotInRent.Name = "tabPageCarsNotInRent";
             this.tabPageCarsNotInRent.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageCarsNotInRent.Size = new System.Drawing.Size(954, 509);
+            this.tabPageCarsNotInRent.Size = new System.Drawing.Size(954, 512);
             this.tabPageCarsNotInRent.TabIndex = 0;
             this.tabPageCarsNotInRent.Text = "Доступные автомобили";
             this.tabPageCarsNotInRent.UseVisualStyleBackColor = true;
@@ -270,7 +272,7 @@ namespace WindowsFormsApp1
             this.label1.Location = new System.Drawing.Point(64, 67);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 18);
+            this.label1.Size = new System.Drawing.Size(127, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Выберите из списка:";
             // 
@@ -280,7 +282,7 @@ namespace WindowsFormsApp1
             this.comboBoxSearchAvailableList.Location = new System.Drawing.Point(235, 63);
             this.comboBoxSearchAvailableList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSearchAvailableList.Name = "comboBoxSearchAvailableList";
-            this.comboBoxSearchAvailableList.Size = new System.Drawing.Size(233, 26);
+            this.comboBoxSearchAvailableList.Size = new System.Drawing.Size(233, 23);
             this.comboBoxSearchAvailableList.TabIndex = 5;
             this.comboBoxSearchAvailableList.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -290,7 +292,7 @@ namespace WindowsFormsApp1
             this.labelSelectCriterion.Location = new System.Drawing.Point(21, 25);
             this.labelSelectCriterion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSelectCriterion.Name = "labelSelectCriterion";
-            this.labelSelectCriterion.Size = new System.Drawing.Size(201, 18);
+            this.labelSelectCriterion.Size = new System.Drawing.Size(170, 15);
             this.labelSelectCriterion.TabIndex = 4;
             this.labelSelectCriterion.Text = "Выберите критерий поиска:";
             // 
@@ -300,7 +302,7 @@ namespace WindowsFormsApp1
             this.comboBoxSearchAvailable.Location = new System.Drawing.Point(235, 22);
             this.comboBoxSearchAvailable.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSearchAvailable.Name = "comboBoxSearchAvailable";
-            this.comboBoxSearchAvailable.Size = new System.Drawing.Size(233, 26);
+            this.comboBoxSearchAvailable.Size = new System.Drawing.Size(233, 23);
             this.comboBoxSearchAvailable.TabIndex = 3;
             this.comboBoxSearchAvailable.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBoxSearchAvailable.Click += new System.EventHandler(this.comboBox1_Click);
@@ -333,6 +335,7 @@ namespace WindowsFormsApp1
             this.dataGridViewListCarsNotInRent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewListCarsNotInRent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListCarsNotInRent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
             this.ColumnName,
             this.ColumnBrand,
             this.ColumnClassCar,
@@ -347,41 +350,6 @@ namespace WindowsFormsApp1
             this.dataGridViewListCarsNotInRent.Size = new System.Drawing.Size(932, 382);
             this.dataGridViewListCarsNotInRent.TabIndex = 0;
             // 
-            // ColumnName
-            // 
-            this.ColumnName.HeaderText = "Название";
-            this.ColumnName.MinimumWidth = 6;
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.ReadOnly = true;
-            // 
-            // ColumnBrand
-            // 
-            this.ColumnBrand.HeaderText = "Бренд";
-            this.ColumnBrand.MinimumWidth = 6;
-            this.ColumnBrand.Name = "ColumnBrand";
-            this.ColumnBrand.ReadOnly = true;
-            // 
-            // ColumnClassCar
-            // 
-            this.ColumnClassCar.HeaderText = "Класс";
-            this.ColumnClassCar.MinimumWidth = 6;
-            this.ColumnClassCar.Name = "ColumnClassCar";
-            this.ColumnClassCar.ReadOnly = true;
-            // 
-            // ColumnTransmisson
-            // 
-            this.ColumnTransmisson.HeaderText = "Коробка передач";
-            this.ColumnTransmisson.MinimumWidth = 6;
-            this.ColumnTransmisson.Name = "ColumnTransmisson";
-            this.ColumnTransmisson.ReadOnly = true;
-            // 
-            // ColumnColor
-            // 
-            this.ColumnColor.HeaderText = "Цвет";
-            this.ColumnColor.MinimumWidth = 6;
-            this.ColumnColor.Name = "ColumnColor";
-            this.ColumnColor.ReadOnly = true;
-            // 
             // tabPageCarsInRent
             // 
             this.tabPageCarsInRent.Controls.Add(this.label2);
@@ -391,11 +359,11 @@ namespace WindowsFormsApp1
             this.tabPageCarsInRent.Controls.Add(this.buttonUpdateListCarsInRent);
             this.tabPageCarsInRent.Controls.Add(this.buttonCancelOrder);
             this.tabPageCarsInRent.Controls.Add(this.dataGridViewListCarsInRent);
-            this.tabPageCarsInRent.Location = new System.Drawing.Point(4, 27);
+            this.tabPageCarsInRent.Location = new System.Drawing.Point(4, 24);
             this.tabPageCarsInRent.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageCarsInRent.Name = "tabPageCarsInRent";
             this.tabPageCarsInRent.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageCarsInRent.Size = new System.Drawing.Size(954, 509);
+            this.tabPageCarsInRent.Size = new System.Drawing.Size(954, 512);
             this.tabPageCarsInRent.TabIndex = 1;
             this.tabPageCarsInRent.Text = "Автомобили в прокате";
             this.tabPageCarsInRent.UseVisualStyleBackColor = true;
@@ -406,7 +374,7 @@ namespace WindowsFormsApp1
             this.label2.Location = new System.Drawing.Point(64, 70);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 18);
+            this.label2.Size = new System.Drawing.Size(127, 15);
             this.label2.TabIndex = 12;
             this.label2.Text = "Выберите из списка:";
             // 
@@ -416,7 +384,7 @@ namespace WindowsFormsApp1
             this.comboBoxSearchRentList.Location = new System.Drawing.Point(235, 67);
             this.comboBoxSearchRentList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSearchRentList.Name = "comboBoxSearchRentList";
-            this.comboBoxSearchRentList.Size = new System.Drawing.Size(233, 26);
+            this.comboBoxSearchRentList.Size = new System.Drawing.Size(233, 23);
             this.comboBoxSearchRentList.TabIndex = 11;
             // 
             // label3
@@ -425,7 +393,7 @@ namespace WindowsFormsApp1
             this.label3.Location = new System.Drawing.Point(21, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 18);
+            this.label3.Size = new System.Drawing.Size(170, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Выберите критерий поиска:";
             // 
@@ -435,7 +403,7 @@ namespace WindowsFormsApp1
             this.comboBoxSearchRent.Location = new System.Drawing.Point(235, 25);
             this.comboBoxSearchRent.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSearchRent.Name = "comboBoxSearchRent";
-            this.comboBoxSearchRent.Size = new System.Drawing.Size(233, 26);
+            this.comboBoxSearchRent.Size = new System.Drawing.Size(233, 23);
             this.comboBoxSearchRent.TabIndex = 9;
             // 
             // buttonUpdateListCarsInRent
@@ -480,11 +448,11 @@ namespace WindowsFormsApp1
             this.tabPageListCars.Controls.Add(this.btnEditCar);
             this.tabPageListCars.Controls.Add(this.btnAddCar);
             this.tabPageListCars.Controls.Add(this.dataGridViewCarList);
-            this.tabPageListCars.Location = new System.Drawing.Point(4, 27);
+            this.tabPageListCars.Location = new System.Drawing.Point(4, 24);
             this.tabPageListCars.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageListCars.Name = "tabPageListCars";
             this.tabPageListCars.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageListCars.Size = new System.Drawing.Size(954, 509);
+            this.tabPageListCars.Size = new System.Drawing.Size(954, 512);
             this.tabPageListCars.TabIndex = 2;
             this.tabPageListCars.Text = "Список автомобилей";
             this.tabPageListCars.UseVisualStyleBackColor = true;
@@ -495,7 +463,7 @@ namespace WindowsFormsApp1
             this.label4.Location = new System.Drawing.Point(259, 74);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 18);
+            this.label4.Size = new System.Drawing.Size(127, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "Выберите из списка:";
             // 
@@ -505,7 +473,7 @@ namespace WindowsFormsApp1
             this.comboBoxSearchCarList.Location = new System.Drawing.Point(430, 70);
             this.comboBoxSearchCarList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSearchCarList.Name = "comboBoxSearchCarList";
-            this.comboBoxSearchCarList.Size = new System.Drawing.Size(233, 26);
+            this.comboBoxSearchCarList.Size = new System.Drawing.Size(233, 23);
             this.comboBoxSearchCarList.TabIndex = 9;
             this.comboBoxSearchCarList.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchCarList_SelectedIndexChanged);
             // 
@@ -515,7 +483,7 @@ namespace WindowsFormsApp1
             this.label5.Location = new System.Drawing.Point(216, 32);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(201, 18);
+            this.label5.Size = new System.Drawing.Size(170, 15);
             this.label5.TabIndex = 8;
             this.label5.Text = "Выберите критерий поиска:";
             // 
@@ -525,7 +493,7 @@ namespace WindowsFormsApp1
             this.comboBoxSearchCar.Location = new System.Drawing.Point(430, 29);
             this.comboBoxSearchCar.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSearchCar.Name = "comboBoxSearchCar";
-            this.comboBoxSearchCar.Size = new System.Drawing.Size(233, 26);
+            this.comboBoxSearchCar.Size = new System.Drawing.Size(233, 23);
             this.comboBoxSearchCar.TabIndex = 7;
             this.comboBoxSearchCar.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchCar_SelectedIndexChanged);
             this.comboBoxSearchCar.Click += new System.EventHandler(this.comboBoxSearchCar_Click);
@@ -581,6 +549,7 @@ namespace WindowsFormsApp1
             this.dataGridViewCarList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCarList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCarList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -594,6 +563,112 @@ namespace WindowsFormsApp1
             this.dataGridViewCarList.RowTemplate.Height = 24;
             this.dataGridViewCarList.Size = new System.Drawing.Size(932, 353);
             this.dataGridViewCarList.TabIndex = 1;
+            this.dataGridViewCarList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarList_CellClick);
+            // 
+            // tabControlMain
+            // 
+            this.tabControlMain.Controls.Add(this.tabPageAutopark);
+            this.tabControlMain.Controls.Add(this.tabPageOrders);
+            this.tabControlMain.Controls.Add(this.tabPageClients);
+            this.tabControlMain.Controls.Add(this.tabPage1);
+            this.tabControlMain.Location = new System.Drawing.Point(-1, -1);
+            this.tabControlMain.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(962, 568);
+            this.tabControlMain.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.buttonAddBonus);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.textBoxCoef);
+            this.tabPage1.Controls.Add(this.textBoxDescription);
+            this.tabPage1.Controls.Add(this.dataGridView4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(954, 540);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Справочник";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddBonus
+            // 
+            this.buttonAddBonus.Location = new System.Drawing.Point(197, 99);
+            this.buttonAddBonus.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAddBonus.Name = "buttonAddBonus";
+            this.buttonAddBonus.Size = new System.Drawing.Size(198, 26);
+            this.buttonAddBonus.TabIndex = 5;
+            this.buttonAddBonus.Text = "Добавить информацию";
+            this.buttonAddBonus.UseVisualStyleBackColor = true;
+            this.buttonAddBonus.Click += new System.EventHandler(this.buttonAddBonus_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 59);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 15);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Коэффициент скидки:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(103, 25);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 15);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Описание:";
+            // 
+            // textBoxCoef
+            // 
+            this.textBoxCoef.Location = new System.Drawing.Point(197, 59);
+            this.textBoxCoef.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxCoef.Name = "textBoxCoef";
+            this.textBoxCoef.Size = new System.Drawing.Size(197, 21);
+            this.textBoxCoef.TabIndex = 2;
+            // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.Location = new System.Drawing.Point(197, 22);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(197, 21);
+            this.textBoxDescription.TabIndex = 1;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(10, 143);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.RowTemplate.Height = 24;
+            this.dataGridView4.Size = new System.Drawing.Size(932, 386);
+            this.dataGridView4.TabIndex = 0;
+            // 
+            // rentcarsdbDataSet
+            // 
+            this.rentcarsdbDataSet.DataSetName = "rentcarsdbDataSet";
+            this.rentcarsdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rentcarsdbDataSetBindingSource
+            // 
+            this.rentcarsdbDataSetBindingSource.DataSource = this.rentcarsdbDataSet;
+            this.rentcarsdbDataSetBindingSource.Position = 0;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "idcar";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
             // 
             // Column1
             // 
@@ -630,107 +705,51 @@ namespace WindowsFormsApp1
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // tabControlMain
+            // Column7
             // 
-            this.tabControlMain.Controls.Add(this.tabPageAutopark);
-            this.tabControlMain.Controls.Add(this.tabPageOrders);
-            this.tabControlMain.Controls.Add(this.tabPageClients);
-            this.tabControlMain.Controls.Add(this.tabPage1);
-            this.tabControlMain.Location = new System.Drawing.Point(-1, -1);
-            this.tabControlMain.Margin = new System.Windows.Forms.Padding(4);
-            this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(962, 568);
-            this.tabControlMain.TabIndex = 1;
+            this.Column7.HeaderText = "idcar";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
             // 
-            // tabPage1
+            // ColumnName
             // 
-            this.tabPage1.Controls.Add(this.buttonAddBonus);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.textBoxCoef);
-            this.tabPage1.Controls.Add(this.textBoxDescription);
-            this.tabPage1.Controls.Add(this.dataGridView4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(954, 537);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Справочник";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.ColumnName.HeaderText = "Название";
+            this.ColumnName.MinimumWidth = 6;
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
             // 
-            // buttonAddBonus
+            // ColumnBrand
             // 
-            this.buttonAddBonus.Location = new System.Drawing.Point(197, 99);
-            this.buttonAddBonus.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAddBonus.Name = "buttonAddBonus";
-            this.buttonAddBonus.Size = new System.Drawing.Size(198, 26);
-            this.buttonAddBonus.TabIndex = 5;
-            this.buttonAddBonus.Text = "Добавить информацию";
-            this.buttonAddBonus.UseVisualStyleBackColor = true;
-            this.buttonAddBonus.Click += new System.EventHandler(this.buttonAddBonus_Click);
+            this.ColumnBrand.HeaderText = "Бренд";
+            this.ColumnBrand.MinimumWidth = 6;
+            this.ColumnBrand.Name = "ColumnBrand";
+            this.ColumnBrand.ReadOnly = true;
             // 
-            // label7
+            // ColumnClassCar
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 59);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 18);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Коэффициент скидки:";
+            this.ColumnClassCar.HeaderText = "Класс";
+            this.ColumnClassCar.MinimumWidth = 6;
+            this.ColumnClassCar.Name = "ColumnClassCar";
+            this.ColumnClassCar.ReadOnly = true;
             // 
-            // label6
+            // ColumnTransmisson
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(103, 25);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 18);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Описание:";
+            this.ColumnTransmisson.HeaderText = "Коробка передач";
+            this.ColumnTransmisson.MinimumWidth = 6;
+            this.ColumnTransmisson.Name = "ColumnTransmisson";
+            this.ColumnTransmisson.ReadOnly = true;
             // 
-            // textBoxCoef
+            // ColumnColor
             // 
-            this.textBoxCoef.Location = new System.Drawing.Point(197, 59);
-            this.textBoxCoef.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxCoef.Name = "textBoxCoef";
-            this.textBoxCoef.Size = new System.Drawing.Size(197, 24);
-            this.textBoxCoef.TabIndex = 2;
-            // 
-            // textBoxDescription
-            // 
-            this.textBoxDescription.Location = new System.Drawing.Point(197, 22);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(197, 24);
-            this.textBoxDescription.TabIndex = 1;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(10, 143);
-            this.dataGridView4.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersWidth = 51;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(932, 386);
-            this.dataGridView4.TabIndex = 0;
-            // 
-            // rentcarsdbDataSet
-            // 
-            this.rentcarsdbDataSet.DataSetName = "rentcarsdbDataSet";
-            this.rentcarsdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rentcarsdbDataSetBindingSource
-            // 
-            this.rentcarsdbDataSetBindingSource.DataSource = this.rentcarsdbDataSet;
-            this.rentcarsdbDataSetBindingSource.Position = 0;
+            this.ColumnColor.HeaderText = "Цвет";
+            this.ColumnColor.MinimumWidth = 6;
+            this.ColumnColor.Name = "ColumnColor";
+            this.ColumnColor.ReadOnly = true;
             // 
             // formManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(959, 571);
@@ -816,17 +835,19 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.TextBox textBoxCoef;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBrand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassCar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTransmisson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColor;
         private System.Windows.Forms.BindingSource rentcarsdbDataSetBindingSource;
         private rentcarsdbDataSet rentcarsdbDataSet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBrand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassCar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTransmisson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColor;
     }
 }

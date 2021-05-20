@@ -101,6 +101,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\bonussystem.cs" />
+    <Compile Include="Classes\car.cs" />
+    <Compile Include="Classes\client.cs" />
+    <Compile Include="Classes\fine.cs" />
+    <Compile Include="Classes\locationcar.cs" />
+    <Compile Include="Classes\rate.cs" />
+    <Compile Include="Classes\rentcar.cs" />
+    <Compile Include="Classes\returncar.cs" />
     <Compile Include="formAddCar.cs">
       <SubType>Form</SubType>
     </Compile>
