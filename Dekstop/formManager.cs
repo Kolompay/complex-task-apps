@@ -268,7 +268,7 @@ namespace WindowsFormsApp1
 
         private void buttonUpdateCarList_Click(object sender, EventArgs e)
         {
-            String strSQL = "SELECT * FROM car";
+            String strSQL = "SELECT * FROM car ORDER BY idcar";
             DataGridView dataGrid = dataGridViewCarList;
             ComboBox comboBox = comboBoxSearchCar;
             LoadData(strSQL, dataGrid, comboBox);
