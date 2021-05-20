@@ -9,12 +9,14 @@ namespace WindowsFormsApp1
     {
         String attribut;
         String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
+        public static String nameForUpdate = String.Empty;
+        public static int rowIndex;
         public formManager()
         {
             InitializeComponent();
             
             // Для вкладки "Доступные автомобили"
-            LoadData("SELECT * FROM car WHERE rented = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
+            LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
             comboBoxAvailableCarsFirst.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxAvailableCarsSecond.DropDownStyle = ComboBoxStyle.DropDownList;
             labelSelectCriterionAvailableCarsSecond.Visible = false;
@@ -31,6 +33,8 @@ namespace WindowsFormsApp1
             comboBoxListCarsSecond.DropDownStyle = ComboBoxStyle.DropDownList;
             labelSelectCriterionListCarsSecond.Visible = false;
             comboBoxListCarsSecond.Visible = false;
+
+            buttonListCarsEdit.Enabled = false;
 
             //tabPageAutopark.Font.Bold = new Font("Microsoft Sans Serif", 7.8F, Font.Bold, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))); ;
         }
@@ -285,7 +289,7 @@ namespace WindowsFormsApp1
 
         private void tabPageListCars_Enter(object sender, EventArgs e)
         {
-            LoadData("SELECT * FROM car", dataGridViewListCars, comboBoxListCarsFirst);
+            LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
         }
 
         private void tabPageListCars_Leave(object sender, EventArgs e)
@@ -308,11 +312,11 @@ namespace WindowsFormsApp1
             if (comboBoxListCarsFirst.SelectedItem != null)
             {
                 comboBoxListCarsSecond.Items.Clear();
-                LoadData("SELECT * FROM car", dataGridViewListCars, comboBoxListCarsFirst);
+                LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
                 using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
                 {
                     npgSqlConnection.Open();
-                    String strSQL = "SELECT * FROM car";
+                    String strSQL = "SELECT * FROM car WHERE deleted = false";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -354,7 +358,7 @@ namespace WindowsFormsApp1
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 npgSqlConnection.Open();
-                String strSQL = "SELECT * FROM car WHERE " + attribut + " LIKE '" + comboBoxListCarsSecond.SelectedItem.ToString() + "'";
+                String strSQL = "SELECT * FROM car WHERE " + attribut + " LIKE '" + comboBoxListCarsSecond.SelectedItem.ToString() + "' AND deleted = false";
                 NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -366,7 +370,7 @@ namespace WindowsFormsApp1
 
         private void buttonListCarsUpdate_Click(object sender, EventArgs e)
         {
-            LoadData("SELECT * FROM car", dataGridViewListCars, comboBoxListCarsFirst);
+            LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
         }
 
         // Для вкладки справочник
@@ -395,6 +399,52 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message);
                 }
             }
-        }        
+        }
+
+        private void buttonListCarsEdit_Click(object sender, EventArgs e)
+        {
+            formEditCar formEditCar = new formEditCar(nameForUpdate, rowIndex, dataGridViewListCars, comboBoxListCarsFirst);
+            formEditCar.Show();
+               
+        }
+
+        private void dataGridViewListCars_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+            var name = dataGridViewListCars.Rows[e.RowIndex].Cells[0].Value;
+            nameForUpdate = Convert.ToString(name);
+
+            buttonListCarsEdit.Enabled = true;
+        }
+
+        private void buttonListCarsDel_Click(object sender, EventArgs e)
+        {
+            if (rowIndex!=-1)
+            {
+                using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+                {
+                    try
+                    {
+                        string name = nameForUpdate;
+                        npgSqlConnection.Open();
+                        String strSQL = $"UPDATE car SET deleted=true WHERE name = '{name}'";
+                        NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            String str = "SELECT * FROM car WHERE deleted = false ORDER BY idcar";
+                            DataGridView dataGrid = dataGridViewListCars;
+                            ComboBox comboBox = comboBoxListCarsFirst;
+                            LoadData(str, dataGrid, comboBox);
+                            MessageBox.Show($"Автомобиль {name} удалён!");
+                        }
+                        npgSqlConnection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

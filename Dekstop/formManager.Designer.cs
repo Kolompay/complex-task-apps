@@ -599,6 +599,7 @@ namespace WindowsFormsApp1
             this.buttonListCarsDel.TabIndex = 6;
             this.buttonListCarsDel.Text = "Удалить автомобиль из списка";
             this.buttonListCarsDel.UseVisualStyleBackColor = true;
+            this.buttonListCarsDel.Click += new System.EventHandler(this.buttonListCarsDel_Click);
             // 
             // buttonListCarsUpdate
             // 
@@ -620,6 +621,7 @@ namespace WindowsFormsApp1
             this.buttonListCarsEdit.TabIndex = 4;
             this.buttonListCarsEdit.Text = "Изменить данные автомобиля";
             this.buttonListCarsEdit.UseVisualStyleBackColor = true;
+            this.buttonListCarsEdit.Click += new System.EventHandler(this.buttonListCarsEdit_Click);
             // 
             // buttonListCarsAdd
             // 
@@ -651,6 +653,7 @@ namespace WindowsFormsApp1
             this.dataGridViewListCars.RowTemplate.Height = 24;
             this.dataGridViewListCars.Size = new System.Drawing.Size(932, 353);
             this.dataGridViewListCars.TabIndex = 1;
+            this.dataGridViewListCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCars_CellClick);
             // 
             // Column1
             // 
