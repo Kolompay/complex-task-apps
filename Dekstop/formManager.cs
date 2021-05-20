@@ -31,6 +31,8 @@ namespace WindowsFormsApp1
             comboBoxListCarsSecond.DropDownStyle = ComboBoxStyle.DropDownList;
             labelSelectCriterionListCarsSecond.Visible = false;
             comboBoxListCarsSecond.Visible = false;
+
+            //tabPageAutopark.Font.Bold = new Font("Microsoft Sans Serif", 7.8F, Font.Bold, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))); ;
         }
 
 
@@ -98,7 +100,22 @@ namespace WindowsFormsApp1
             }
         }
 
+
         // Для вкладки "Доступные автомобили"
+
+        private void tabPageCarsNotInRent_Enter(object sender, EventArgs e)
+        {
+            LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxListCarsFirst);
+        }
+
+        private void tabPageCarsNotInRent_Leave(object sender, EventArgs e)
+        {
+            dataGridViewListCarsNotInRent.Rows.Clear();
+            comboBoxAvailableCarsFirst.SelectedItem = null;
+            labelSelectCriterionAvailableCarsSecond.Visible = false;
+            comboBoxAvailableCarsSecond.Visible = false;
+            comboBoxAvailableCarsSecond.Items.Clear();
+        }
 
         private void comboBoxAvailableCarsFirst_Click(object sender, EventArgs e)
         {
@@ -170,7 +187,7 @@ namespace WindowsFormsApp1
 
         private void buttonUpdateListNotInRent_Click(object sender, EventArgs e)
         {
-            LoadData("SELECT * FROM car WHERE rented = false", dataGridViewListCars, comboBoxListCarsFirst);
+            LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxListCarsFirst);
         }
 
 
@@ -378,8 +395,6 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
-
-        
+        }        
     }
 }

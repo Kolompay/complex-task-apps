@@ -64,6 +64,11 @@ namespace WindowsFormsApp1
             this.buttonUpdateListCarsInRent = new System.Windows.Forms.Button();
             this.buttonCancelOrder = new System.Windows.Forms.Button();
             this.dataGridViewListCarsInRent = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageListCars = new System.Windows.Forms.TabPage();
             this.labelSelectCriterionListCarsSecond = new System.Windows.Forms.Label();
             this.comboBoxListCarsSecond = new System.Windows.Forms.ComboBox();
@@ -89,11 +94,6 @@ namespace WindowsFormsApp1
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.rentcarsdbDataSet = new WindowsFormsApp1.rentcarsdbDataSet();
             this.rentcarsdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -268,6 +268,8 @@ namespace WindowsFormsApp1
             this.tabPageCarsNotInRent.TabIndex = 0;
             this.tabPageCarsNotInRent.Text = "Доступные автомобили";
             this.tabPageCarsNotInRent.UseVisualStyleBackColor = true;
+            this.tabPageCarsNotInRent.Enter += new System.EventHandler(this.tabPageCarsNotInRent_Enter);
+            this.tabPageCarsNotInRent.Leave += new System.EventHandler(this.tabPageCarsNotInRent_Leave);
             // 
             // labelSelectCriterionAvailableCarsSecond
             // 
@@ -489,6 +491,41 @@ namespace WindowsFormsApp1
             this.dataGridViewListCarsInRent.RowTemplate.Height = 24;
             this.dataGridViewListCarsInRent.Size = new System.Drawing.Size(932, 389);
             this.dataGridViewListCarsInRent.TabIndex = 1;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Название";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Бренд";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Класс";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Коробка передач";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Цвет";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
             // tabPageListCars
             // 
@@ -747,41 +784,6 @@ namespace WindowsFormsApp1
             // 
             this.rentcarsdbDataSetBindingSource.DataSource = this.rentcarsdbDataSet;
             this.rentcarsdbDataSetBindingSource.Position = 0;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Название";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Бренд";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Класс";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Коробка передач";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Цвет";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
             // 
             // formManager
             // 
