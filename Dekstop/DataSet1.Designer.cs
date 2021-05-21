@@ -20,9 +20,9 @@ namespace WindowsFormsApp1 {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("rentcarsdbDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class rentcarsdbDataSet : global::System.Data.DataSet {
+    public partial class DataSet1 : global::System.Data.DataSet {
         
         private @__EFMigrationsHistoryDataTable table__EFMigrationsHistory;
         
@@ -46,7 +46,7 @@ namespace WindowsFormsApp1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public rentcarsdbDataSet() {
+        public DataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -57,7 +57,7 @@ namespace WindowsFormsApp1 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected rentcarsdbDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -247,7 +247,7 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            rentcarsdbDataSet cln = ((rentcarsdbDataSet)(base.Clone()));
+            DataSet1 cln = ((DataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -391,9 +391,9 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "rentcarsdbDataSet";
+            this.DataSetName = "DataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/rentcarsdbDataSet.xsd";
+            this.Namespace = "http://tempuri.org/DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.table__EFMigrationsHistory = new @__EFMigrationsHistoryDataTable();
@@ -481,7 +481,7 @@ namespace WindowsFormsApp1 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            rentcarsdbDataSet ds = new rentcarsdbDataSet();
+            DataSet1 ds = new DataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -768,7 +768,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1060,7 +1060,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1143,6 +1143,10 @@ namespace WindowsFormsApp1 {
             private global::System.Data.DataColumn columnyearofmanufacture;
             
             private global::System.Data.DataColumn columnidlocationcar;
+            
+            private global::System.Data.DataColumn columnrented;
+            
+            private global::System.Data.DataColumn columndeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1251,6 +1255,22 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn rentedColumn {
+                get {
+                    return this.columnrented;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn deletedColumn {
+                get {
+                    return this.columndeleted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1286,7 +1306,7 @@ namespace WindowsFormsApp1 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public carRow AddcarRow(string vinnumber, string brand, string classcar, string name, string transmission, string color, short yearofmanufacture, int idlocationcar) {
+            public carRow AddcarRow(string vinnumber, string brand, string classcar, string name, string transmission, string color, short yearofmanufacture, int idlocationcar, string rented, string deleted) {
                 carRow rowcarRow = ((carRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1297,7 +1317,9 @@ namespace WindowsFormsApp1 {
                         transmission,
                         color,
                         yearofmanufacture,
-                        idlocationcar};
+                        idlocationcar,
+                        rented,
+                        deleted};
                 rowcarRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowcarRow);
                 return rowcarRow;
@@ -1336,6 +1358,8 @@ namespace WindowsFormsApp1 {
                 this.columncolor = base.Columns["color"];
                 this.columnyearofmanufacture = base.Columns["yearofmanufacture"];
                 this.columnidlocationcar = base.Columns["idlocationcar"];
+                this.columnrented = base.Columns["rented"];
+                this.columndeleted = base.Columns["deleted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1359,6 +1383,10 @@ namespace WindowsFormsApp1 {
                 base.Columns.Add(this.columnyearofmanufacture);
                 this.columnidlocationcar = new global::System.Data.DataColumn("idlocationcar", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnidlocationcar);
+                this.columnrented = new global::System.Data.DataColumn("rented", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrented);
+                this.columndeleted = new global::System.Data.DataColumn("deleted", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndeleted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidcar}, true));
                 this.columnidcar.AutoIncrement = true;
@@ -1375,11 +1403,15 @@ namespace WindowsFormsApp1 {
                 this.columnname.AllowDBNull = false;
                 this.columnname.MaxLength = 50;
                 this.columntransmission.AllowDBNull = false;
-                this.columntransmission.MaxLength = 10;
+                this.columntransmission.MaxLength = 20;
                 this.columncolor.AllowDBNull = false;
                 this.columncolor.MaxLength = 30;
                 this.columnyearofmanufacture.AllowDBNull = false;
                 this.columnidlocationcar.AllowDBNull = false;
+                this.columnrented.AllowDBNull = false;
+                this.columnrented.MaxLength = 5;
+                this.columndeleted.AllowDBNull = false;
+                this.columndeleted.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1447,7 +1479,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1849,7 +1881,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2187,7 +2219,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2480,7 +2512,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2787,7 +2819,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3138,7 +3170,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3445,7 +3477,7 @@ namespace WindowsFormsApp1 {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                rentcarsdbDataSet ds = new rentcarsdbDataSet();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3699,6 +3731,28 @@ namespace WindowsFormsApp1 {
                 }
                 set {
                     this[this.tablecar.idlocationcarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string rented {
+                get {
+                    return ((string)(this[this.tablecar.rentedColumn]));
+                }
+                set {
+                    this[this.tablecar.rentedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string deleted {
+                get {
+                    return ((string)(this[this.tablecar.deletedColumn]));
+                }
+                set {
+                    this[this.tablecar.deletedColumn] = value;
                 }
             }
         }
@@ -4474,7 +4528,7 @@ namespace WindowsFormsApp1 {
         }
     }
 }
-namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
+namespace WindowsFormsApp1.DataSet1TableAdapters {
     
     
     /// <summary>
@@ -4647,7 +4701,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.@__EFMigrationsHistoryDataTable dataTable) {
+        public virtual int Fill(DataSet1.@__EFMigrationsHistoryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4660,9 +4714,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.@__EFMigrationsHistoryDataTable GetData() {
+        public virtual DataSet1.@__EFMigrationsHistoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.@__EFMigrationsHistoryDataTable dataTable = new rentcarsdbDataSet.@__EFMigrationsHistoryDataTable();
+            DataSet1.@__EFMigrationsHistoryDataTable dataTable = new DataSet1.@__EFMigrationsHistoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4670,14 +4724,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.@__EFMigrationsHistoryDataTable dataTable) {
+        public virtual int Update(DataSet1.@__EFMigrationsHistoryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "__EFMigrationsHistory");
         }
         
@@ -4991,7 +5045,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.bonussystemDataTable dataTable) {
+        public virtual int Fill(DataSet1.bonussystemDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5004,9 +5058,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.bonussystemDataTable GetData() {
+        public virtual DataSet1.bonussystemDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.bonussystemDataTable dataTable = new rentcarsdbDataSet.bonussystemDataTable();
+            DataSet1.bonussystemDataTable dataTable = new DataSet1.bonussystemDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5014,14 +5068,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.bonussystemDataTable dataTable) {
+        public virtual int Update(DataSet1.bonussystemDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "bonussystem");
         }
         
@@ -5264,12 +5318,12 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("color", "color");
             tableMapping.ColumnMappings.Add("yearofmanufacture", "yearofmanufacture");
             tableMapping.ColumnMappings.Add("idlocationcar", "idlocationcar");
+            tableMapping.ColumnMappings.Add("rented", "rented");
+            tableMapping.ColumnMappings.Add("deleted", "deleted");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"rentcarsdb\".\"public\".\"car\" WHERE ((\"idcar\" = ?) AND (\"vinnumber\" = ?" +
-                ") AND (\"brand\" = ?) AND (\"classcar\" = ?) AND (\"name\" = ?) AND (\"transmission\" = " +
-                "?) AND (\"color\" = ?) AND (\"yearofmanufacture\" = ?) AND (\"idlocationcar\" = ?))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""rentcarsdb"".""public"".""car"" WHERE ((""idcar"" = ?) AND (""vinnumber"" = ?) AND (""brand"" = ?) AND (""classcar"" = ?) AND (""name"" = ?) AND (""transmission"" = ?) AND (""color"" = ?) AND (""yearofmanufacture"" = ?) AND (""idlocationcar"" = ?) AND (""rented"" = ?) AND (""deleted"" = ?))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_idcar", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "idcar", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_vinnumber", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "vinnumber", global::System.Data.DataRowVersion.Original, false, null));
@@ -5280,11 +5334,13 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_color", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "color", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_yearofmanufacture", global::System.Data.Odbc.OdbcType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "yearofmanufacture", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_idlocationcar", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "idlocationcar", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_rented", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "rented", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_deleted", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "deleted", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO \"rentcarsdb\".\"public\".\"car\" (\"vinnumber\", \"brand\", \"classcar\", \"name\"" +
-                ", \"transmission\", \"color\", \"yearofmanufacture\", \"idlocationcar\") VALUES (?, ?, ?" +
-                ", ?, ?, ?, ?, ?)";
+                ", \"transmission\", \"color\", \"yearofmanufacture\", \"idlocationcar\", \"rented\", \"dele" +
+                "ted\") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("vinnumber", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "vinnumber", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("brand", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "brand", global::System.Data.DataRowVersion.Current, false, null));
@@ -5294,9 +5350,11 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("color", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "color", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("yearofmanufacture", global::System.Data.Odbc.OdbcType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "yearofmanufacture", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("idlocationcar", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "idlocationcar", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("rented", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "rented", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("deleted", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "deleted", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE ""rentcarsdb"".""public"".""car"" SET ""vinnumber"" = ?, ""brand"" = ?, ""classcar"" = ?, ""name"" = ?, ""transmission"" = ?, ""color"" = ?, ""yearofmanufacture"" = ?, ""idlocationcar"" = ? WHERE ((""idcar"" = ?) AND (""vinnumber"" = ?) AND (""brand"" = ?) AND (""classcar"" = ?) AND (""name"" = ?) AND (""transmission"" = ?) AND (""color"" = ?) AND (""yearofmanufacture"" = ?) AND (""idlocationcar"" = ?))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""rentcarsdb"".""public"".""car"" SET ""vinnumber"" = ?, ""brand"" = ?, ""classcar"" = ?, ""name"" = ?, ""transmission"" = ?, ""color"" = ?, ""yearofmanufacture"" = ?, ""idlocationcar"" = ?, ""rented"" = ?, ""deleted"" = ? WHERE ((""idcar"" = ?) AND (""vinnumber"" = ?) AND (""brand"" = ?) AND (""classcar"" = ?) AND (""name"" = ?) AND (""transmission"" = ?) AND (""color"" = ?) AND (""yearofmanufacture"" = ?) AND (""idlocationcar"" = ?) AND (""rented"" = ?) AND (""deleted"" = ?))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("vinnumber", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "vinnumber", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("brand", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "brand", global::System.Data.DataRowVersion.Current, false, null));
@@ -5306,6 +5364,8 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("color", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "color", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("yearofmanufacture", global::System.Data.Odbc.OdbcType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "yearofmanufacture", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("idlocationcar", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "idlocationcar", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("rented", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "rented", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("deleted", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "deleted", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_idcar", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "idcar", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_vinnumber", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "vinnumber", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_brand", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "brand", global::System.Data.DataRowVersion.Original, false, null));
@@ -5315,6 +5375,8 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_color", global::System.Data.Odbc.OdbcType.NVarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "color", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_yearofmanufacture", global::System.Data.Odbc.OdbcType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "yearofmanufacture", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_idlocationcar", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "idlocationcar", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_rented", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "rented", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_deleted", global::System.Data.Odbc.OdbcType.VarChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "deleted", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5331,7 +5393,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"idcar\", \"vinnumber\", \"brand\", \"classcar\", \"name\", \"transmission\", \"color\"" +
-                ", \"yearofmanufacture\", \"idlocationcar\" FROM \"public\".\"car\"";
+                ", \"yearofmanufacture\", \"idlocationcar\", \"rented\", \"deleted\" FROM \"public\".\"car\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5339,7 +5401,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.carDataTable dataTable) {
+        public virtual int Fill(DataSet1.carDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5352,9 +5414,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.carDataTable GetData() {
+        public virtual DataSet1.carDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.carDataTable dataTable = new rentcarsdbDataSet.carDataTable();
+            DataSet1.carDataTable dataTable = new DataSet1.carDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5362,14 +5424,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.carDataTable dataTable) {
+        public virtual int Update(DataSet1.carDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "car");
         }
         
@@ -5392,7 +5454,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_idcar, string Original_vinnumber, string Original_brand, string Original_classcar, string Original_name, string Original_transmission, string Original_color, short Original_yearofmanufacture, int Original_idlocationcar) {
+        public virtual int Delete(int Original_idcar, string Original_vinnumber, string Original_brand, string Original_classcar, string Original_name, string Original_transmission, string Original_color, short Original_yearofmanufacture, int Original_idlocationcar, string Original_rented, string Original_deleted) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idcar));
             if ((Original_vinnumber == null)) {
                 throw new global::System.ArgumentNullException("Original_vinnumber");
@@ -5432,6 +5494,18 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             }
             this.Adapter.DeleteCommand.Parameters[7].Value = ((short)(Original_yearofmanufacture));
             this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_idlocationcar));
+            if ((Original_rented == null)) {
+                throw new global::System.ArgumentNullException("Original_rented");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_rented));
+            }
+            if ((Original_deleted == null)) {
+                throw new global::System.ArgumentNullException("Original_deleted");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_deleted));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5452,7 +5526,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string vinnumber, string brand, string classcar, string name, string transmission, string color, short yearofmanufacture, int idlocationcar) {
+        public virtual int Insert(string vinnumber, string brand, string classcar, string name, string transmission, string color, short yearofmanufacture, int idlocationcar, string rented, string deleted) {
             if ((vinnumber == null)) {
                 throw new global::System.ArgumentNullException("vinnumber");
             }
@@ -5491,6 +5565,18 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             }
             this.Adapter.InsertCommand.Parameters[6].Value = ((short)(yearofmanufacture));
             this.Adapter.InsertCommand.Parameters[7].Value = ((int)(idlocationcar));
+            if ((rented == null)) {
+                throw new global::System.ArgumentNullException("rented");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(rented));
+            }
+            if ((deleted == null)) {
+                throw new global::System.ArgumentNullException("deleted");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(deleted));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5520,6 +5606,8 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
                     string color, 
                     short yearofmanufacture, 
                     int idlocationcar, 
+                    string rented, 
+                    string deleted, 
                     int Original_idcar, 
                     string Original_vinnumber, 
                     string Original_brand, 
@@ -5528,7 +5616,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
                     string Original_transmission, 
                     string Original_color, 
                     short Original_yearofmanufacture, 
-                    int Original_idlocationcar) {
+                    int Original_idlocationcar, 
+                    string Original_rented, 
+                    string Original_deleted) {
             if ((vinnumber == null)) {
                 throw new global::System.ArgumentNullException("vinnumber");
             }
@@ -5567,45 +5657,69 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((short)(yearofmanufacture));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(idlocationcar));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_idcar));
+            if ((rented == null)) {
+                throw new global::System.ArgumentNullException("rented");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(rented));
+            }
+            if ((deleted == null)) {
+                throw new global::System.ArgumentNullException("deleted");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(deleted));
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_idcar));
             if ((Original_vinnumber == null)) {
                 throw new global::System.ArgumentNullException("Original_vinnumber");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_vinnumber));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_vinnumber));
             }
             if ((Original_brand == null)) {
                 throw new global::System.ArgumentNullException("Original_brand");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_brand));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_brand));
             }
             if ((Original_classcar == null)) {
                 throw new global::System.ArgumentNullException("Original_classcar");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_classcar));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_classcar));
             }
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_name));
             }
             if ((Original_transmission == null)) {
                 throw new global::System.ArgumentNullException("Original_transmission");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_transmission));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_transmission));
             }
             if ((Original_color == null)) {
                 throw new global::System.ArgumentNullException("Original_color");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_color));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_color));
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((short)(Original_yearofmanufacture));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_idlocationcar));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((short)(Original_yearofmanufacture));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_idlocationcar));
+            if ((Original_rented == null)) {
+                throw new global::System.ArgumentNullException("Original_rented");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_rented));
+            }
+            if ((Original_deleted == null)) {
+                throw new global::System.ArgumentNullException("Original_deleted");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_deleted));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5832,7 +5946,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.clientDataTable dataTable) {
+        public virtual int Fill(DataSet1.clientDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5845,9 +5959,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.clientDataTable GetData() {
+        public virtual DataSet1.clientDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.clientDataTable dataTable = new rentcarsdbDataSet.clientDataTable();
+            DataSet1.clientDataTable dataTable = new DataSet1.clientDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5855,14 +5969,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.clientDataTable dataTable) {
+        public virtual int Update(DataSet1.clientDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "client");
         }
         
@@ -6313,7 +6427,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.fineDataTable dataTable) {
+        public virtual int Fill(DataSet1.fineDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6326,9 +6440,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.fineDataTable GetData() {
+        public virtual DataSet1.fineDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.fineDataTable dataTable = new rentcarsdbDataSet.fineDataTable();
+            DataSet1.fineDataTable dataTable = new DataSet1.fineDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6336,14 +6450,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.fineDataTable dataTable) {
+        public virtual int Update(DataSet1.fineDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "fine");
         }
         
@@ -6661,7 +6775,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.locationcarDataTable dataTable) {
+        public virtual int Fill(DataSet1.locationcarDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6674,9 +6788,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.locationcarDataTable GetData() {
+        public virtual DataSet1.locationcarDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.locationcarDataTable dataTable = new rentcarsdbDataSet.locationcarDataTable();
+            DataSet1.locationcarDataTable dataTable = new DataSet1.locationcarDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6684,14 +6798,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.locationcarDataTable dataTable) {
+        public virtual int Update(DataSet1.locationcarDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "locationcar");
         }
         
@@ -7003,7 +7117,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.rateDataTable dataTable) {
+        public virtual int Fill(DataSet1.rateDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7016,9 +7130,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.rateDataTable GetData() {
+        public virtual DataSet1.rateDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.rateDataTable dataTable = new rentcarsdbDataSet.rateDataTable();
+            DataSet1.rateDataTable dataTable = new DataSet1.rateDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7026,14 +7140,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.rateDataTable dataTable) {
+        public virtual int Update(DataSet1.rateDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "rate");
         }
         
@@ -7344,7 +7458,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.rentcarDataTable dataTable) {
+        public virtual int Fill(DataSet1.rentcarDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7357,9 +7471,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.rentcarDataTable GetData() {
+        public virtual DataSet1.rentcarDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.rentcarDataTable dataTable = new rentcarsdbDataSet.rentcarDataTable();
+            DataSet1.rentcarDataTable dataTable = new DataSet1.rentcarDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7367,14 +7481,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.rentcarDataTable dataTable) {
+        public virtual int Update(DataSet1.rentcarDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "rentcar");
         }
         
@@ -7663,7 +7777,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(rentcarsdbDataSet.returncarDataTable dataTable) {
+        public virtual int Fill(DataSet1.returncarDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7676,9 +7790,9 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual rentcarsdbDataSet.returncarDataTable GetData() {
+        public virtual DataSet1.returncarDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            rentcarsdbDataSet.returncarDataTable dataTable = new rentcarsdbDataSet.returncarDataTable();
+            DataSet1.returncarDataTable dataTable = new DataSet1.returncarDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7686,14 +7800,14 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet.returncarDataTable dataTable) {
+        public virtual int Update(DataSet1.returncarDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(rentcarsdbDataSet dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "returncar");
         }
         
@@ -8085,7 +8199,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(rentcarsdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this.___EFMigrationsHistoryTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.@__EFMigrationsHistory.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -8176,7 +8290,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(rentcarsdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this.___EFMigrationsHistoryTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.@__EFMigrationsHistory.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -8258,7 +8372,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(rentcarsdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._returncarTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.returncar.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -8364,7 +8478,7 @@ namespace WindowsFormsApp1.rentcarsdbDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(rentcarsdbDataSet dataSet) {
+        public virtual int UpdateAll(DataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

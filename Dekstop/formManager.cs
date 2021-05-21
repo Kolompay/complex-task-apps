@@ -34,6 +34,9 @@ namespace WindowsFormsApp1
             labelSelectCriterionListCarsSecond.Visible = false;
             comboBoxListCarsSecond.Visible = false;
 
+            ToolTip t = new ToolTip();
+            t.SetToolTip(buttonListCarsEdit, "Для изменения выберите автомобиль!");
+
             buttonListCarsEdit.Enabled = false;
 
             //tabPageAutopark.Font.Bold = new Font("Microsoft Sans Serif", 7.8F, Font.Bold, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))); ;
@@ -57,6 +60,7 @@ namespace WindowsFormsApp1
                 {
                     dataGridView.Rows[rowNum].Cells[i].Value = reader[parameters[i]].ToString();
                 }
+                labelListCarsInfo.Text = "Количество машин в таблице: " + dataGridView.Rows.Count.ToString();
                 rowNum++;
             }
         }
@@ -370,7 +374,35 @@ namespace WindowsFormsApp1
 
         private void buttonListCarsUpdate_Click(object sender, EventArgs e)
         {
-            LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
+            //LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
+
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    npgSqlConnection.Open();
+                    string querystring = "select name, brand, classcar, transmission, color from car where deleted = false";
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(querystring, connectionString);
+                    DataTable t = new DataTable();
+
+                    var result = adapter.Fill(t);
+                    labelListCarsInfo.Text = "Количество машин в таблице: " + result.ToString();
+
+                    //t.Columns[0].ColumnName = dataGridViewListCars.Columns[0].HeaderText;
+                    //t.Columns[1].ColumnName = dataGridViewListCars.Columns[1].HeaderText;
+                    //t.Columns[2].ColumnName = dataGridViewListCars.Columns[2].HeaderText;
+                    //t.Columns[3].ColumnName = dataGridViewListCars.Columns[3].HeaderText;
+                    //t.Columns[4].ColumnName = dataGridViewListCars.Columns[4].HeaderText;
+                    //dataGridViewListCars.Columns.Clear();
+                    //dataGridViewListCars.DataSource = t.DefaultView;
+                    LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
+                    npgSqlConnection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         // Для вкладки справочник
@@ -444,6 +476,24 @@ namespace WindowsFormsApp1
                         MessageBox.Show(ex.Message);
                     }
                 }
+            }
+        }
+
+        private void buttonListCarsEdit_MouseEnter(object sender, EventArgs e)
+        {
+            if (buttonListCarsEdit.Enabled == false)
+            {
+                ToolTip t = new ToolTip();
+                t.SetToolTip(buttonListCarsEdit, "Для изменения выберите автомобиль!");
+            }
+        }
+
+        private void buttonListCarsEdit_MouseHover(object sender, EventArgs e)
+        {
+            if (buttonListCarsEdit.Enabled == false)
+            {
+                ToolTip t = new ToolTip();
+                t.SetToolTip(buttonListCarsEdit, "Для изменения выберите автомобиль!");
             }
         }
     }

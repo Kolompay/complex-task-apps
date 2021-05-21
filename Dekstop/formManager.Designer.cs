@@ -29,7 +29,6 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formManager));
             this.tabPageClients = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
@@ -92,8 +91,7 @@ namespace WindowsFormsApp1
             this.textBoxCoef = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.rentcarsdbDataSet = new WindowsFormsApp1.rentcarsdbDataSet();
-            this.rentcarsdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelListCarsInfo = new System.Windows.Forms.Label();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -109,8 +107,6 @@ namespace WindowsFormsApp1
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rentcarsdbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rentcarsdbDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPageClients
@@ -529,6 +525,7 @@ namespace WindowsFormsApp1
             // 
             // tabPageListCars
             // 
+            this.tabPageListCars.Controls.Add(this.labelListCarsInfo);
             this.tabPageListCars.Controls.Add(this.labelSelectCriterionListCarsSecond);
             this.tabPageListCars.Controls.Add(this.comboBoxListCarsSecond);
             this.tabPageListCars.Controls.Add(this.labelSelectCriterionListCarsFirst);
@@ -622,6 +619,8 @@ namespace WindowsFormsApp1
             this.buttonListCarsEdit.Text = "Изменить данные автомобиля";
             this.buttonListCarsEdit.UseVisualStyleBackColor = true;
             this.buttonListCarsEdit.Click += new System.EventHandler(this.buttonListCarsEdit_Click);
+            this.buttonListCarsEdit.MouseEnter += new System.EventHandler(this.buttonListCarsEdit_MouseEnter);
+            this.buttonListCarsEdit.MouseHover += new System.EventHandler(this.buttonListCarsEdit_MouseHover);
             // 
             // buttonListCarsAdd
             // 
@@ -778,15 +777,13 @@ namespace WindowsFormsApp1
             this.dataGridView4.Size = new System.Drawing.Size(932, 386);
             this.dataGridView4.TabIndex = 0;
             // 
-            // rentcarsdbDataSet
+            // labelListCarsInfo
             // 
-            this.rentcarsdbDataSet.DataSetName = "rentcarsdbDataSet";
-            this.rentcarsdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rentcarsdbDataSetBindingSource
-            // 
-            this.rentcarsdbDataSetBindingSource.DataSource = this.rentcarsdbDataSet;
-            this.rentcarsdbDataSetBindingSource.Position = 0;
+            this.labelListCarsInfo.AutoSize = true;
+            this.labelListCarsInfo.Location = new System.Drawing.Point(400, 114);
+            this.labelListCarsInfo.Name = "labelListCarsInfo";
+            this.labelListCarsInfo.Size = new System.Drawing.Size(0, 18);
+            this.labelListCarsInfo.TabIndex = 11;
             // 
             // formManager
             // 
@@ -821,8 +818,6 @@ namespace WindowsFormsApp1
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rentcarsdbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rentcarsdbDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -880,8 +875,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassCar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTransmisson;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColor;
-        private System.Windows.Forms.BindingSource rentcarsdbDataSetBindingSource;
-        private rentcarsdbDataSet rentcarsdbDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -892,5 +885,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Label labelListCarsInfo;
     }
 }

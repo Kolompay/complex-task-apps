@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections;
+using System.Data;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -23,6 +24,37 @@ namespace WindowsFormsApp1
             this.dataGridViewListCars = dataGridViewListCars;
             this.comboBoxListCarsFirst = comboBoxListCarsFirst;
             comboBoxColor.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTransmission.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            LoadTransmission();
+        }
+
+        private void LoadTransmission()
+        {
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    npgSqlConnection.Open();
+                    string querystring = "select * from car";
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(querystring, connectionString);
+                    DataSet1 ds = new DataSet1();
+                    
+                    adapter.Fill(ds, "car");
+
+                    comboBoxTransmission.DataSource = ds.Tables["car"];
+                    comboBoxTransmission.DisplayMember = "transmission";
+                    comboBoxTransmission.ValueMember = "transmission";
+                    //object[] items = comboBoxTransmission.Items.OfType<String>().Distinct().ToArray();
+                    //comboBoxTransmission.Items.Clear();
+                    //comboBoxTransmission.Items.AddRange(items);
+                    npgSqlConnection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         /// <summary>
@@ -88,11 +120,11 @@ namespace WindowsFormsApp1
                 {
                     string name = nameForUpdate;
                     npgSqlConnection.Open();
-                    String strSQL = $"UPDATE car SET name='{textBoxName.Text}', brand='{textBoxBrand.Text}', classcar='{textBoxClass.Text}', transmission='{textBoxTransmission.Text}', color='{comboBoxColor.SelectedItem}' WHERE name = '{name}'";
+                    String strSQL = $"UPDATE car SET name='{textBoxName.Text}', brand='{textBoxBrand.Text}', classcar='{textBoxClass.Text}', transmission='{comboBoxTransmission.SelectedValue}', color='{comboBoxColor.SelectedItem}' WHERE name = '{name}'";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        String str = "SELECT * FROM car ORDER BY idcar";
+                        String str = "SELECT * FROM car WHERE deleted = false ORDER BY idcar";
                         DataGridView dataGrid = dataGridViewListCars;
                         ComboBox comboBox = comboBoxListCarsFirst;
                         LoadData(str, dataGrid, comboBox);
@@ -124,10 +156,32 @@ namespace WindowsFormsApp1
 
 
             textBoxName.Text = (string)dataGridViewListCars.Rows[rowIndex].Cells[0].Value;
-            textBoxBrand.Text = (string)dataGridViewListCars.Rows[rowIndex].Cells[1].Value;
+
+
+            string querystring = "select * from car where name = '" + textBoxName.Text + "'";
+            NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(querystring, connectionString);
+            DataSet1 ds = new DataSet1();
+
+            adapter.Fill(ds, "car");
+            textBoxBrand.DataBindings.Add(new System.Windows.Forms.Binding("Text", ds, "car.brand"));
+
+            //textBoxBrand.Text = (string)dataGridViewListCars.Rows[rowIndex].Cells[1].Value;
+
+
             textBoxClass.Text = (string)dataGridViewListCars.Rows[rowIndex].Cells[2].Value;
-            textBoxTransmission.Text = (string)dataGridViewListCars.Rows[rowIndex].Cells[3].Value;
+            comboBoxTransmission.SelectedItem = (string)dataGridViewListCars.Rows[rowIndex].Cells[3].Value;
             comboBoxColor.SelectedItem = (string)dataGridViewListCars.Rows[rowIndex].Cells[4].Value;
+
+
+            querystring = "select * from car where name = '" + textBoxName.Text + "'";
+            adapter = new NpgsqlDataAdapter(querystring, connectionString);
+            ds = new DataSet1();
+
+            adapter.Fill(ds, "car");
+            labelIDInfo.DataBindings.Add(new System.Windows.Forms.Binding("Text", ds, "car.idcar"));
+
+
+            
         }
 
         private void comboBoxColor_DrawItem(object sender, DrawItemEventArgs e)
