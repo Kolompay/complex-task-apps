@@ -496,5 +496,11 @@ namespace WindowsFormsApp1
                 t.SetToolTip(buttonListCarsEdit, "Для изменения выберите автомобиль!");
             }
         }
+
+        private void buttonAddOrder_Click(object sender, EventArgs e)
+        {
+            formAddOrder formAddOrder = new formAddOrder();
+            formAddOrder.Show();
+        }
     }
 }

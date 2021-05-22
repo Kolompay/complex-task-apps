@@ -69,6 +69,7 @@ namespace WindowsFormsApp1
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageListCars = new System.Windows.Forms.TabPage();
+            this.labelListCarsInfo = new System.Windows.Forms.Label();
             this.labelSelectCriterionListCarsSecond = new System.Windows.Forms.Label();
             this.comboBoxListCarsSecond = new System.Windows.Forms.ComboBox();
             this.labelSelectCriterionListCarsFirst = new System.Windows.Forms.Label();
@@ -91,7 +92,6 @@ namespace WindowsFormsApp1
             this.textBoxCoef = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.labelListCarsInfo = new System.Windows.Forms.Label();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -328,6 +328,7 @@ namespace WindowsFormsApp1
             this.buttonAddOrder.TabIndex = 1;
             this.buttonAddOrder.Text = "Оформить заказ";
             this.buttonAddOrder.UseVisualStyleBackColor = true;
+            this.buttonAddOrder.Click += new System.EventHandler(this.buttonAddOrder_Click);
             // 
             // dataGridViewListCarsNotInRent
             // 
@@ -545,6 +546,14 @@ namespace WindowsFormsApp1
             this.tabPageListCars.UseVisualStyleBackColor = true;
             this.tabPageListCars.Enter += new System.EventHandler(this.tabPageListCars_Enter);
             this.tabPageListCars.Leave += new System.EventHandler(this.tabPageListCars_Leave);
+            // 
+            // labelListCarsInfo
+            // 
+            this.labelListCarsInfo.AutoSize = true;
+            this.labelListCarsInfo.Location = new System.Drawing.Point(400, 114);
+            this.labelListCarsInfo.Name = "labelListCarsInfo";
+            this.labelListCarsInfo.Size = new System.Drawing.Size(0, 18);
+            this.labelListCarsInfo.TabIndex = 11;
             // 
             // labelSelectCriterionListCarsSecond
             // 
@@ -776,14 +785,6 @@ namespace WindowsFormsApp1
             this.dataGridView4.RowTemplate.Height = 24;
             this.dataGridView4.Size = new System.Drawing.Size(932, 386);
             this.dataGridView4.TabIndex = 0;
-            // 
-            // labelListCarsInfo
-            // 
-            this.labelListCarsInfo.AutoSize = true;
-            this.labelListCarsInfo.Location = new System.Drawing.Point(400, 114);
-            this.labelListCarsInfo.Name = "labelListCarsInfo";
-            this.labelListCarsInfo.Size = new System.Drawing.Size(0, 18);
-            this.labelListCarsInfo.TabIndex = 11;
             // 
             // formManager
             // 
