@@ -70,7 +70,10 @@ namespace WindowsFormsApp1
                 try
                 {
                     npgSqlConnection.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);                    
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(strSQL, npgSqlConnection);
+                    DataTable table = new DataTable();
+                    LabelCarCount.Text = "Количество машин в списке: " + da.Fill(table).ToString();
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
                         DataGridViewAddCells(dataGrid, reader, new String[] { "idcar","name", "brand", "classcar", "transmission", "color" });                        
@@ -257,10 +260,12 @@ namespace WindowsFormsApp1
         }
 
         public static int IndexForUpdate=0;
+        public static String nameForUpdate = "";
+        public static int rowIndex = 0;
 
         private void buttonUpdateListNotInRent_Click(object sender, EventArgs e)
         {
-            String strSQL = "SELECT * FROM car";
+            String strSQL = "SELECT * FROM car ORDER BY idcar DESC";
             DataGridView dataGrid = dataGridViewListCarsNotInRent;
             ComboBox comboBox = comboBoxSearchAvailable;
             LoadData(strSQL, dataGrid, comboBox);
@@ -268,7 +273,7 @@ namespace WindowsFormsApp1
 
         private void buttonUpdateCarList_Click(object sender, EventArgs e)
         {
-            String strSQL = "SELECT * FROM car ORDER BY idcar";
+            String strSQL = "SELECT * FROM car ORDER BY idcar DESC";
             DataGridView dataGrid = dataGridViewCarList;
             ComboBox comboBox = comboBoxSearchCar;
             LoadData(strSQL, dataGrid, comboBox);
@@ -287,20 +292,42 @@ namespace WindowsFormsApp1
 
         private void btnEditCar_Click(object sender, EventArgs e)
         {
-            formEditCar formEditCar = new formEditCar(IndexForUpdate, dataGridViewCarList, comboBoxSearchCar);
+            formEditCar formEditCar = new formEditCar(IndexForUpdate, dataGridViewCarList, comboBoxSearchCar, nameForUpdate, rowIndex);
             formEditCar.Show();
         }
 
         private void btnDelCar_Click(object sender, EventArgs e)
         {
-
+            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    string name = nameForUpdate;
+                    npgSqlConnection.Open();
+                    String strSQL = $"DELETE FROM car WHERE idcar='{IndexForUpdate}'";
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    if (cmd.ExecuteNonQuery() == 1)
+                        MessageBox.Show("Машина успешно удалена из списка автомбилей!");
+                    npgSqlConnection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            String str = "SELECT * FROM car ORDER BY idcar DESC";
+            DataGridView dataGrid = dataGridViewCarList;
+            ComboBox comboBox = comboBoxSearchCar;
+            LoadData(str, dataGrid, comboBox);
         }
 
         private void dataGridViewCarList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var rowIndex = e.RowIndex;
+            rowIndex = e.RowIndex;
             var id = dataGridViewCarList.Rows[e.RowIndex].Cells[0].Value;
             IndexForUpdate = Convert.ToInt32(id);
+            nameForUpdate = Convert.ToString(id);
         }
     }
 }

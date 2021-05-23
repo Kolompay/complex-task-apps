@@ -116,7 +116,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message);
                 }
             }
-            String str = "SELECT * FROM car";
+            String str = "SELECT * FROM car ORDER BY idcar DESC";
             DataGridView dataGrid = dataGridViewCarList;
             ComboBox comboBox = comboBoxSearchCar;
             LoadData(str, dataGrid, comboBox);

@@ -51,6 +51,12 @@ namespace WindowsFormsApp1
             this.buttonUpdateListNotInRent = new System.Windows.Forms.Button();
             this.buttonAddOrder = new System.Windows.Forms.Button();
             this.dataGridViewListCarsNotInRent = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClassCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTransmisson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageCarsInRent = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxSearchRentList = new System.Windows.Forms.ComboBox();
@@ -69,6 +75,12 @@ namespace WindowsFormsApp1
             this.btnEditCar = new System.Windows.Forms.Button();
             this.btnAddCar = new System.Windows.Forms.Button();
             this.dataGridViewCarList = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonAddBonus = new System.Windows.Forms.Button();
@@ -79,18 +91,7 @@ namespace WindowsFormsApp1
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.rentcarsdbDataSet = new WindowsFormsApp1.rentcarsdbDataSet();
             this.rentcarsdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTransmisson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LabelCarCount = new System.Windows.Forms.Label();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -350,6 +351,48 @@ namespace WindowsFormsApp1
             this.dataGridViewListCarsNotInRent.Size = new System.Drawing.Size(932, 382);
             this.dataGridViewListCarsNotInRent.TabIndex = 0;
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "idcar";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.HeaderText = "Название";
+            this.ColumnName.MinimumWidth = 6;
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            // 
+            // ColumnBrand
+            // 
+            this.ColumnBrand.HeaderText = "Бренд";
+            this.ColumnBrand.MinimumWidth = 6;
+            this.ColumnBrand.Name = "ColumnBrand";
+            this.ColumnBrand.ReadOnly = true;
+            // 
+            // ColumnClassCar
+            // 
+            this.ColumnClassCar.HeaderText = "Класс";
+            this.ColumnClassCar.MinimumWidth = 6;
+            this.ColumnClassCar.Name = "ColumnClassCar";
+            this.ColumnClassCar.ReadOnly = true;
+            // 
+            // ColumnTransmisson
+            // 
+            this.ColumnTransmisson.HeaderText = "Коробка передач";
+            this.ColumnTransmisson.MinimumWidth = 6;
+            this.ColumnTransmisson.Name = "ColumnTransmisson";
+            this.ColumnTransmisson.ReadOnly = true;
+            // 
+            // ColumnColor
+            // 
+            this.ColumnColor.HeaderText = "Цвет";
+            this.ColumnColor.MinimumWidth = 6;
+            this.ColumnColor.Name = "ColumnColor";
+            this.ColumnColor.ReadOnly = true;
+            // 
             // tabPageCarsInRent
             // 
             this.tabPageCarsInRent.Controls.Add(this.label2);
@@ -439,6 +482,7 @@ namespace WindowsFormsApp1
             // 
             // tabPageListCars
             // 
+            this.tabPageListCars.Controls.Add(this.LabelCarCount);
             this.tabPageListCars.Controls.Add(this.label4);
             this.tabPageListCars.Controls.Add(this.comboBoxSearchCarList);
             this.tabPageListCars.Controls.Add(this.label5);
@@ -565,6 +609,48 @@ namespace WindowsFormsApp1
             this.dataGridViewCarList.TabIndex = 1;
             this.dataGridViewCarList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCarList_CellClick);
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "idcar";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Название";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Бренд";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Класс";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Коробка передач";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Цвет";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
             // tabControlMain
             // 
             this.tabControlMain.Controls.Add(this.tabPageAutopark);
@@ -663,89 +749,13 @@ namespace WindowsFormsApp1
             this.rentcarsdbDataSetBindingSource.DataSource = this.rentcarsdbDataSet;
             this.rentcarsdbDataSetBindingSource.Position = 0;
             // 
-            // Column6
+            // LabelCarCount
             // 
-            this.Column6.HeaderText = "idcar";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Название";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Бренд";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Класс";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Коробка передач";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Цвет";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "idcar";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // ColumnName
-            // 
-            this.ColumnName.HeaderText = "Название";
-            this.ColumnName.MinimumWidth = 6;
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.ReadOnly = true;
-            // 
-            // ColumnBrand
-            // 
-            this.ColumnBrand.HeaderText = "Бренд";
-            this.ColumnBrand.MinimumWidth = 6;
-            this.ColumnBrand.Name = "ColumnBrand";
-            this.ColumnBrand.ReadOnly = true;
-            // 
-            // ColumnClassCar
-            // 
-            this.ColumnClassCar.HeaderText = "Класс";
-            this.ColumnClassCar.MinimumWidth = 6;
-            this.ColumnClassCar.Name = "ColumnClassCar";
-            this.ColumnClassCar.ReadOnly = true;
-            // 
-            // ColumnTransmisson
-            // 
-            this.ColumnTransmisson.HeaderText = "Коробка передач";
-            this.ColumnTransmisson.MinimumWidth = 6;
-            this.ColumnTransmisson.Name = "ColumnTransmisson";
-            this.ColumnTransmisson.ReadOnly = true;
-            // 
-            // ColumnColor
-            // 
-            this.ColumnColor.HeaderText = "Цвет";
-            this.ColumnColor.MinimumWidth = 6;
-            this.ColumnColor.Name = "ColumnColor";
-            this.ColumnColor.ReadOnly = true;
+            this.LabelCarCount.AutoSize = true;
+            this.LabelCarCount.Location = new System.Drawing.Point(282, 106);
+            this.LabelCarCount.Name = "LabelCarCount";
+            this.LabelCarCount.Size = new System.Drawing.Size(0, 15);
+            this.LabelCarCount.TabIndex = 11;
             // 
             // formManager
             // 
@@ -849,5 +859,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassCar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTransmisson;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnColor;
+        private System.Windows.Forms.Label LabelCarCount;
     }
 }

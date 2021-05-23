@@ -19,14 +19,18 @@ namespace WindowsFormsApp1
         private int indexForUpdate;
         private DataGridView dataGridViewCarList;
         private ComboBox comboBoxSearchCar;
+        private string nameForUpdate;
+        private int rowIndex;
 
-        public formEditCar(int indexForUpdate, DataGridView dataGridViewCarList, ComboBox comboBoxSearchCar)
+        public formEditCar(int indexForUpdate, DataGridView dataGridViewCarList, ComboBox comboBoxSearchCar, string nameForUpdate, int rowIndex)
         {
             InitializeComponent();
             comboBoxColor.DropDownStyle = ComboBoxStyle.DropDownList;
             this.indexForUpdate = indexForUpdate;
             this.dataGridViewCarList = dataGridViewCarList;
             this.comboBoxSearchCar = comboBoxSearchCar;
+            this.nameForUpdate = nameForUpdate;
+            this.rowIndex = rowIndex;
         }
         private void DataGridViewAddCells(DataGridView dataGridView, NpgsqlDataReader reader, String[] parameters)
         {
@@ -84,9 +88,9 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    int id = indexForUpdate;
+                    string name = nameForUpdate;
                     npgSqlConnection.Open();
-                    String strSQL = $"UPDATE car SET name='{textBox1.Text}', brand='{textBox2.Text}', classcar='{textBox3.Text}', transmission='{textBox4.Text}', color='{comboBoxColor.SelectedItem}' WHERE idcar={id}";
+                    String strSQL = $"UPDATE car SET name='{textBox1.Text}', brand='{textBox2.Text}', classcar='{textBox3.Text}', transmission='{textBox4.Text}', color='{comboBoxColor.SelectedItem}' WHERE idcar={name}";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
                         MessageBox.Show("Данные успешно обнвлены!");
@@ -97,7 +101,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show(ex.Message);
                 }
             }
-            String str = "SELECT * FROM car ORDER BY idcar";
+            String str = "SELECT * FROM car ORDER BY idcar DESC";
             DataGridView dataGrid = dataGridViewCarList;
             ComboBox comboBox = comboBoxSearchCar;
             LoadData(str, dataGrid, comboBox);
@@ -119,11 +123,11 @@ namespace WindowsFormsApp1
             comboBoxColor.DrawItem += new DrawItemEventHandler(comboBoxColor_DrawItem);
 
 
-            textBox1.Text = (string)dataGridViewCarList.Rows[indexForUpdate - 2].Cells[1].Value;
-            textBox2.Text = (string)dataGridViewCarList.Rows[indexForUpdate - 2].Cells[2].Value;
-            textBox3.Text = (string)dataGridViewCarList.Rows[indexForUpdate - 2].Cells[3].Value;
-            textBox4.Text = (string)dataGridViewCarList.Rows[indexForUpdate - 2].Cells[4].Value;
-            comboBoxColor.SelectedItem = (string)dataGridViewCarList.Rows[indexForUpdate - 2].Cells[5].Value;
+            textBox1.Text = (string)dataGridViewCarList.Rows[rowIndex].Cells[1].Value;
+            textBox2.Text = (string)dataGridViewCarList.Rows[rowIndex].Cells[2].Value;
+            textBox3.Text = (string)dataGridViewCarList.Rows[rowIndex].Cells[3].Value;
+            textBox4.Text = (string)dataGridViewCarList.Rows[rowIndex].Cells[4].Value;
+            comboBoxColor.SelectedItem = (string)dataGridViewCarList.Rows[rowIndex].Cells[5].Value;
         }
 
         private void comboBoxColor_DrawItem(object sender, DrawItemEventArgs e)
