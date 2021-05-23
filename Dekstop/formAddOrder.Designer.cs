@@ -51,9 +51,9 @@ namespace WindowsFormsApp1
             this.groupBoxAboutRent = new System.Windows.Forms.GroupBox();
             this.groupBoxPersonalData = new System.Windows.Forms.GroupBox();
             this.groupBoxResult = new System.Windows.Forms.GroupBox();
+            this.textBoxResultCost = new System.Windows.Forms.TextBox();
             this.buttonAddOrder = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.textBoxResultCost = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountDays)).BeginInit();
             this.groupBoxAboutRent.SuspendLayout();
             this.groupBoxPersonalData.SuspendLayout();
@@ -276,6 +276,15 @@ namespace WindowsFormsApp1
             this.groupBoxResult.TabStop = false;
             this.groupBoxResult.Text = "Итог";
             // 
+            // textBoxResultCost
+            // 
+            this.textBoxResultCost.Location = new System.Drawing.Point(177, 30);
+            this.textBoxResultCost.Name = "textBoxResultCost";
+            this.textBoxResultCost.ReadOnly = true;
+            this.textBoxResultCost.Size = new System.Drawing.Size(238, 22);
+            this.textBoxResultCost.TabIndex = 20;
+            this.textBoxResultCost.Text = "руб.";
+            // 
             // buttonAddOrder
             // 
             this.buttonAddOrder.Location = new System.Drawing.Point(584, 320);
@@ -295,15 +304,6 @@ namespace WindowsFormsApp1
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // textBoxResultCost
-            // 
-            this.textBoxResultCost.Location = new System.Drawing.Point(177, 30);
-            this.textBoxResultCost.Name = "textBoxResultCost";
-            this.textBoxResultCost.ReadOnly = true;
-            this.textBoxResultCost.Size = new System.Drawing.Size(238, 22);
-            this.textBoxResultCost.TabIndex = 20;
-            this.textBoxResultCost.Text = "руб.";
-            // 
             // formAddOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -319,6 +319,7 @@ namespace WindowsFormsApp1
             this.Name = "formAddOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Оформление заказа";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formAddOrder_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountDays)).EndInit();
             this.groupBoxAboutRent.ResumeLayout(false);
             this.groupBoxAboutRent.PerformLayout();

@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -15,17 +16,16 @@ namespace WindowsFormsApp1
         public formManager()
         {
             InitializeComponent();
-            
-            // Для вкладки "Доступные автомобили"
-            LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
+
+            // Для вкладки "Доступные автомобили"            
+            dataGridViewListCarsNotInRent.ClearSelection();
             comboBoxAvailableCarsFirst.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxAvailableCarsSecond.DropDownStyle = ComboBoxStyle.DropDownList;
             labelSelectCriterionAvailableCarsSecond.Visible = false;
             comboBoxAvailableCarsSecond.Visible = false;
             buttonAddOrder.Enabled = false;
-            //dataGridViewListCarsNotInRent.CurrentCell.Selected = false;
-            dataGridViewListCarsNotInRent.Rows[1].Cells[0].Selected = true;
-            //dataGridViewListCarsNotInRent.CurrentCell.Selected = false;
+            dataGridViewListCarsNotInRent.EnableHeadersVisualStyles = false;
+
 
             // Для вкладки "Автомобили в прокате"
             comboBoxRentedCarsFirst.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -68,6 +68,7 @@ namespace WindowsFormsApp1
                 labelListCarsInfo.Text = "Количество машин в таблице: " + dataGridView.Rows.Count.ToString();
                 rowNum++;
             }
+            dataGridView.ClearSelection();
         }
 
         /// <summary>
@@ -119,6 +120,7 @@ namespace WindowsFormsApp1
         private void tabPageCarsNotInRent_Enter(object sender, EventArgs e)
         {
             LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxListCarsFirst);
+            dataGridViewListCarsNotInRent.ClearSelection();
         }
 
         private void tabPageCarsNotInRent_Leave(object sender, EventArgs e)
@@ -142,6 +144,7 @@ namespace WindowsFormsApp1
             {
                 comboBoxAvailableCarsSecond.Items.Clear();
                 LoadData("SELECT * FROM car WHERE rented = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
+                dataGridViewListCarsNotInRent.ClearSelection();
                 using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
                 {
                     npgSqlConnection.Open();
@@ -194,6 +197,7 @@ namespace WindowsFormsApp1
                 {
                     DataGridViewAddCells(dataGridViewListCarsNotInRent, reader, new String[] { "name", "brand", "classcar", "transmission", "color" });
                 }
+                dataGridViewListCarsNotInRent.ClearSelection();
                 npgSqlConnection.Close();
             }
         }
@@ -201,6 +205,7 @@ namespace WindowsFormsApp1
         private void buttonUpdateListNotInRent_Click(object sender, EventArgs e)
         {
             LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxListCarsFirst);
+            dataGridViewListCarsNotInRent.ClearSelection();
         }
 
 
@@ -442,7 +447,7 @@ namespace WindowsFormsApp1
         {
             formEditCar formEditCar = new formEditCar(nameForUpdate, rowIndex, dataGridViewListCars, comboBoxListCarsFirst);
             formEditCar.Show();
-               
+
         }
 
         private void dataGridViewListCars_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -456,7 +461,7 @@ namespace WindowsFormsApp1
 
         private void buttonListCarsDel_Click(object sender, EventArgs e)
         {
-            if (rowIndex!=-1)
+            if (rowIndex != -1)
             {
                 using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
                 {
@@ -506,26 +511,31 @@ namespace WindowsFormsApp1
         {
             formAddOrder formAddOrder = new formAddOrder(nameForOrder, rowIndex, dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
             formAddOrder.Show();
+            this.Hide();
         }
 
         private void dataGridViewListCarsNotInRent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            rowIndex = e.RowIndex;
-            var name = dataGridViewListCarsNotInRent.Rows[e.RowIndex].Cells[0].Value;
-            nameForOrder = Convert.ToString(name);
-            dataGridViewListCarsNotInRent.CurrentRow.DefaultCellStyle.BackColor = dataGridViewListCarsNotInRent.RowsDefaultCellStyle.SelectionBackColor;
-            buttonAddOrder.Enabled = true;
+            if (e.RowIndex != -1)
+            {
+                rowIndex = e.RowIndex;
+                var name = dataGridViewListCarsNotInRent.Rows[e.RowIndex].Cells[0].Value;
+                nameForOrder = Convert.ToString(name);
+                dataGridViewListCarsNotInRent.CurrentRow.DefaultCellStyle.BackColor = dataGridViewListCarsNotInRent.RowsDefaultCellStyle.SelectionBackColor;
+                buttonAddOrder.Enabled = true;
+            }
         }
 
-        private void dataGridViewListCarsNotInRent_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dataGridViewListCarsNotInRent.ClearSelection();
-            //dataGridViewListCarsNotInRent.Rows[0].Cells[0].
-        }
+
 
         private void dataGridViewListCarsNotInRent_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewListCarsNotInRent.CurrentRow.DefaultCellStyle.BackColor= dataGridViewListCarsNotInRent.RowsDefaultCellStyle.BackColor;
+            dataGridViewListCarsNotInRent.CurrentRow.DefaultCellStyle.BackColor = dataGridViewListCarsNotInRent.RowsDefaultCellStyle.BackColor;
+        }
+
+        private void formManager_Shown(object sender, EventArgs e)
+        {
+            buttonUpdateListNotInRent_Click(buttonUpdateListCarsInRent, null);
         }
     }
 }

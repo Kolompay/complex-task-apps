@@ -30,6 +30,8 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formManager));
             this.tabPageClients = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
@@ -336,6 +338,14 @@ namespace WindowsFormsApp1
             this.dataGridViewListCarsNotInRent.AllowUserToAddRows = false;
             this.dataGridViewListCarsNotInRent.AllowUserToDeleteRows = false;
             this.dataGridViewListCarsNotInRent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewListCarsNotInRent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewListCarsNotInRent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewListCarsNotInRent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnName,
@@ -347,17 +357,24 @@ namespace WindowsFormsApp1
             this.dataGridViewListCarsNotInRent.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewListCarsNotInRent.Name = "dataGridViewListCarsNotInRent";
             this.dataGridViewListCarsNotInRent.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewListCarsNotInRent.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewListCarsNotInRent.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SeaShell;
-            this.dataGridViewListCarsNotInRent.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SeaShell;
+            this.dataGridViewListCarsNotInRent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewListCarsNotInRent.RowTemplate.Height = 24;
             this.dataGridViewListCarsNotInRent.Size = new System.Drawing.Size(932, 382);
             this.dataGridViewListCarsNotInRent.TabIndex = 0;
             this.dataGridViewListCarsNotInRent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCarsNotInRent_CellClick);
             this.dataGridViewListCarsNotInRent.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCarsNotInRent_CellLeave);
-            this.dataGridViewListCarsNotInRent.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewListCarsNotInRent_DataBindingComplete);
             // 
             // ColumnName
             // 
@@ -808,6 +825,7 @@ namespace WindowsFormsApp1
             this.Name = "formManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Прокат автомобилей";
+            this.Shown += new System.EventHandler(this.formManager_Shown);
             this.tabPageClients.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.tabPageOrders.ResumeLayout(false);

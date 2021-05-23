@@ -17,13 +17,9 @@ namespace WindowsFormsApp1
         private DataGridView dataGridViewListCarsNotInRent;
         private ComboBox comboBoxAvailableCarsFirst;
 
-        public formAddOrder()
-        {
-            InitializeComponent();
-        }
-
         public formAddOrder(string nameForOrder, int rowIndex, DataGridView dataGridViewListCarsNotInRent, ComboBox comboBoxAvailableCarsFirst)
         {
+            InitializeComponent();
             this.nameForOrder = nameForOrder;
             this.rowIndex = rowIndex;
             this.dataGridViewListCarsNotInRent = dataGridViewListCarsNotInRent;
@@ -45,5 +41,10 @@ namespace WindowsFormsApp1
 
         }
 
+        private void formAddOrder_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formManager form = (formManager)Application.OpenForms[0];
+            form.Show();
+        }
     }
 }
