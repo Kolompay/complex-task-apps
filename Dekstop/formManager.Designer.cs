@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formManager));
             this.tabPageClients = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
@@ -347,9 +348,16 @@ namespace WindowsFormsApp1
             this.dataGridViewListCarsNotInRent.Name = "dataGridViewListCarsNotInRent";
             this.dataGridViewListCarsNotInRent.ReadOnly = true;
             this.dataGridViewListCarsNotInRent.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SeaShell;
+            this.dataGridViewListCarsNotInRent.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewListCarsNotInRent.RowTemplate.Height = 24;
             this.dataGridViewListCarsNotInRent.Size = new System.Drawing.Size(932, 382);
             this.dataGridViewListCarsNotInRent.TabIndex = 0;
+            this.dataGridViewListCarsNotInRent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCarsNotInRent_CellClick);
+            this.dataGridViewListCarsNotInRent.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCarsNotInRent_CellLeave);
+            this.dataGridViewListCarsNotInRent.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewListCarsNotInRent_DataBindingComplete);
             // 
             // ColumnName
             // 

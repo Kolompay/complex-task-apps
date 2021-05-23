@@ -10,6 +10,7 @@ namespace WindowsFormsApp1
         String attribut;
         String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
         public static String nameForUpdate = String.Empty;
+        public static String nameForOrder = String.Empty;
         public static int rowIndex;
         public formManager()
         {
@@ -21,6 +22,10 @@ namespace WindowsFormsApp1
             comboBoxAvailableCarsSecond.DropDownStyle = ComboBoxStyle.DropDownList;
             labelSelectCriterionAvailableCarsSecond.Visible = false;
             comboBoxAvailableCarsSecond.Visible = false;
+            buttonAddOrder.Enabled = false;
+            //dataGridViewListCarsNotInRent.CurrentCell.Selected = false;
+            dataGridViewListCarsNotInRent.Rows[1].Cells[0].Selected = true;
+            //dataGridViewListCarsNotInRent.CurrentCell.Selected = false;
 
             // Для вкладки "Автомобили в прокате"
             comboBoxRentedCarsFirst.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -499,8 +504,28 @@ namespace WindowsFormsApp1
 
         private void buttonAddOrder_Click(object sender, EventArgs e)
         {
-            formAddOrder formAddOrder = new formAddOrder();
+            formAddOrder formAddOrder = new formAddOrder(nameForOrder, rowIndex, dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
             formAddOrder.Show();
+        }
+
+        private void dataGridViewListCarsNotInRent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+            var name = dataGridViewListCarsNotInRent.Rows[e.RowIndex].Cells[0].Value;
+            nameForOrder = Convert.ToString(name);
+            dataGridViewListCarsNotInRent.CurrentRow.DefaultCellStyle.BackColor = dataGridViewListCarsNotInRent.RowsDefaultCellStyle.SelectionBackColor;
+            buttonAddOrder.Enabled = true;
+        }
+
+        private void dataGridViewListCarsNotInRent_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewListCarsNotInRent.ClearSelection();
+            //dataGridViewListCarsNotInRent.Rows[0].Cells[0].
+        }
+
+        private void dataGridViewListCarsNotInRent_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewListCarsNotInRent.CurrentRow.DefaultCellStyle.BackColor= dataGridViewListCarsNotInRent.RowsDefaultCellStyle.BackColor;
         }
     }
 }

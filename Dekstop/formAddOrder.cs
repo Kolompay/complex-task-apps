@@ -12,9 +12,22 @@ namespace WindowsFormsApp1
 {
     public partial class formAddOrder : Form
     {
+        private string nameForOrder;
+        private int rowIndex;
+        private DataGridView dataGridViewListCarsNotInRent;
+        private ComboBox comboBoxAvailableCarsFirst;
+
         public formAddOrder()
         {
             InitializeComponent();
+        }
+
+        public formAddOrder(string nameForOrder, int rowIndex, DataGridView dataGridViewListCarsNotInRent, ComboBox comboBoxAvailableCarsFirst)
+        {
+            this.nameForOrder = nameForOrder;
+            this.rowIndex = rowIndex;
+            this.dataGridViewListCarsNotInRent = dataGridViewListCarsNotInRent;
+            this.comboBoxAvailableCarsFirst = comboBoxAvailableCarsFirst;
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
