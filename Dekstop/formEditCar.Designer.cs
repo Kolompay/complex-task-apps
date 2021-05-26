@@ -217,7 +217,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label labelBrand;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.ComboBox comboBoxTransmission;
-        private System.Windows.Forms.BindingSource rentcarsdbDataSetBindingSource;
         private System.Windows.Forms.Label labelIDInfo;
         private System.Windows.Forms.Label label1;
     }

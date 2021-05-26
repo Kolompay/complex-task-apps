@@ -169,6 +169,7 @@ namespace WindowsFormsApp1
             this.comboBoxCars.Name = "comboBoxCars";
             this.comboBoxCars.Size = new System.Drawing.Size(238, 24);
             this.comboBoxCars.TabIndex = 12;
+            this.comboBoxCars.Click += new System.EventHandler(this.comboBoxCars_Click);
             // 
             // numericUpDownCountDays
             // 
@@ -320,6 +321,7 @@ namespace WindowsFormsApp1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Оформление заказа";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formAddOrder_FormClosed);
+            this.Load += new System.EventHandler(this.formAddOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountDays)).EndInit();
             this.groupBoxAboutRent.ResumeLayout(false);
             this.groupBoxAboutRent.PerformLayout();
