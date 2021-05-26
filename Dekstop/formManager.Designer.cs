@@ -232,7 +232,7 @@ namespace WindowsFormsApp1
             this.tabPageAutopark.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageAutopark.Name = "tabPageAutopark";
             this.tabPageAutopark.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageAutopark.Size = new System.Drawing.Size(954, 537);
+            this.tabPageAutopark.Size = new System.Drawing.Size(954, 542);
             this.tabPageAutopark.TabIndex = 0;
             this.tabPageAutopark.Text = "Автопарк";
             this.tabPageAutopark.UseVisualStyleBackColor = true;
@@ -247,7 +247,7 @@ namespace WindowsFormsApp1
             this.tabControlAutopark.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlAutopark.Name = "tabControlAutopark";
             this.tabControlAutopark.SelectedIndex = 0;
-            this.tabControlAutopark.Size = new System.Drawing.Size(962, 540);
+            this.tabControlAutopark.Size = new System.Drawing.Size(962, 546);
             this.tabControlAutopark.TabIndex = 0;
             // 
             // tabPageCarsNotInRent
@@ -263,7 +263,7 @@ namespace WindowsFormsApp1
             this.tabPageCarsNotInRent.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageCarsNotInRent.Name = "tabPageCarsNotInRent";
             this.tabPageCarsNotInRent.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageCarsNotInRent.Size = new System.Drawing.Size(954, 509);
+            this.tabPageCarsNotInRent.Size = new System.Drawing.Size(954, 515);
             this.tabPageCarsNotInRent.TabIndex = 0;
             this.tabPageCarsNotInRent.Text = "Доступные автомобили";
             this.tabPageCarsNotInRent.UseVisualStyleBackColor = true;
@@ -283,7 +283,7 @@ namespace WindowsFormsApp1
             // comboBoxAvailableCarsSecond
             // 
             this.comboBoxAvailableCarsSecond.FormattingEnabled = true;
-            this.comboBoxAvailableCarsSecond.Location = new System.Drawing.Point(235, 63);
+            this.comboBoxAvailableCarsSecond.Location = new System.Drawing.Point(225, 64);
             this.comboBoxAvailableCarsSecond.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxAvailableCarsSecond.Name = "comboBoxAvailableCarsSecond";
             this.comboBoxAvailableCarsSecond.Size = new System.Drawing.Size(233, 26);
@@ -293,7 +293,7 @@ namespace WindowsFormsApp1
             // labelSelectCriterionAvailableCarsFirst
             // 
             this.labelSelectCriterionAvailableCarsFirst.AutoSize = true;
-            this.labelSelectCriterionAvailableCarsFirst.Location = new System.Drawing.Point(10, 25);
+            this.labelSelectCriterionAvailableCarsFirst.Location = new System.Drawing.Point(16, 25);
             this.labelSelectCriterionAvailableCarsFirst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSelectCriterionAvailableCarsFirst.Name = "labelSelectCriterionAvailableCarsFirst";
             this.labelSelectCriterionAvailableCarsFirst.Size = new System.Drawing.Size(201, 18);
@@ -303,7 +303,7 @@ namespace WindowsFormsApp1
             // comboBoxAvailableCarsFirst
             // 
             this.comboBoxAvailableCarsFirst.FormattingEnabled = true;
-            this.comboBoxAvailableCarsFirst.Location = new System.Drawing.Point(235, 22);
+            this.comboBoxAvailableCarsFirst.Location = new System.Drawing.Point(225, 22);
             this.comboBoxAvailableCarsFirst.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxAvailableCarsFirst.Name = "comboBoxAvailableCarsFirst";
             this.comboBoxAvailableCarsFirst.Size = new System.Drawing.Size(233, 26);
@@ -316,7 +316,7 @@ namespace WindowsFormsApp1
             this.buttonUpdateListNotInRent.Location = new System.Drawing.Point(682, 67);
             this.buttonUpdateListNotInRent.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUpdateListNotInRent.Name = "buttonUpdateListNotInRent";
-            this.buttonUpdateListNotInRent.Size = new System.Drawing.Size(261, 35);
+            this.buttonUpdateListNotInRent.Size = new System.Drawing.Size(260, 35);
             this.buttonUpdateListNotInRent.TabIndex = 2;
             this.buttonUpdateListNotInRent.Text = "Обновить список автомобилей";
             this.buttonUpdateListNotInRent.UseVisualStyleBackColor = true;
@@ -327,7 +327,7 @@ namespace WindowsFormsApp1
             this.buttonAddOrder.Location = new System.Drawing.Point(682, 25);
             this.buttonAddOrder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddOrder.Name = "buttonAddOrder";
-            this.buttonAddOrder.Size = new System.Drawing.Size(261, 35);
+            this.buttonAddOrder.Size = new System.Drawing.Size(260, 35);
             this.buttonAddOrder.TabIndex = 1;
             this.buttonAddOrder.Text = "Оформить заказ";
             this.buttonAddOrder.UseVisualStyleBackColor = true;
@@ -424,7 +424,7 @@ namespace WindowsFormsApp1
             this.tabPageCarsInRent.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageCarsInRent.Name = "tabPageCarsInRent";
             this.tabPageCarsInRent.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageCarsInRent.Size = new System.Drawing.Size(954, 509);
+            this.tabPageCarsInRent.Size = new System.Drawing.Size(954, 515);
             this.tabPageCarsInRent.TabIndex = 1;
             this.tabPageCarsInRent.Text = "Автомобили в прокате";
             this.tabPageCarsInRent.UseVisualStyleBackColor = true;
@@ -565,7 +565,7 @@ namespace WindowsFormsApp1
             this.tabPageListCars.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageListCars.Name = "tabPageListCars";
             this.tabPageListCars.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageListCars.Size = new System.Drawing.Size(954, 509);
+            this.tabPageListCars.Size = new System.Drawing.Size(954, 515);
             this.tabPageListCars.TabIndex = 2;
             this.tabPageListCars.Text = "Список автомобилей";
             this.tabPageListCars.UseVisualStyleBackColor = true;
@@ -687,6 +687,7 @@ namespace WindowsFormsApp1
             this.dataGridViewListCars.Size = new System.Drawing.Size(932, 353);
             this.dataGridViewListCars.TabIndex = 1;
             this.dataGridViewListCars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCars_CellClick);
+            this.dataGridViewListCars.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridViewListCars_RowsAdded);
             // 
             // Column1
             // 
@@ -733,7 +734,7 @@ namespace WindowsFormsApp1
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(962, 568);
+            this.tabControlMain.Size = new System.Drawing.Size(962, 573);
             this.tabControlMain.TabIndex = 1;
             // 
             // tabPage1

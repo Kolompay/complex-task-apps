@@ -169,6 +169,7 @@ namespace WindowsFormsApp1
             this.comboBoxCars.Name = "comboBoxCars";
             this.comboBoxCars.Size = new System.Drawing.Size(238, 24);
             this.comboBoxCars.TabIndex = 12;
+            this.comboBoxCars.SelectedValueChanged += new System.EventHandler(this.comboBoxCars_SelectedValueChanged);
             this.comboBoxCars.Click += new System.EventHandler(this.comboBoxCars_Click);
             // 
             // numericUpDownCountDays
@@ -187,6 +188,8 @@ namespace WindowsFormsApp1
             0,
             0,
             0});
+            this.numericUpDownCountDays.ValueChanged += new System.EventHandler(this.numericUpDownCountDays_ValueChanged);
+            this.numericUpDownCountDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDownCountDays_KeyPress);
             // 
             // textBoxFamilyName
             // 
@@ -194,6 +197,7 @@ namespace WindowsFormsApp1
             this.textBoxFamilyName.Name = "textBoxFamilyName";
             this.textBoxFamilyName.Size = new System.Drawing.Size(238, 22);
             this.textBoxFamilyName.TabIndex = 14;
+            this.textBoxFamilyName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFamilyName_KeyPress);
             // 
             // textBoxName
             // 

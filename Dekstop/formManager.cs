@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             // Для вкладки "Доступные автомобили"
-            buttonUpdateListNotInRent_Click(buttonUpdateListNotInRent, null);
+            //buttonUpdateListNotInRent_Click(buttonUpdateListNotInRent, null);
             dataGridViewListCarsNotInRent.ClearSelection();
             comboBoxAvailableCarsFirst.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxAvailableCarsSecond.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -209,7 +209,7 @@ namespace WindowsFormsApp1
                 LoadData($"SELECT * FROM car WHERE rented = false AND deleted = false AND {attribut} = '{comboBoxAvailableCarsSecond.SelectedItem}'", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
             else
                 LoadData($"SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
-
+            buttonAddOrder.Enabled = false;
             dataGridViewListCarsNotInRent.ClearSelection();
         }
 
@@ -219,6 +219,7 @@ namespace WindowsFormsApp1
         private void tabPageCarsInRent_Enter(object sender, EventArgs e)
         {
             LoadData("SELECT * FROM car  WHERE rented = true AND deleted = false", dataGridViewListCarsInRent, comboBoxRentedCarsFirst);
+            dataGridViewListCarsInRent.ClearSelection();
         }
 
         private void tabPageCarsInRent_Leave(object sender, EventArgs e)
@@ -301,6 +302,7 @@ namespace WindowsFormsApp1
         private void buttonUpdateListCarsInRent_Click(object sender, EventArgs e)
         {
             LoadData("SELECT * FROM car WHERE rented = true AND deleted = false", dataGridViewListCarsInRent, comboBoxRentedCarsFirst);
+            dataGridViewListCarsInRent.ClearSelection();
         }
 
 
@@ -309,6 +311,7 @@ namespace WindowsFormsApp1
         private void tabPageListCars_Enter(object sender, EventArgs e)
         {
             LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
+            dataGridViewListCars.ClearSelection();
         }
 
         private void tabPageListCars_Leave(object sender, EventArgs e)
@@ -403,13 +406,6 @@ namespace WindowsFormsApp1
                     var result = adapter.Fill(t);
                     labelListCarsInfo.Text = "Количество машин в таблице: " + result.ToString();
 
-                    //t.Columns[0].ColumnName = dataGridViewListCars.Columns[0].HeaderText;
-                    //t.Columns[1].ColumnName = dataGridViewListCars.Columns[1].HeaderText;
-                    //t.Columns[2].ColumnName = dataGridViewListCars.Columns[2].HeaderText;
-                    //t.Columns[3].ColumnName = dataGridViewListCars.Columns[3].HeaderText;
-                    //t.Columns[4].ColumnName = dataGridViewListCars.Columns[4].HeaderText;
-                    //dataGridViewListCars.Columns.Clear();
-                    //dataGridViewListCars.DataSource = t.DefaultView;
                     LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst);
                     npgSqlConnection.Close();
                 }
@@ -452,7 +448,6 @@ namespace WindowsFormsApp1
         {
             formEditCar formEditCar = new formEditCar(nameForUpdate, rowIndex, dataGridViewListCars, comboBoxListCarsFirst);
             formEditCar.Show();
-
         }
 
         private void dataGridViewListCars_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -544,6 +539,13 @@ namespace WindowsFormsApp1
         private void formManager_Shown(object sender, EventArgs e)
         {
             buttonUpdateListNotInRent_Click(buttonUpdateListCarsInRent, null);
+            dataGridViewListCarsInRent.ClearSelection();
+            dataGridViewListCars.ClearSelection();
+        }
+
+        private void dataGridViewListCars_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            this.dataGridViewListCars.ClearSelection();
         }
     }
 }
