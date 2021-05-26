@@ -1,12 +1,13 @@
-﻿namespace WindowsFormsApp1.Classes
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    [Table("car")]
-    public partial class Car
+namespace WindowsFormsApp1
+{
+    class Car
     {
         private int idcar;
         private string vinnumber;
@@ -179,10 +180,7 @@
                 idlocationcar = value;
             }
         }
-
-        public virtual ICollection<Rate> rate { get; set; }
-        public virtual ICollection<Rentcar> rentcar { get; set; }
-        public virtual ICollection<Returncar> returncar { get; set; }
-        public virtual Locationcar locationcar { get; set; }
     }
 }
+
+

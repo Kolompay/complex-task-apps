@@ -32,154 +32,168 @@ namespace WindowsFormsApp1
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxClass = new System.Windows.Forms.TextBox();
+            this.textBoxBrand = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.labelColor = new System.Windows.Forms.Label();
+            this.labelTransmission = new System.Windows.Forms.Label();
+            this.labelClass = new System.Windows.Forms.Label();
+            this.labelBrand = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.comboBoxTransmission = new System.Windows.Forms.ComboBox();
+            this.labelIDInfo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(228, 172);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCancel.Location = new System.Drawing.Point(267, 222);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(91, 27);
-            this.buttonCancel.TabIndex = 39;
+            this.buttonCancel.Size = new System.Drawing.Size(121, 33);
+            this.buttonCancel.TabIndex = 51;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(121, 172);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonUpdate.Location = new System.Drawing.Point(117, 222);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 27);
-            this.buttonUpdate.TabIndex = 38;
+            this.buttonUpdate.Size = new System.Drawing.Size(121, 33);
+            this.buttonUpdate.TabIndex = 50;
             this.buttonUpdate.Text = "Обновить";
             this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonAccept_Click);
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // comboBoxColor
             // 
             this.comboBoxColor.FormattingEnabled = true;
-            this.comboBoxColor.Location = new System.Drawing.Point(122, 139);
+            this.comboBoxColor.Location = new System.Drawing.Point(117, 167);
+            this.comboBoxColor.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxColor.Name = "comboBoxColor";
-            this.comboBoxColor.Size = new System.Drawing.Size(198, 21);
-            this.comboBoxColor.TabIndex = 37;
+            this.comboBoxColor.Size = new System.Drawing.Size(271, 24);
+            this.comboBoxColor.TabIndex = 49;
             this.comboBoxColor.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxColor_DrawItem);
             // 
-            // textBox4
+            // textBoxClass
             // 
-            this.textBox4.Location = new System.Drawing.Point(122, 110);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 24);
-            this.textBox4.TabIndex = 36;
+            this.textBoxClass.Location = new System.Drawing.Point(117, 96);
+            this.textBoxClass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxClass.Multiline = true;
+            this.textBoxClass.Name = "textBoxClass";
+            this.textBoxClass.Size = new System.Drawing.Size(271, 29);
+            this.textBoxClass.TabIndex = 47;
             // 
-            // textBox3
+            // textBoxBrand
             // 
-            this.textBox3.Location = new System.Drawing.Point(122, 81);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(199, 24);
-            this.textBox3.TabIndex = 34;
+            this.textBoxBrand.Location = new System.Drawing.Point(117, 61);
+            this.textBoxBrand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxBrand.Multiline = true;
+            this.textBoxBrand.Name = "textBoxBrand";
+            this.textBoxBrand.Size = new System.Drawing.Size(271, 29);
+            this.textBoxBrand.TabIndex = 46;
             // 
-            // textBox2
+            // textBoxName
             // 
-            this.textBox2.Location = new System.Drawing.Point(122, 53);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 24);
-            this.textBox2.TabIndex = 32;
+            this.textBoxName.Location = new System.Drawing.Point(117, 24);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxName.Multiline = true;
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(271, 29);
+            this.textBoxName.TabIndex = 45;
             // 
-            // textBox1
+            // labelColor
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 23);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 24);
-            this.textBox1.TabIndex = 31;
+            this.labelColor.AutoSize = true;
+            this.labelColor.Location = new System.Drawing.Point(63, 167);
+            this.labelColor.Name = "labelColor";
+            this.labelColor.Size = new System.Drawing.Size(45, 17);
+            this.labelColor.TabIndex = 44;
+            this.labelColor.Text = "Цвет:";
             // 
-            // label7
+            // labelTransmission
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(82, 139);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Цвет:";
+            this.labelTransmission.AutoSize = true;
+            this.labelTransmission.Location = new System.Drawing.Point(14, 134);
+            this.labelTransmission.Name = "labelTransmission";
+            this.labelTransmission.Size = new System.Drawing.Size(99, 17);
+            this.labelTransmission.TabIndex = 43;
+            this.labelTransmission.Text = "Трансмиссия:";
             // 
-            // label5
+            // labelClass
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 112);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Трансмиссия:";
+            this.labelClass.AutoSize = true;
+            this.labelClass.Location = new System.Drawing.Point(58, 101);
+            this.labelClass.Name = "labelClass";
+            this.labelClass.Size = new System.Drawing.Size(51, 17);
+            this.labelClass.TabIndex = 42;
+            this.labelClass.Text = "Класс:";
             // 
-            // label3
+            // labelBrand
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(78, 85);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Класс:";
+            this.labelBrand.AutoSize = true;
+            this.labelBrand.Location = new System.Drawing.Point(55, 64);
+            this.labelBrand.Name = "labelBrand";
+            this.labelBrand.Size = new System.Drawing.Size(53, 17);
+            this.labelBrand.TabIndex = 41;
+            this.labelBrand.Text = "Бренд:";
             // 
-            // label2
+            // labelName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(76, 55);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Бренд:";
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(30, 27);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(76, 17);
+            this.labelName.TabIndex = 40;
+            this.labelName.Text = "Название:";
+            // 
+            // comboBoxTransmission
+            // 
+            this.comboBoxTransmission.FormattingEnabled = true;
+            this.comboBoxTransmission.Location = new System.Drawing.Point(117, 131);
+            this.comboBoxTransmission.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxTransmission.Name = "comboBoxTransmission";
+            this.comboBoxTransmission.Size = new System.Drawing.Size(271, 24);
+            this.comboBoxTransmission.TabIndex = 52;
+            // 
+            // labelIDInfo
+            // 
+            this.labelIDInfo.AutoSize = true;
+            this.labelIDInfo.Location = new System.Drawing.Point(117, 199);
+            this.labelIDInfo.Name = "labelIDInfo";
+            this.labelIDInfo.Size = new System.Drawing.Size(0, 17);
+            this.labelIDInfo.TabIndex = 53;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(4, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Название:";
+            this.label1.Size = new System.Drawing.Size(113, 17);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Для справки ID:";
             // 
             // formEditCar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(334, 217);
+            this.ClientSize = new System.Drawing.Size(401, 266);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelIDInfo);
+            this.Controls.Add(this.comboBoxTransmission);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.comboBoxColor);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximizeBox = false;
+            this.Controls.Add(this.textBoxClass);
+            this.Controls.Add(this.textBoxBrand);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.labelColor);
+            this.Controls.Add(this.labelTransmission);
+            this.Controls.Add(this.labelClass);
+            this.Controls.Add(this.labelBrand);
+            this.Controls.Add(this.labelName);
             this.Name = "formEditCar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Изменение данных автомобиля";
@@ -194,14 +208,17 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.ComboBox comboBoxColor;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxClass;
+        private System.Windows.Forms.TextBox textBoxBrand;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Label labelColor;
+        private System.Windows.Forms.Label labelTransmission;
+        private System.Windows.Forms.Label labelClass;
+        private System.Windows.Forms.Label labelBrand;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.ComboBox comboBoxTransmission;
+        private System.Windows.Forms.BindingSource rentcarsdbDataSetBindingSource;
+        private System.Windows.Forms.Label labelIDInfo;
         private System.Windows.Forms.Label label1;
     }
 }
