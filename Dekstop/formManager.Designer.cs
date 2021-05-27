@@ -122,7 +122,7 @@ namespace WindowsFormsApp1
             this.tabPageClients.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageClients.Name = "tabPageClients";
             this.tabPageClients.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageClients.Size = new System.Drawing.Size(954, 537);
+            this.tabPageClients.Size = new System.Drawing.Size(954, 542);
             this.tabPageClients.TabIndex = 2;
             this.tabPageClients.Text = "Клиенты";
             this.tabPageClients.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@ namespace WindowsFormsApp1
             this.tabPageOrders.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageOrders.Name = "tabPageOrders";
             this.tabPageOrders.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageOrders.Size = new System.Drawing.Size(954, 537);
+            this.tabPageOrders.Size = new System.Drawing.Size(954, 542);
             this.tabPageOrders.TabIndex = 1;
             this.tabPageOrders.Text = "Заказы";
             this.tabPageOrders.UseVisualStyleBackColor = true;
@@ -665,6 +665,7 @@ namespace WindowsFormsApp1
             this.buttonListCarsAdd.TabIndex = 3;
             this.buttonListCarsAdd.Text = "Добавить автомобиль";
             this.buttonListCarsAdd.UseVisualStyleBackColor = true;
+            this.buttonListCarsAdd.Click += new System.EventHandler(this.buttonListCarsAdd_Click);
             // 
             // dataGridViewListCars
             // 
@@ -749,7 +750,7 @@ namespace WindowsFormsApp1
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(954, 537);
+            this.tabPage1.Size = new System.Drawing.Size(954, 542);
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Справочник";
             this.tabPage1.UseVisualStyleBackColor = true;

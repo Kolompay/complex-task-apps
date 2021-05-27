@@ -12,7 +12,6 @@ namespace WindowsFormsApp1
         private ComboBox comboBoxAvailableCarsFirst;
         String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
 
-
         public formAddOrder(string nameForOrder, int rowIndex, DataGridView dataGridViewListCarsNotInRent, ComboBox comboBoxAvailableCarsFirst)
         {
             InitializeComponent();
@@ -119,19 +118,7 @@ namespace WindowsFormsApp1
 
         private void textBoxFamilyName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (textBoxFamilyName.TextLength > 5)
-            {
-                ToolTip toolTipFamilyName = new ToolTip();
-                toolTipFamilyName.SetToolTip(textBoxFamilyName, "Макс. длинна 50 символов");
-                //toolTipFamilyName.Active = true;
-                //toolTipFamilyName.ForeColor = Color.Red;
-                //toolTipFamilyName.Show("Ку", textBoxFamilyName, 10);
-                e.Handled = true;
-            }
-            else
-            {
-                return;
-            }
+            LockAddCharToTextBox(textBoxFamilyName, 50, e);
         }
 
         private void numericUpDownCountDays_ValueChanged(object sender, EventArgs e)
@@ -153,8 +140,93 @@ namespace WindowsFormsApp1
                     {
                         while (reader.Read())
                         {
-
                             textBoxResultCost.Text = (Convert.ToInt32(numericUpDownCountDays.Value) * Convert.ToInt32(reader["cost"].ToString())).ToString() + " руб.";
+                        }
+                    }
+                    npgSqlConnection.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void LockAddCharToTextBox(TextBox textBox, uint length, KeyPressEventArgs e)
+        {
+            if (textBox.TextLength > length - 1)
+                e.Handled = true;
+            else return;
+        }
+
+        private void textBoxName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LockAddCharToTextBox(textBoxName, 50, e);
+        }
+
+        private void textBoxPatronymic_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LockAddCharToTextBox(textBoxPatronymic, 50, e);
+        }
+
+        private void textBoxPassportData_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LockAddCharToTextBox(textBoxPassportData, 25, e);
+        }
+
+        private void textBoxDriversLicense_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LockAddCharToTextBox(textBoxDriversLicense, 25, e);
+        }
+
+        private void textBoxNumberPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LockAddCharToTextBox(textBoxNumberPhone, 25, e);
+        }
+
+        private void buttonAddOrder_Click(object sender, EventArgs e)
+        {
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    npgSqlConnection.Open();
+                    String strSQL = $"INSERT INTO client(login, password, familyname, name, patronymic, passportdata, driverslicense, numberofphone, idbonussystem, blocked) " +
+                        $"VALUES ('{textBoxFamilyName.Text}', " +
+                        $"'{textBoxDriversLicense.Text}', " +
+                        $"'{textBoxFamilyName.Text}', " +
+                        $"'{textBoxName.Text}', " +
+                        $"'{textBoxPatronymic.Text}', " +
+                        $"'{textBoxPassportData.Text}', " +
+                        $"'{textBoxDriversLicense.Text}', " +
+                        $"'{textBoxNumberPhone.Text}', 1, false)";
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        npgSqlConnection.Close();
+                        npgSqlConnection.Open();
+                        strSQL = $"SELECT idcar, idclient from car, client WHERE car.name = '{comboBoxCars.SelectedItem}' and client.driverslicense = '{textBoxDriversLicense.Text}'";
+                        cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        String[] mass = new String[2];
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                mass[0] = reader[0].ToString();
+                                mass[1] = reader[1].ToString();
+                            }
+                        }
+
+                        strSQL = $"INSERT INTO rent(cost, dateofissue, idcar, idclient, countdaysrent) " +
+                        $"VALUES ('{int.Parse(textBoxResultCost.Text)}', " +
+                        $"'{DateTime.Now}', " +
+                        $"'{mass[0]}', " +
+                        $"'{mass[1]}', " +
+                        $"'{numericUpDownCountDays.Value})'";
+                        cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show("Супер добавлен!");
                         }
                     }
                     npgSqlConnection.Close();
