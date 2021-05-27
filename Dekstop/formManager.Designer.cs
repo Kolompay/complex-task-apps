@@ -47,6 +47,10 @@ namespace WindowsFormsApp1
             this.buttonUpdateClient = new System.Windows.Forms.Button();
             this.tabPageOrders = new System.Windows.Forms.TabPage();
             this.dataGridViewRentCar = new System.Windows.Forms.DataGridView();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonComplateOrder = new System.Windows.Forms.Button();
             this.buttonEditRentCar = new System.Windows.Forms.Button();
             this.buttonUpdateRentCar = new System.Windows.Forms.Button();
@@ -102,10 +106,6 @@ namespace WindowsFormsApp1
             this.textBoxCoef = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -207,6 +207,7 @@ namespace WindowsFormsApp1
             // 
             // buttonDeleteClient
             // 
+            this.buttonDeleteClient.Enabled = false;
             this.buttonDeleteClient.Location = new System.Drawing.Point(404, 487);
             this.buttonDeleteClient.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteClient.Name = "buttonDeleteClient";
@@ -218,6 +219,7 @@ namespace WindowsFormsApp1
             // 
             // buttonEditClient
             // 
+            this.buttonEditClient.Enabled = false;
             this.buttonEditClient.Location = new System.Drawing.Point(404, 445);
             this.buttonEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEditClient.Name = "buttonEditClient";
@@ -271,8 +273,34 @@ namespace WindowsFormsApp1
             this.dataGridViewRentCar.TabIndex = 10;
             this.dataGridViewRentCar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRentCar_CellClick);
             // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "idrentcar";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Стоимость(руб.)";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Дата заказа";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Количество дней аренды";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
             // buttonComplateOrder
             // 
+            this.buttonComplateOrder.Enabled = false;
             this.buttonComplateOrder.Location = new System.Drawing.Point(404, 482);
             this.buttonComplateOrder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonComplateOrder.Name = "buttonComplateOrder";
@@ -284,6 +312,7 @@ namespace WindowsFormsApp1
             // 
             // buttonEditRentCar
             // 
+            this.buttonEditRentCar.Enabled = false;
             this.buttonEditRentCar.Location = new System.Drawing.Point(404, 441);
             this.buttonEditRentCar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEditRentCar.Name = "buttonEditRentCar";
@@ -815,7 +844,6 @@ namespace WindowsFormsApp1
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(962, 568);
             this.tabControlMain.TabIndex = 1;
-            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -891,31 +919,6 @@ namespace WindowsFormsApp1
             this.dataGridView4.RowTemplate.Height = 24;
             this.dataGridView4.Size = new System.Drawing.Size(932, 386);
             this.dataGridView4.TabIndex = 0;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "idrentcar";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Стоимость(руб.)";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Дата заказа";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Количество дней аренды";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
             // 
             // formManager
             // 
