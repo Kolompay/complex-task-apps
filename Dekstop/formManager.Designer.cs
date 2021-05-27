@@ -102,6 +102,10 @@ namespace WindowsFormsApp1
             this.textBoxCoef = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -210,6 +214,7 @@ namespace WindowsFormsApp1
             this.buttonDeleteClient.TabIndex = 12;
             this.buttonDeleteClient.Text = "Заблокировать клиента";
             this.buttonDeleteClient.UseVisualStyleBackColor = true;
+            this.buttonDeleteClient.Click += new System.EventHandler(this.buttonDeleteClient_Click);
             // 
             // buttonEditClient
             // 
@@ -252,12 +257,19 @@ namespace WindowsFormsApp1
             // 
             this.dataGridViewRentCar.AllowUserToAddRows = false;
             this.dataGridViewRentCar.AllowUserToDeleteRows = false;
+            this.dataGridViewRentCar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewRentCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRentCar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15});
             this.dataGridViewRentCar.Location = new System.Drawing.Point(10, 8);
             this.dataGridViewRentCar.Name = "dataGridViewRentCar";
             this.dataGridViewRentCar.ReadOnly = true;
             this.dataGridViewRentCar.Size = new System.Drawing.Size(933, 426);
             this.dataGridViewRentCar.TabIndex = 10;
+            this.dataGridViewRentCar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRentCar_CellClick);
             // 
             // buttonComplateOrder
             // 
@@ -268,6 +280,7 @@ namespace WindowsFormsApp1
             this.buttonComplateOrder.TabIndex = 9;
             this.buttonComplateOrder.Text = "Завершить заказ";
             this.buttonComplateOrder.UseVisualStyleBackColor = true;
+            this.buttonComplateOrder.Click += new System.EventHandler(this.buttonComplateOrder_Click);
             // 
             // buttonEditRentCar
             // 
@@ -278,6 +291,7 @@ namespace WindowsFormsApp1
             this.buttonEditRentCar.TabIndex = 8;
             this.buttonEditRentCar.Text = "Изменить данные заказа";
             this.buttonEditRentCar.UseVisualStyleBackColor = true;
+            this.buttonEditRentCar.Click += new System.EventHandler(this.buttonEditRentCar_Click);
             // 
             // buttonUpdateRentCar
             // 
@@ -288,6 +302,7 @@ namespace WindowsFormsApp1
             this.buttonUpdateRentCar.TabIndex = 7;
             this.buttonUpdateRentCar.Text = "Обновить данные";
             this.buttonUpdateRentCar.UseVisualStyleBackColor = true;
+            this.buttonUpdateRentCar.Click += new System.EventHandler(this.buttonUpdateRentCar_Click);
             // 
             // tabPageAutopark
             // 
@@ -877,6 +892,31 @@ namespace WindowsFormsApp1
             this.dataGridView4.Size = new System.Drawing.Size(932, 386);
             this.dataGridView4.TabIndex = 0;
             // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "idrentcar";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Стоимость(руб.)";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Дата заказа";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Количество дней аренды";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
             // formManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -986,5 +1026,9 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
     }
 }

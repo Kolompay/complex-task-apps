@@ -8,19 +8,19 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class formEditClient : Form
+    public partial class formEditRentCar : Form
     {
         String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
-        private string nameForUpdateClient;
-        private int rowIndexClient;
-        private DataGridView dataGridViewClient;
+        private string idForUpdateRentCar;
+        private int rowIndexRentCar;
+        private DataGridView dataGridViewRentCar;
 
-        public formEditClient(string nameForUpdateClient, int rowIndexClient, DataGridView dataGridViewClient)
+        public formEditRentCar(string idForUpdateRentCar, int rowIndexRentCar, DataGridView dataGridViewRentCar)
         {
             InitializeComponent();
-            this.nameForUpdateClient = nameForUpdateClient;
-            this.rowIndexClient = rowIndexClient;
-            this.dataGridViewClient = dataGridViewClient;
+            this.idForUpdateRentCar = idForUpdateRentCar;
+            this.rowIndexRentCar = rowIndexRentCar;
+            this.dataGridViewRentCar = dataGridViewRentCar;
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
-                        DataGridViewAddCells(dataGridView, reader, new String[] { "idclient", "familyname", "name", "patronymic", "passportdata", "driverslicense", "numberofphone" });
+                        DataGridViewAddCells(dataGridView, reader, new String[] { "idrentcar", "cost", "dateofissue", "countdaysrent" });
                     }
                     npgSqlConnection.Close();
                 }
@@ -77,14 +77,14 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    string name = nameForUpdateClient;
+                    string idrentcar = idForUpdateRentCar;
                     npgSqlConnection.Open();
-                    String strSQL = $"UPDATE client SET passportdata='{textBoxPassportData.Text}', driverslicense='{textBoxDriversLicense.Text}', numberofphone='{textBoxNumberofphone.Text}' WHERE familyname='{name}'";
+                    String strSQL = $"UPDATE rentcar SET cost='{textBoxCost.Text}', dateofissue='{dateTimePickerDateOfIssue.Text}', countdaysrent='{numericUpDownCountDaysRent.Text}' WHERE idrentcar='{idrentcar}'";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        String str = "SELECT * FROM client ORDER BY idclient";
-                        DataGridView dataGrid = dataGridViewClient;
+                        String str = "SELECT * FROM rentcar ORDER BY idratecar";
+                        DataGridView dataGrid = dataGridViewRentCar;
                         LoadData(str, dataGrid);
                         Close();
                         MessageBox.Show("Данные успешно обновлены!");
@@ -98,11 +98,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void formEditClient_Load(object sender, EventArgs e)
+        private void formEditRentCar_Load(object sender, EventArgs e)
         {
-            textBoxPassportData.Text = (string)dataGridViewClient.Rows[rowIndexClient].Cells[4].Value;
-            textBoxDriversLicense.Text = (string)dataGridViewClient.Rows[rowIndexClient].Cells[5].Value;
-            textBoxNumberofphone.Text = (string)dataGridViewClient.Rows[rowIndexClient].Cells[6].Value;
+            textBoxCost.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[1].Value;
+            dateTimePickerDateOfIssue.Value = (DateTime)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[2].Value;
+            numericUpDownCountDaysRent.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[3].Value;
         }
     }
 }

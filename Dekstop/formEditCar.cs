@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
         private string nameForUpdate;
         private DataGridView dataGridViewListCars;
         private ComboBox comboBoxListCarsFirst;
-        String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+        String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
         private int rowIndex;
 
         public formEditCar(string nameForUpdate, int rowIndex, DataGridView dataGridViewListCars, ComboBox comboBoxListCarsFirst)

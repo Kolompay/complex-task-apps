@@ -9,12 +9,17 @@ namespace WindowsFormsApp1
     public partial class formManager : Form
     {
         String attribut;
-        String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
+        String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
         public static String nameForUpdate = String.Empty;
         public static String nameForOrder = String.Empty;
         public static int rowIndex;
         public static String nameForUpdateClient = String.Empty;
+        public static String familynameForOutput = String.Empty;
+        public static String nameForOutput = String.Empty;
+        public static String patronymicForOutput = String.Empty;
         public static int rowIndexClient;
+        public static int rowIndexRentCar;
+        public static String idForUpdateRentCar = String.Empty;
         public formManager()
         {
             InitializeComponent();
@@ -27,6 +32,7 @@ namespace WindowsFormsApp1
             comboBoxAvailableCarsSecond.Visible = false;
             buttonAddOrder.Enabled = false;
             dataGridViewListCarsNotInRent.EnableHeadersVisualStyles = false;
+            buttonUpdateListNotInRent_Click(buttonUpdateListNotInRent, null);
 
 
             // Для вкладки "Автомобили в прокате"
@@ -135,6 +141,26 @@ namespace WindowsFormsApp1
                 }
             }
         }
+        private void DataLoad(String strSQL, DataGridView dataGridView)
+        {
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    npgSqlConnection.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        DataGridViewAddCells(dataGridView, reader, new String[] { "idrentcar", "cost", "dateofissue", "countdaysrent" });
+                    }
+                    npgSqlConnection.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
 
 
         // Для вкладки "Доступные автомобили"
@@ -226,7 +252,7 @@ namespace WindowsFormsApp1
 
         private void buttonUpdateListNotInRent_Click(object sender, EventArgs e)
         {
-            LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxListCarsFirst);
+            LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
             dataGridViewListCarsNotInRent.ClearSelection();
         }
 
@@ -579,10 +605,91 @@ namespace WindowsFormsApp1
         private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndexClient = e.RowIndex;
-            var name = dataGridViewClient.Rows[e.RowIndex].Cells[1].Value;
-            nameForUpdateClient = Convert.ToString(name);
-
+            var passportdata = dataGridViewClient.Rows[e.RowIndex].Cells[4].Value;
+            nameForUpdateClient = Convert.ToString(passportdata);
+            var familyname = dataGridViewClient.Rows[e.RowIndex].Cells[1].Value;
+            var name = dataGridViewClient.Rows[e.RowIndex].Cells[2].Value;
+            var patronymic = dataGridViewClient.Rows[e.RowIndex].Cells[3].Value;
+            familynameForOutput = Convert.ToString(familyname);
+            nameForOutput = Convert.ToString(name);
+            patronymicForOutput = Convert.ToString(patronymic);
             buttonEditClient.Enabled = true;
+        }
+
+        private void buttonDeleteClient_Click(object sender, EventArgs e)
+        {
+            if (rowIndexClient != -1)
+            {
+                using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+                {
+                    try
+                    {
+                        string passportdata = nameForUpdateClient;
+                        npgSqlConnection.Open();
+                        String strSQL = $"UPDATE client SET blocked = true WHERE passportdata = '{passportdata}'";
+                        NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            String str = "SELECT * FROM client WHERE blocked = false ORDER BY idclient";
+                            DataGridView dataGrid = dataGridViewClient;
+                            LoadData(str, dataGrid);
+                            MessageBox.Show($"Клиент {familynameForOutput} {nameForOutput} {patronymicForOutput} заблокирован!");
+                        }
+                        npgSqlConnection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void buttonUpdateRentCar_Click(object sender, EventArgs e)
+        {
+            DataLoad("SELECT * FROM rentcar", dataGridViewRentCar);
+        }
+
+        private void buttonComplateOrder_Click(object sender, EventArgs e)
+        {
+            if (rowIndexClient != -1)
+            {
+                using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+                {
+                    try
+                    {
+                        string idrentcar = idForUpdateRentCar;
+                        npgSqlConnection.Open();
+                        String strSQL = $"UPDATE rentcar SET deleted = true WHERE idrentcar = '{idrentcar}'";
+                        NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            String str = "SELECT * FROM rentcar WHERE deleted = false ORDER BY idrentcar";
+                            DataGridView dataGrid = dataGridViewRentCar;
+                            DataLoad(str, dataGrid);
+                            MessageBox.Show($"Заказ завершён!");
+                        }
+                        npgSqlConnection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void dataGridViewRentCar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndexRentCar = e.RowIndex;
+            var idrentcar = dataGridViewRentCar.Rows[e.RowIndex].Cells[0].Value;
+            idForUpdateRentCar = Convert.ToString(idrentcar);
+        }
+
+        private void buttonEditRentCar_Click(object sender, EventArgs e)
+        {
+            formEditRentCar formEditRentCar = new formEditRentCar(idForUpdateRentCar, rowIndexRentCar, dataGridViewRentCar);
+            formEditRentCar.Show();
         }
     }
 }
