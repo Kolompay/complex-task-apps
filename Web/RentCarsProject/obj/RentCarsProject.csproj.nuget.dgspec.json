@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {}
+    "E:\\Курсовая работа\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {}
   },
   "projects": {
-    "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {
+    "E:\\Курсовая работа\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+        "projectUniqueName": "E:\\Курсовая работа\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
         "projectName": "RentCarsProject",
-        "projectPath": "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
-        "packagesPath": "C:\\Users\\shiha\\.nuget\\packages\\",
-        "outputPath": "E:\\Документы, файлы\\ВятГУ. 4 семестр\\Комплексное задание\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
+        "projectPath": "E:\\Курсовая работа\\complex-task-apps\\Web\\RentCarsProject\\RentCarsProject.csproj",
+        "packagesPath": "C:\\Users\\new\\.nuget\\packages\\",
+        "outputPath": "E:\\Курсовая работа\\complex-task-apps\\Web\\RentCarsProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\shiha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\new\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
