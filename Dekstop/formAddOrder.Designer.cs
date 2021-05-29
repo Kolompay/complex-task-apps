@@ -195,6 +195,7 @@ namespace WindowsFormsApp1
             // 
             this.textBoxFamilyName.Location = new System.Drawing.Point(176, 47);
             this.textBoxFamilyName.Name = "textBoxFamilyName";
+            this.textBoxFamilyName.ShortcutsEnabled = false;
             this.textBoxFamilyName.Size = new System.Drawing.Size(238, 22);
             this.textBoxFamilyName.TabIndex = 14;
             this.textBoxFamilyName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFamilyName_KeyPress);
@@ -203,6 +204,7 @@ namespace WindowsFormsApp1
             // 
             this.textBoxName.Location = new System.Drawing.Point(176, 81);
             this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ShortcutsEnabled = false;
             this.textBoxName.Size = new System.Drawing.Size(238, 22);
             this.textBoxName.TabIndex = 15;
             this.textBoxName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxName_KeyPress);
@@ -211,6 +213,7 @@ namespace WindowsFormsApp1
             // 
             this.textBoxPatronymic.Location = new System.Drawing.Point(176, 118);
             this.textBoxPatronymic.Name = "textBoxPatronymic";
+            this.textBoxPatronymic.ShortcutsEnabled = false;
             this.textBoxPatronymic.Size = new System.Drawing.Size(238, 22);
             this.textBoxPatronymic.TabIndex = 16;
             this.textBoxPatronymic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPatronymic_KeyPress);
@@ -219,6 +222,7 @@ namespace WindowsFormsApp1
             // 
             this.textBoxPassportData.Location = new System.Drawing.Point(176, 156);
             this.textBoxPassportData.Name = "textBoxPassportData";
+            this.textBoxPassportData.ShortcutsEnabled = false;
             this.textBoxPassportData.Size = new System.Drawing.Size(238, 22);
             this.textBoxPassportData.TabIndex = 17;
             this.textBoxPassportData.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPassportData_KeyPress);
@@ -227,6 +231,7 @@ namespace WindowsFormsApp1
             // 
             this.textBoxDriversLicense.Location = new System.Drawing.Point(176, 194);
             this.textBoxDriversLicense.Name = "textBoxDriversLicense";
+            this.textBoxDriversLicense.ShortcutsEnabled = false;
             this.textBoxDriversLicense.Size = new System.Drawing.Size(238, 22);
             this.textBoxDriversLicense.TabIndex = 18;
             this.textBoxDriversLicense.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDriversLicense_KeyPress);
@@ -235,6 +240,7 @@ namespace WindowsFormsApp1
             // 
             this.textBoxNumberPhone.Location = new System.Drawing.Point(176, 232);
             this.textBoxNumberPhone.Name = "textBoxNumberPhone";
+            this.textBoxNumberPhone.ShortcutsEnabled = false;
             this.textBoxNumberPhone.Size = new System.Drawing.Size(238, 22);
             this.textBoxNumberPhone.TabIndex = 19;
             this.textBoxNumberPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumberPhone_KeyPress);

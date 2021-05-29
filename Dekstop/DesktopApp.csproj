@@ -107,12 +107,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="formAddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +118,18 @@
     </Compile>
     <Compile Include="formEditCar.Designer.cs">
       <DependentUpon>formEditCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditClient.Designer.cs">
+      <DependentUpon>formEditClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formEditRentCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEditRentCar.Designer.cs">
+      <DependentUpon>formEditRentCar.cs</DependentUpon>
     </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
@@ -139,14 +145,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formAddOrder.resx">
       <DependentUpon>formAddOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formEditCar.resx">
       <DependentUpon>formEditCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEditClient.resx">
+      <DependentUpon>formEditClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEditRentCar.resx">
+      <DependentUpon>formEditRentCar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>

@@ -191,7 +191,19 @@ namespace WindowsFormsApp1
                 try
                 {
                     npgSqlConnection.Open();
-                    String strSQL = $"INSERT INTO client(login, password, familyname, name, patronymic, passportdata, driverslicense, numberofphone, idbonussystem, blocked) " +
+                    String strSQL = $"SELECT passportdata, driverslicense from client where blocked = false AND passportdata = '{textBoxPassportData.Text}'";
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    using (NpgsqlDataReader npgsqlDataReader = cmd.ExecuteReader())
+                    {
+                        while (npgsqlDataReader.Read())
+                        {
+                            textBoxDriversLicense.Text = npgsqlDataReader[1].ToString();
+                        }
+                    }
+                    
+                    if (cmd.ExecuteReader().HasRows == false)
+                    {
+                        strSQL = $"INSERT INTO client(login, password, familyname, name, patronymic, passportdata, driverslicense, numberofphone, idbonussystem, blocked) " +
                         $"VALUES ('{textBoxFamilyName.Text}', " +
                         $"'{textBoxDriversLicense.Text}', " +
                         $"'{textBoxFamilyName.Text}', " +
@@ -200,8 +212,42 @@ namespace WindowsFormsApp1
                         $"'{textBoxPassportData.Text}', " +
                         $"'{textBoxDriversLicense.Text}', " +
                         $"'{textBoxNumberPhone.Text}', 1, false)";
-                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
-                    if (cmd.ExecuteNonQuery() == 1)
+                        cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            npgSqlConnection.Close();
+                            npgSqlConnection.Open();
+                            strSQL = $"SELECT idcar, idclient from car, client WHERE car.name = '{comboBoxCars.SelectedItem}' and client.driverslicense = '{textBoxDriversLicense.Text}'";
+                            cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                            String[] mass = new String[2];
+                            using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    mass[0] = reader[0].ToString();
+                                    mass[1] = reader[1].ToString();
+                                }
+                            }
+
+                            strSQL = $"INSERT INTO rentcar(cost, dateofissue, idcar, idclient, countdaysrent, deleted) " +
+                            $"VALUES ('{textBoxResultCost.Text}', " +
+                            $"'{DateTime.Now.ToShortDateString()}', " +
+                            $"'{mass[0]}', " +
+                            $"'{mass[1]}', " +
+                            $"'{numericUpDownCountDays.Value}', false)";
+                            cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                            if (cmd.ExecuteNonQuery() == 1)
+                            {
+                                MessageBox.Show($"Заказ аренды автомобиля {comboBoxCars.SelectedItem} оформлен!", "Информация");
+                            }
+                            strSQL = $"UPDATE car SET rented = true WHERE idcar = '{mass[0]}'";
+
+                            cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                            cmd.ExecuteNonQuery();
+                            Close();
+                        }
+                    }
+                    else
                     {
                         npgSqlConnection.Close();
                         npgSqlConnection.Open();
@@ -219,7 +265,7 @@ namespace WindowsFormsApp1
 
                         strSQL = $"INSERT INTO rentcar(cost, dateofissue, idcar, idclient, countdaysrent, deleted) " +
                         $"VALUES ('{textBoxResultCost.Text}', " +
-                        $"'{DateTime.Now}', " +
+                        $"'{DateTime.Now.ToShortDateString()}', " +
                         $"'{mass[0]}', " +
                         $"'{mass[1]}', " +
                         $"'{numericUpDownCountDays.Value}', false)";
@@ -231,8 +277,7 @@ namespace WindowsFormsApp1
                         strSQL = $"UPDATE car SET rented = true WHERE idcar = '{mass[0]}'";
 
                         cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
-                        cmd.ExecuteNonQuery();                        
-                        Close();
+                        cmd.ExecuteNonQuery();
                     }
                     npgSqlConnection.Close();
                 }

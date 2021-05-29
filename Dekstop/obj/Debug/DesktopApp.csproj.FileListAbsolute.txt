@@ -31,7 +31,6 @@ D:\ВятГУ. 4 семестр\Комплексное задание\complex-ta
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\bin\Debug\System.Threading.Channels.xml
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\bin\Debug\System.ValueTuple.xml
-D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.Form1.resources
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formLogin.resources
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formManager.resources
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
@@ -43,3 +42,5 @@ D:\ВятГУ. 4 семестр\Комплексное задание\complex-ta
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formEditCar.resources
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formAddOrder.resources
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\DesktopApp.csproj.AssemblyReference.cache
+D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formEditClient.resources
+D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formEditRentCar.resources
