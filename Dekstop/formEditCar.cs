@@ -13,16 +13,18 @@ namespace WindowsFormsApp1
         private string nameForUpdate;
         private DataGridView dataGridViewListCars;
         private ComboBox comboBoxListCarsFirst;
+        private Label labelInfo;
         String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
         private int rowIndex;
 
-        public formEditCar(string nameForUpdate, int rowIndex, DataGridView dataGridViewListCars, ComboBox comboBoxListCarsFirst)
+        public formEditCar(string nameForUpdate, int rowIndex, DataGridView dataGridViewListCars, ComboBox comboBoxListCarsFirst, Label labelInfo)
         {
             InitializeComponent();
             this.nameForUpdate = nameForUpdate;
             this.rowIndex = rowIndex;
             this.dataGridViewListCars = dataGridViewListCars;
             this.comboBoxListCarsFirst = comboBoxListCarsFirst;
+            this.labelInfo = labelInfo;
             comboBoxColor.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxTransmission.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -45,9 +47,6 @@ namespace WindowsFormsApp1
                     comboBoxTransmission.DataSource = ds.Tables["car"];
                     comboBoxTransmission.DisplayMember = "transmission";
                     comboBoxTransmission.ValueMember = "transmission";
-                    //object[] items = comboBoxTransmission.Items.OfType<String>().Distinct().ToArray();
-                    //comboBoxTransmission.Items.Clear();
-                    //comboBoxTransmission.Items.AddRange(items);
                     npgSqlConnection.Close();
                 }
                 catch (Exception ex)
@@ -60,7 +59,7 @@ namespace WindowsFormsApp1
         /// <summary>
         /// Заполнение DataGridView данными
         /// </summary>
-        private void DataGridViewAddCells(DataGridView dataGridView, NpgsqlDataReader reader, String[] parameters)
+        private void DataGridViewAddCells(DataGridView dataGridView, NpgsqlDataReader reader, String[] parameters, Label labelInfo)
         {
             int rowNum = 0;
             if (dataGridView.RowCount != 0)
@@ -72,14 +71,19 @@ namespace WindowsFormsApp1
                 {
                     dataGridView.Rows[rowNum].Cells[i].Value = reader[parameters[i]].ToString();
                 }
+                if (labelInfo != null)
+                {
+                    labelInfo.Text = "Количество машин в таблице: " + dataGridView.Rows.Count.ToString();
+                }
                 rowNum++;
             }
+            dataGridView.ClearSelection();
         }
 
         /// <summary>
         /// Загрузка данных
         /// </summary>
-        private void LoadData(String strSQL, DataGridView dataGridView, ComboBox comboBoxFirst)
+        private void LoadData(String strSQL, DataGridView dataGridView, ComboBox comboBoxFirst, Label labelInfo)
         {
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
@@ -89,8 +93,9 @@ namespace WindowsFormsApp1
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
-                        DataGridViewAddCells(dataGridView, reader, new String[] { "name", "brand", "classcar", "transmission", "color" });
+                        DataGridViewAddCells(dataGridView, reader, new String[] { "name", "brand", "classcar", "transmission", "color" }, labelInfo);
                     }
+
                     if (comboBoxFirst.Items.Count == 0)
                     {
                         for (int i = 0; i < dataGridView.Columns.Count; i++)
@@ -127,7 +132,7 @@ namespace WindowsFormsApp1
                         String str = "SELECT * FROM car WHERE deleted = false ORDER BY idcar";
                         DataGridView dataGrid = dataGridViewListCars;
                         ComboBox comboBox = comboBoxListCarsFirst;
-                        LoadData(str, dataGrid, comboBox);
+                        LoadData(str, dataGrid, comboBox, labelInfo);
                         Close();
                         MessageBox.Show("Данные успешно обновлены!");
                     }
@@ -199,6 +204,12 @@ namespace WindowsFormsApp1
                 g.FillRectangle(b, rect.X, rect.Y, 20, 20);
             }
 
+        }
+
+        private void formEditCar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formManager form = (formManager)Application.OpenForms[0];
+            form.Show();
         }
     }
 }

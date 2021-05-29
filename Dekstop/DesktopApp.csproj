@@ -107,6 +107,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="formAddCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAddCar.Designer.cs">
+      <DependentUpon>formAddCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formAddCar.resx">
+      <DependentUpon>formAddCar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formAddOrder.resx">
       <DependentUpon>formAddOrder.cs</DependentUpon>
     </EmbeddedResource>

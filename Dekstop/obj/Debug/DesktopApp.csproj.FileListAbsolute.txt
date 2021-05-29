@@ -44,3 +44,4 @@ D:\ВятГУ. 4 семестр\Комплексное задание\complex-ta
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\DesktopApp.csproj.AssemblyReference.cache
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formEditClient.resources
 D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formEditRentCar.resources
+D:\ВятГУ. 4 семестр\Комплексное задание\complex-task-apps\Dekstop\obj\Debug\WindowsFormsApp1.formAddCar.resources
