@@ -10,15 +10,17 @@ namespace WindowsFormsApp1
         private int rowIndex;
         private DataGridView dataGridViewListCarsNotInRent;
         private ComboBox comboBoxAvailableCarsFirst;
+        private Label labelInfo;
         String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
 
-        public formAddOrder(string nameForOrder, int rowIndex, DataGridView dataGridViewListCarsNotInRent, ComboBox comboBoxAvailableCarsFirst)
+        public formAddOrder(string nameForOrder, int rowIndex, DataGridView dataGridViewListCarsNotInRent, ComboBox comboBoxAvailableCarsFirst, Label labelInfo)
         {
             InitializeComponent();
             this.nameForOrder = nameForOrder;
             this.rowIndex = rowIndex;
             this.dataGridViewListCarsNotInRent = dataGridViewListCarsNotInRent;
             this.comboBoxAvailableCarsFirst = comboBoxAvailableCarsFirst;
+            this.labelInfo = labelInfo;
             comboBoxCars.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRates.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -60,6 +62,62 @@ namespace WindowsFormsApp1
 
         }
 
+        /// <summary>
+        /// Заполнение DataGridView данными
+        /// </summary>
+        private void DataGridViewAddCells(DataGridView dataGridView, NpgsqlDataReader reader, String[] parameters, Label labelInfo)
+        {
+            int rowNum = 0;
+            if (dataGridView.RowCount != 0)
+                dataGridView.RowCount = 0;
+            while (reader.Read())
+            {
+                dataGridView.RowCount++;
+                for (int i = 0; i < parameters.Length; i++)
+                {
+                    dataGridView.Rows[rowNum].Cells[i].Value = reader[parameters[i]].ToString();
+                }
+                if (labelInfo != null)
+                {
+                    labelInfo.Text = "Количество машин в таблице: " + dataGridView.Rows.Count.ToString();
+                }
+                rowNum++;
+            }
+            dataGridView.ClearSelection();
+        }
+
+        /// <summary>
+        /// Загрузка данных
+        /// </summary>
+        private void LoadData(String strSQL, DataGridView dataGridView, ComboBox comboBoxFirst, Label labelInfo)
+        {
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    npgSqlConnection.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        DataGridViewAddCells(dataGridView, reader, new String[] { "name", "brand", "classcar", "transmission", "color" }, labelInfo);
+                    }
+
+                    if (comboBoxFirst.Items.Count == 0)
+                    {
+                        for (int i = 0; i < dataGridView.Columns.Count; i++)
+                        {
+                            comboBoxFirst.Items.Add(dataGridView.Columns[i].HeaderText);
+                        }
+                    }
+                    npgSqlConnection.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
@@ -80,7 +138,7 @@ namespace WindowsFormsApp1
         private void formAddOrder_FormClosed(object sender, FormClosedEventArgs e)
         {
             formManager form = (formManager)Application.OpenForms[0];
-            form.Show();
+            form.Show();            
         }
 
         private void formAddOrder_Load(object sender, EventArgs e)
@@ -203,6 +261,8 @@ namespace WindowsFormsApp1
                     
                     if (cmd.ExecuteReader().HasRows == false)
                     {
+                        npgSqlConnection.Close();
+                        npgSqlConnection.Open();
                         strSQL = $"INSERT INTO client(login, password, familyname, name, patronymic, passportdata, driverslicense, numberofphone, idbonussystem, blocked) " +
                         $"VALUES ('{textBoxFamilyName.Text}', " +
                         $"'{textBoxDriversLicense.Text}', " +
@@ -231,7 +291,7 @@ namespace WindowsFormsApp1
 
                             strSQL = $"INSERT INTO rentcar(cost, dateofissue, idcar, idclient, countdaysrent, deleted) " +
                             $"VALUES ('{textBoxResultCost.Text}', " +
-                            $"'{DateTime.Now.ToShortDateString()}', " +
+                            $"'{DateTime.Now}', " +
                             $"'{mass[0]}', " +
                             $"'{mass[1]}', " +
                             $"'{numericUpDownCountDays.Value}', false)";
@@ -279,6 +339,7 @@ namespace WindowsFormsApp1
                         cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                         cmd.ExecuteNonQuery();
                     }
+                    LoadData("select * from car where rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst, labelInfo);
                     npgSqlConnection.Close();
                 }
                 catch (NpgsqlException ex)

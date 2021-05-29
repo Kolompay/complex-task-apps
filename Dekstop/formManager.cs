@@ -437,8 +437,9 @@ namespace WindowsFormsApp1
 
         private void buttonListCarsEdit_Click(object sender, EventArgs e)
         {
-            formEditCar formEditCar = new formEditCar(nameForUpdate, rowIndex, dataGridViewListCars, comboBoxListCarsFirst);
+            formEditCar formEditCar = new formEditCar(nameForUpdate, rowIndex, dataGridViewListCars, comboBoxListCarsFirst, labelListCarsInfo);
             formEditCar.Show();
+            Hide();
         }
 
         private void dataGridViewListCars_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -467,7 +468,7 @@ namespace WindowsFormsApp1
                             String str = "SELECT * FROM car WHERE deleted = false ORDER BY idcar";
                             DataGridView dataGrid = dataGridViewListCars;
                             ComboBox comboBox = comboBoxListCarsFirst;
-                            LoadData(str, dataGrid, comboBox, null);
+                            LoadData(str, dataGrid, comboBox, labelListCarsInfo);
                             MessageBox.Show($"Автомобиль {name} удалён!");
                         }
                         npgSqlConnection.Close();
@@ -500,7 +501,7 @@ namespace WindowsFormsApp1
 
         private void buttonAddOrder_Click(object sender, EventArgs e)
         {
-            formAddOrder formAddOrder = new formAddOrder(nameForOrder, rowIndex, dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst);
+            formAddOrder formAddOrder = new formAddOrder(nameForOrder, rowIndex, dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst, labelAvailableListCars);
             formAddOrder.Show();
             this.Hide();
         }
@@ -631,7 +632,12 @@ namespace WindowsFormsApp1
                             DataGridView dataGrid = dataGridViewRentCar;
                             String[] column = new String[] { "idrentcar", "familyname", "name", "cost", "dateofissue", "countdaysrent" };
                             DataLoad(str, dataGrid, column, null);
-                            MessageBox.Show($"Заказ завершён!");
+                            npgSqlConnection.Close();
+                            npgSqlConnection.Open();
+                            strSQL = $"UPDATE car SET rented = false WHERE idcar IN (select idcar from rentcar where idrentcar = '{idrentcar}')";
+                            cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                            if (cmd.ExecuteNonQuery() == 1)                            
+                                MessageBox.Show($"Заказ завершён!");
                         }
                         npgSqlConnection.Close();
                     }
@@ -675,6 +681,13 @@ namespace WindowsFormsApp1
         private void tabPageClients_Enter(object sender, EventArgs e)
         {
             buttonUpdateClient_Click(buttonUpdateClient, null);
+        }
+
+        private void buttonListCarsAdd_Click(object sender, EventArgs e)
+        {
+            formAddCar formAddCar = new formAddCar(dataGridViewListCars, comboBoxListCarsFirst, labelListCarsInfo);
+            formAddCar.Show();
+            Hide();
         }
     }
 }
