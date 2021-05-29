@@ -552,5 +552,35 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void buttonEditRentCar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdateRentCar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonComplateOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEditClient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdateClient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDeleteClient_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
