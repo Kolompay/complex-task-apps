@@ -120,7 +120,7 @@ namespace WindowsFormsApp1
 
         private void tabPageCarsNotInRent_Enter(object sender, EventArgs e)
         {
-            LoadData("SELECT * FROM car WHERE rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxListCarsFirst);
+            LoadData("SELECT * FROM car WHERE car.rented = false AND car.deleted = false", dataGridViewListCarsNotInRent, comboBoxListCarsFirst);
             dataGridViewListCarsNotInRent.ClearSelection();
         }
 
@@ -538,7 +538,7 @@ namespace WindowsFormsApp1
 
         private void formManager_Shown(object sender, EventArgs e)
         {
-            buttonUpdateListNotInRent_Click(buttonUpdateListCarsInRent, null);
+            buttonUpdateListNotInRent_Click(buttonUpdateListNotInRent, null);
             dataGridViewListCarsInRent.ClearSelection();
             dataGridViewListCars.ClearSelection();
         }

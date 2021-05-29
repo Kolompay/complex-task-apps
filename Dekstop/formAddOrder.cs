@@ -217,17 +217,22 @@ namespace WindowsFormsApp1
                             }
                         }
 
-                        strSQL = $"INSERT INTO rent(cost, dateofissue, idcar, idclient, countdaysrent) " +
-                        $"VALUES ('{int.Parse(textBoxResultCost.Text)}', " +
+                        strSQL = $"INSERT INTO rentcar(cost, dateofissue, idcar, idclient, countdaysrent, deleted) " +
+                        $"VALUES ('{textBoxResultCost.Text}', " +
                         $"'{DateTime.Now}', " +
                         $"'{mass[0]}', " +
                         $"'{mass[1]}', " +
-                        $"'{numericUpDownCountDays.Value})'";
+                        $"'{numericUpDownCountDays.Value}', false)";
                         cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                         if (cmd.ExecuteNonQuery() == 1)
                         {
-                            MessageBox.Show("Супер добавлен!");
+                            MessageBox.Show($"Заказ аренды автомобиля {comboBoxCars.SelectedItem} оформлен!", "Информация");
                         }
+                        strSQL = $"UPDATE car SET rented = true WHERE idcar = '{mass[0]}'";
+
+                        cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        cmd.ExecuteNonQuery();                        
+                        Close();
                     }
                     npgSqlConnection.Close();
                 }
