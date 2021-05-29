@@ -47,12 +47,19 @@ namespace WindowsFormsApp1
             this.buttonUpdateClient = new System.Windows.Forms.Button();
             this.tabPageOrders = new System.Windows.Forms.TabPage();
             this.dataGridViewRentCar = new System.Windows.Forms.DataGridView();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonComplateOrder = new System.Windows.Forms.Button();
             this.buttonEditRentCar = new System.Windows.Forms.Button();
             this.buttonUpdateRentCar = new System.Windows.Forms.Button();
             this.tabPageAutopark = new System.Windows.Forms.TabPage();
             this.tabControlAutopark = new System.Windows.Forms.TabControl();
             this.tabPageCarsNotInRent = new System.Windows.Forms.TabPage();
+            this.labelAvailableListCars = new System.Windows.Forms.Label();
             this.labelSelectCriterionAvailableCarsSecond = new System.Windows.Forms.Label();
             this.comboBoxAvailableCarsSecond = new System.Windows.Forms.ComboBox();
             this.labelSelectCriterionAvailableCarsFirst = new System.Windows.Forms.Label();
@@ -66,6 +73,7 @@ namespace WindowsFormsApp1
             this.ColumnTransmisson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageCarsInRent = new System.Windows.Forms.TabPage();
+            this.labelListCarsInRent = new System.Windows.Forms.Label();
             this.labelSelectCriterionRentedCarsSecond = new System.Windows.Forms.Label();
             this.comboBoxRentedCarsSecond = new System.Windows.Forms.ComboBox();
             this.labelSelectCriterionRentedCarsFirst = new System.Windows.Forms.Label();
@@ -95,12 +103,6 @@ namespace WindowsFormsApp1
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControlMain = new System.Windows.Forms.TabControl();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnCar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.tabPageOrders.SuspendLayout();
@@ -130,6 +132,7 @@ namespace WindowsFormsApp1
             this.tabPageClients.TabIndex = 2;
             this.tabPageClients.Text = "Клиенты";
             this.tabPageClients.UseVisualStyleBackColor = true;
+            this.tabPageClients.Enter += new System.EventHandler(this.tabPageClients_Enter);
             // 
             // dataGridViewClient
             // 
@@ -220,7 +223,7 @@ namespace WindowsFormsApp1
             // buttonEditClient
             // 
             this.buttonEditClient.Enabled = false;
-            this.buttonEditClient.Location = new System.Drawing.Point(405, 451);
+            this.buttonEditClient.Location = new System.Drawing.Point(405, 450);
             this.buttonEditClient.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEditClient.Name = "buttonEditClient";
             this.buttonEditClient.Size = new System.Drawing.Size(261, 35);
@@ -254,6 +257,7 @@ namespace WindowsFormsApp1
             this.tabPageOrders.TabIndex = 1;
             this.tabPageOrders.Text = "Заказы";
             this.tabPageOrders.UseVisualStyleBackColor = true;
+            this.tabPageOrders.Enter += new System.EventHandler(this.tabPageOrders_Enter);
             // 
             // dataGridViewRentCar
             // 
@@ -268,18 +272,61 @@ namespace WindowsFormsApp1
             this.Column13,
             this.Column14,
             this.Column15});
-            this.dataGridViewRentCar.Location = new System.Drawing.Point(11, 17);
+            this.dataGridViewRentCar.Location = new System.Drawing.Point(9, 14);
             this.dataGridViewRentCar.Name = "dataGridViewRentCar";
             this.dataGridViewRentCar.ReadOnly = true;
             this.dataGridViewRentCar.RowHeadersWidth = 51;
-            this.dataGridViewRentCar.Size = new System.Drawing.Size(933, 426);
+            this.dataGridViewRentCar.Size = new System.Drawing.Size(935, 428);
             this.dataGridViewRentCar.TabIndex = 14;
             this.dataGridViewRentCar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRentCar_CellClick);
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "idrentcar";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // columnClient
+            // 
+            this.columnClient.HeaderText = "Клиент";
+            this.columnClient.MinimumWidth = 6;
+            this.columnClient.Name = "columnClient";
+            this.columnClient.ReadOnly = true;
+            // 
+            // columnCar
+            // 
+            this.columnCar.HeaderText = "Автомобиль";
+            this.columnCar.MinimumWidth = 6;
+            this.columnCar.Name = "columnCar";
+            this.columnCar.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Стоимость(руб.)";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Дата заказа";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Количество дней аренды";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
             // 
             // buttonComplateOrder
             // 
             this.buttonComplateOrder.Enabled = false;
-            this.buttonComplateOrder.Location = new System.Drawing.Point(405, 491);
+            this.buttonComplateOrder.Location = new System.Drawing.Point(405, 493);
             this.buttonComplateOrder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonComplateOrder.Name = "buttonComplateOrder";
             this.buttonComplateOrder.Size = new System.Drawing.Size(261, 35);
@@ -302,7 +349,7 @@ namespace WindowsFormsApp1
             // 
             // buttonUpdateRentCar
             // 
-            this.buttonUpdateRentCar.Location = new System.Drawing.Point(683, 450);
+            this.buttonUpdateRentCar.Location = new System.Drawing.Point(684, 451);
             this.buttonUpdateRentCar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUpdateRentCar.Name = "buttonUpdateRentCar";
             this.buttonUpdateRentCar.Size = new System.Drawing.Size(261, 35);
@@ -339,6 +386,7 @@ namespace WindowsFormsApp1
             // 
             // tabPageCarsNotInRent
             // 
+            this.tabPageCarsNotInRent.Controls.Add(this.labelAvailableListCars);
             this.tabPageCarsNotInRent.Controls.Add(this.labelSelectCriterionAvailableCarsSecond);
             this.tabPageCarsNotInRent.Controls.Add(this.comboBoxAvailableCarsSecond);
             this.tabPageCarsNotInRent.Controls.Add(this.labelSelectCriterionAvailableCarsFirst);
@@ -356,6 +404,14 @@ namespace WindowsFormsApp1
             this.tabPageCarsNotInRent.UseVisualStyleBackColor = true;
             this.tabPageCarsNotInRent.Enter += new System.EventHandler(this.tabPageCarsNotInRent_Enter);
             this.tabPageCarsNotInRent.Leave += new System.EventHandler(this.tabPageCarsNotInRent_Leave);
+            // 
+            // labelAvailableListCars
+            // 
+            this.labelAvailableListCars.AutoSize = true;
+            this.labelAvailableListCars.Location = new System.Drawing.Point(681, 104);
+            this.labelAvailableListCars.Name = "labelAvailableListCars";
+            this.labelAvailableListCars.Size = new System.Drawing.Size(0, 18);
+            this.labelAvailableListCars.TabIndex = 14;
             // 
             // labelSelectCriterionAvailableCarsSecond
             // 
@@ -400,7 +456,7 @@ namespace WindowsFormsApp1
             // 
             // buttonUpdateListNotInRent
             // 
-            this.buttonUpdateListNotInRent.Location = new System.Drawing.Point(682, 67);
+            this.buttonUpdateListNotInRent.Location = new System.Drawing.Point(682, 59);
             this.buttonUpdateListNotInRent.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUpdateListNotInRent.Name = "buttonUpdateListNotInRent";
             this.buttonUpdateListNotInRent.Size = new System.Drawing.Size(260, 35);
@@ -411,7 +467,7 @@ namespace WindowsFormsApp1
             // 
             // buttonAddOrder
             // 
-            this.buttonAddOrder.Location = new System.Drawing.Point(682, 25);
+            this.buttonAddOrder.Location = new System.Drawing.Point(682, 17);
             this.buttonAddOrder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddOrder.Name = "buttonAddOrder";
             this.buttonAddOrder.Size = new System.Drawing.Size(260, 35);
@@ -440,7 +496,7 @@ namespace WindowsFormsApp1
             this.ColumnClassCar,
             this.ColumnTransmisson,
             this.ColumnColor});
-            this.dataGridViewListCarsNotInRent.Location = new System.Drawing.Point(10, 118);
+            this.dataGridViewListCarsNotInRent.Location = new System.Drawing.Point(10, 139);
             this.dataGridViewListCarsNotInRent.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewListCarsNotInRent.Name = "dataGridViewListCarsNotInRent";
             this.dataGridViewListCarsNotInRent.ReadOnly = true;
@@ -458,7 +514,7 @@ namespace WindowsFormsApp1
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SeaShell;
             this.dataGridViewListCarsNotInRent.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewListCarsNotInRent.RowTemplate.Height = 24;
-            this.dataGridViewListCarsNotInRent.Size = new System.Drawing.Size(932, 382);
+            this.dataGridViewListCarsNotInRent.Size = new System.Drawing.Size(932, 366);
             this.dataGridViewListCarsNotInRent.TabIndex = 0;
             this.dataGridViewListCarsNotInRent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCarsNotInRent_CellClick);
             this.dataGridViewListCarsNotInRent.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListCarsNotInRent_CellLeave);
@@ -500,6 +556,7 @@ namespace WindowsFormsApp1
             // 
             // tabPageCarsInRent
             // 
+            this.tabPageCarsInRent.Controls.Add(this.labelListCarsInRent);
             this.tabPageCarsInRent.Controls.Add(this.labelSelectCriterionRentedCarsSecond);
             this.tabPageCarsInRent.Controls.Add(this.comboBoxRentedCarsSecond);
             this.tabPageCarsInRent.Controls.Add(this.labelSelectCriterionRentedCarsFirst);
@@ -518,10 +575,18 @@ namespace WindowsFormsApp1
             this.tabPageCarsInRent.Enter += new System.EventHandler(this.tabPageCarsInRent_Enter);
             this.tabPageCarsInRent.Leave += new System.EventHandler(this.tabPageCarsInRent_Leave);
             // 
+            // labelListCarsInRent
+            // 
+            this.labelListCarsInRent.AutoSize = true;
+            this.labelListCarsInRent.Location = new System.Drawing.Point(682, 105);
+            this.labelListCarsInRent.Name = "labelListCarsInRent";
+            this.labelListCarsInRent.Size = new System.Drawing.Size(0, 18);
+            this.labelListCarsInRent.TabIndex = 13;
+            // 
             // labelSelectCriterionRentedCarsSecond
             // 
             this.labelSelectCriterionRentedCarsSecond.AutoSize = true;
-            this.labelSelectCriterionRentedCarsSecond.Location = new System.Drawing.Point(64, 70);
+            this.labelSelectCriterionRentedCarsSecond.Location = new System.Drawing.Point(64, 67);
             this.labelSelectCriterionRentedCarsSecond.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSelectCriterionRentedCarsSecond.Name = "labelSelectCriterionRentedCarsSecond";
             this.labelSelectCriterionRentedCarsSecond.Size = new System.Drawing.Size(153, 18);
@@ -531,7 +596,7 @@ namespace WindowsFormsApp1
             // comboBoxRentedCarsSecond
             // 
             this.comboBoxRentedCarsSecond.FormattingEnabled = true;
-            this.comboBoxRentedCarsSecond.Location = new System.Drawing.Point(235, 67);
+            this.comboBoxRentedCarsSecond.Location = new System.Drawing.Point(225, 64);
             this.comboBoxRentedCarsSecond.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxRentedCarsSecond.Name = "comboBoxRentedCarsSecond";
             this.comboBoxRentedCarsSecond.Size = new System.Drawing.Size(233, 26);
@@ -541,7 +606,7 @@ namespace WindowsFormsApp1
             // labelSelectCriterionRentedCarsFirst
             // 
             this.labelSelectCriterionRentedCarsFirst.AutoSize = true;
-            this.labelSelectCriterionRentedCarsFirst.Location = new System.Drawing.Point(10, 28);
+            this.labelSelectCriterionRentedCarsFirst.Location = new System.Drawing.Point(16, 25);
             this.labelSelectCriterionRentedCarsFirst.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSelectCriterionRentedCarsFirst.Name = "labelSelectCriterionRentedCarsFirst";
             this.labelSelectCriterionRentedCarsFirst.Size = new System.Drawing.Size(201, 18);
@@ -551,7 +616,7 @@ namespace WindowsFormsApp1
             // comboBoxRentedCarsFirst
             // 
             this.comboBoxRentedCarsFirst.FormattingEnabled = true;
-            this.comboBoxRentedCarsFirst.Location = new System.Drawing.Point(235, 25);
+            this.comboBoxRentedCarsFirst.Location = new System.Drawing.Point(225, 22);
             this.comboBoxRentedCarsFirst.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxRentedCarsFirst.Name = "comboBoxRentedCarsFirst";
             this.comboBoxRentedCarsFirst.Size = new System.Drawing.Size(233, 26);
@@ -561,7 +626,7 @@ namespace WindowsFormsApp1
             // 
             // buttonUpdateListCarsInRent
             // 
-            this.buttonUpdateListCarsInRent.Location = new System.Drawing.Point(682, 62);
+            this.buttonUpdateListCarsInRent.Location = new System.Drawing.Point(681, 59);
             this.buttonUpdateListCarsInRent.Margin = new System.Windows.Forms.Padding(4);
             this.buttonUpdateListCarsInRent.Name = "buttonUpdateListCarsInRent";
             this.buttonUpdateListCarsInRent.Size = new System.Drawing.Size(261, 35);
@@ -572,7 +637,7 @@ namespace WindowsFormsApp1
             // 
             // buttonCancelOrder
             // 
-            this.buttonCancelOrder.Location = new System.Drawing.Point(682, 20);
+            this.buttonCancelOrder.Location = new System.Drawing.Point(681, 17);
             this.buttonCancelOrder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancelOrder.Name = "buttonCancelOrder";
             this.buttonCancelOrder.Size = new System.Drawing.Size(261, 35);
@@ -592,13 +657,13 @@ namespace WindowsFormsApp1
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dataGridViewListCarsInRent.Location = new System.Drawing.Point(10, 112);
+            this.dataGridViewListCarsInRent.Location = new System.Drawing.Point(10, 138);
             this.dataGridViewListCarsInRent.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewListCarsInRent.Name = "dataGridViewListCarsInRent";
             this.dataGridViewListCarsInRent.ReadOnly = true;
             this.dataGridViewListCarsInRent.RowHeadersWidth = 51;
             this.dataGridViewListCarsInRent.RowTemplate.Height = 24;
-            this.dataGridViewListCarsInRent.Size = new System.Drawing.Size(932, 389);
+            this.dataGridViewListCarsInRent.Size = new System.Drawing.Size(932, 363);
             this.dataGridViewListCarsInRent.TabIndex = 1;
             // 
             // Column6
@@ -822,49 +887,7 @@ namespace WindowsFormsApp1
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(962, 573);
             this.tabControlMain.TabIndex = 1;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "idrentcar";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            // 
-            // columnClient
-            // 
-            this.columnClient.HeaderText = "Клиент";
-            this.columnClient.MinimumWidth = 6;
-            this.columnClient.Name = "columnClient";
-            this.columnClient.ReadOnly = true;
-            // 
-            // columnCar
-            // 
-            this.columnCar.HeaderText = "Автомобиль";
-            this.columnCar.MinimumWidth = 6;
-            this.columnCar.Name = "columnCar";
-            this.columnCar.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Стоимость(руб.)";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Дата заказа";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Количество дней аренды";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
+            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
             // 
             // formManager
             // 
@@ -971,5 +994,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.Label labelAvailableListCars;
+        private System.Windows.Forms.Label labelListCarsInRent;
     }
 }
