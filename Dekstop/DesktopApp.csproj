@@ -125,12 +125,6 @@
     <Compile Include="formEditCar.Designer.cs">
       <DependentUpon>formEditCar.cs</DependentUpon>
     </Compile>
-    <Compile Include="formEditClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formEditRentCar.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
