@@ -83,7 +83,7 @@ namespace WindowsFormsApp1
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        String str = "SELECT * FROM rentcar ORDER BY idratecar";
+                        String str = "SELECT * FROM rentcar ORDER BY idrentcar";
                         DataGridView dataGrid = dataGridViewRentCar;
                         LoadData(str, dataGrid);
                         Close();
@@ -101,7 +101,7 @@ namespace WindowsFormsApp1
         private void formEditRentCar_Load(object sender, EventArgs e)
         {
             textBoxCost.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[1].Value;
-            dateTimePickerDateOfIssue.Value = (DateTime)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[2].Value;
+            dateTimePickerDateOfIssue.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[2].Value;
             numericUpDownCountDaysRent.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[3].Value;
         }
     }
