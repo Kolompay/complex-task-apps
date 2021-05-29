@@ -1,0 +1,125 @@
+﻿main {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+body {
+    padding: 0px;
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+
+
+.header-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: center;
+}
+
+    .header-list a {
+        padding: 10px 15px;
+        text-decoration: none;
+        position: center;
+        align-content: center;
+    }
+
+        .header-list a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 5px;
+            width: 0;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            background: #00e1ff;
+        }
+
+        .header-list a:hover:after {
+            width: 100%;
+            right: auto;
+            left: 0;
+        }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.nav-dark .navbar-nav .nav-link:hover {
+    color: hsl(0, 2%, 12%);
+}
+
+.btn-outline-dark {
+    color: #fff;
+    border-color: #fff;
+}
+
+    .btn-outline-dark:hover {
+        background-color: hsl(0, 2%, 12%);
+        border-color: #fff;
+    }
+
+#hero {
+    width: 100%;
+    height: 80vh;
+    background: url(https://a.d-cd.net/c1384f1s-960.jpg) fixed top center;
+    background-size: cover;
+    position: relative;
+}
+
+    #hero::before {
+        content: "";
+        background: rgba(0,0,0,0.6);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #hero .container {
+        position: relative;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 64px;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+    }
+
+    #hero h2 {
+        color: #fff;
+        margin: 10px 0 0 0;
+        font-size: 24px;
+    }
+
+    #hero .icon-box h3 {
+        font-weight: 700;
+        margin-top: 10px;
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+        #hero .icon-box h3 a {
+            color: #fff;
+        }
+
+            #hero .icon-box h3 a:hover {
+                color: #ffc451;
+            }
+
+.icon-box {
+    padding: 30px 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    height: 100%;
+    text-align: center;
+}
+
+    .icon-box:hover {
+        border-color: #ffc451;
+    }

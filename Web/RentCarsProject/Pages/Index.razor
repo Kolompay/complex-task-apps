@@ -1,0 +1,12 @@
+﻿@page "/index"
+
+<h1>Привет!</h1>
+
+<AuthorizeView>
+    <Authorized>
+        Welcome UserName
+    </Authorized>
+    <NotAuthorized>
+        You are not authorized. Go to <a href="/login">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>

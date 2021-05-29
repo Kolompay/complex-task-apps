@@ -1,0 +1,51 @@
+﻿@inherits LayoutComponentBase
+<style>
+    .main {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+</style>
+<AuthorizeView>
+    <Authorized>
+        <div class="page">
+            @*<div class="sidebar">
+                <NavMenu />
+            </div>*@
+
+            <div class="main">
+                <div class="top-row px-4">
+                    <MudAvatar Color="Color.Secondary">@context.User.Identity.Name.Substring(0, 1).ToUpper()</MudAvatar>
+                    <a href="Identity/Account/Manage">Hello, @context.User.Identity.Name!</a>
+                    <form method="post" action="Identity/Account/LogOut">
+                        @*<button type="submit" class="nav-link btn btn-link">Log out</button>*@
+                        <button type="submit" class="btn btn-primary nav-link btn-link">Выйти</button>
+                    </form>
+                </div>
+                <div class="content px-4">
+                    @Body
+                </div>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="page">
+            @*<div class="sidebar">
+                <NavMenu />
+            </div>*@
+
+            <div class="main">
+                <div class="top-row">
+                    <button type="button" class="btn btn-primary" onclick="window.location='Identity/Account/Login'">Вход</button>
+                    <button type="button" class="btn btn-primary" onclick="window.location='Identity/Account/Register'">Регистрация</button>
+                </div>
+                <div class="content px-4">
+                    @Body
+                </div>
+            </div>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RentCarsProject.Rentcar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Countdaysrent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dateofissue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idcar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idclient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idrate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarIdcarNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientIdclientNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RateIdrateNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Countdaysrent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dateofissue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idcar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idclient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idrate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarIdcarNavigation.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientIdclientNavigation.Familyname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateIdrateNavigation.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idrentcar">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idrentcar">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idrentcar">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

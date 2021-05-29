@@ -1,0 +1,72 @@
+﻿@model RentCarsProject.Rentcar
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Rentcar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Countdaysrent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Countdaysrent)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cost)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dateofissue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dateofissue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Idcar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Idcar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Idclient)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Idclient)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Idrate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Idrate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CarIdcarNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CarIdcarNavigation.Brand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientIdclientNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClientIdclientNavigation.Familyname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RateIdrateNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RateIdrateNavigation.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Idrentcar">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
