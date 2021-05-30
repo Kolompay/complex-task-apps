@@ -774,6 +774,7 @@ namespace WindowsFormsApp1
             this.buttonListCarsAdd.TabIndex = 3;
             this.buttonListCarsAdd.Text = "Добавить автомобиль";
             this.buttonListCarsAdd.UseVisualStyleBackColor = true;
+            this.buttonListCarsAdd.Click += new System.EventHandler(this.buttonListCarsAdd_Click);
             // 
             // dataGridViewListCars
             // 

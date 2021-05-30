@@ -693,5 +693,11 @@ namespace WindowsFormsApp1
             formEditRentCar formEditRentCar = new formEditRentCar(idForUpdateRentCar, rowIndexRentCar, dataGridViewRentCar);
             formEditRentCar.Show();
         }
+
+        private void buttonListCarsAdd_Click(object sender, EventArgs e)
+        {
+            formAddCar formAddCar = new formAddCar(dataGridViewListCars, comboBoxListCarsFirst);
+            formAddCar.Show();
+        }
     }
 }
