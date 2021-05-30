@@ -1,47 +1,52 @@
-using Npgsql;
+﻿using Npgsql;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     public partial class formAddCar : Form
     {
+        String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=pass;";
         private DataGridView dataGridViewListCars;
         private ComboBox comboBoxListCarsFirst;
-
-        public formAddCar(DataGridView dataGridViewListCars, ComboBox comboBoxListCarsFirst)
+        private Label labelInfo;
+        public formAddCar(DataGridView dataGridViewListCars, ComboBox comboBoxListCarsFirst, Label labelInfo)
         {
             InitializeComponent();
+            
+            comboBoxRate.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxColor.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxYears.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTransmission.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxYearOfManufacture.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxColor.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            ArrayList ColorList = new ArrayList();
-            Type colorType = typeof(Color);
-            PropertyInfo[] propInfoList = colorType.GetProperties(BindingFlags.Static |
-                                          BindingFlags.DeclaredOnly | BindingFlags.Public);
-            foreach (PropertyInfo c in propInfoList)
-            {
-                comboBoxColor.Items.Add(c.Name);
-            }
-            comboBoxColor.SelectedIndex = 8;
-            comboBoxColor.FormattingEnabled = true;
-            comboBoxColor.DrawMode = DrawMode.OwnerDrawFixed;
-            comboBoxColor.DrawItem += new DrawItemEventHandler(comboBoxColor_DrawItem);
+            comboBoxRate_Click(comboBoxRate, null);
+            comboBoxTransmission_Click(comboBoxTransmission, null);
 
             this.dataGridViewListCars = dataGridViewListCars;
             this.comboBoxListCarsFirst = comboBoxListCarsFirst;
+            this.labelInfo = labelInfo;
         }
 
-        private void DataGridViewAddCells(DataGridView dataGridView, NpgsqlDataReader reader, String[] parameters)
+        /// <summary>
+        /// Заполнение ComboBox данными
+        /// </summary>
+        private void ComboBoxAddItems(ComboBox combo, String read, NpgsqlDataReader reader)
+        {
+            while (reader.Read())
+            {
+                if (!combo.Items.Contains(reader[read].ToString()))
+                    combo.Items.Add(reader[read].ToString());
+            }
+        }
+
+        /// <summary>
+        /// Заполнение DataGridView данными
+        /// </summary>
+        private void DataGridViewAddCells(DataGridView dataGridView, NpgsqlDataReader reader, String[] parameters, Label labelInfo)
         {
             int rowNum = 0;
             if (dataGridView.RowCount != 0)
@@ -53,12 +58,20 @@ namespace WindowsFormsApp1
                 {
                     dataGridView.Rows[rowNum].Cells[i].Value = reader[parameters[i]].ToString();
                 }
+                if (labelInfo != null)
+                {
+                    labelInfo.Text = "Количество машин в таблице: " + dataGridView.Rows.Count.ToString();
+                }
                 rowNum++;
             }
+            dataGridView.ClearSelection();
         }
-        private void LoadData(String strSQL, DataGridView dataGrid, ComboBox comboBox)
+
+        /// <summary>
+        /// Загрузка данных
+        /// </summary>
+        private void LoadData(String strSQL, DataGridView dataGridView, ComboBox comboBoxFirst, Label labelInfo)
         {
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 try
@@ -67,13 +80,14 @@ namespace WindowsFormsApp1
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
-                        DataGridViewAddCells(dataGrid, reader, new String[] { "idcar", "name", "brand", "classcar", "transmission", "color" });
+                        DataGridViewAddCells(dataGridView, reader, new String[] { "name", "brand", "classcar", "transmission", "color" }, labelInfo);
                     }
-                    if (comboBox.Items.Count == 0)
+
+                    if (comboBoxFirst.Items.Count == 0)
                     {
-                        for (int i = 1; i < dataGrid.Columns.Count; i++)
+                        for (int i = 0; i < dataGridView.Columns.Count; i++)
                         {
-                            comboBox.Items.Add(dataGrid.Columns[i].HeaderText);
+                            comboBoxFirst.Items.Add(dataGridView.Columns[i].HeaderText);
                         }
                     }
                     npgSqlConnection.Close();
@@ -85,42 +99,75 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void formAddCars_Load(object sender, EventArgs e)
-        {
-            for (int i = DateTime.Now.Year; i >= DateTime.Now.Year - 21; i--)
-                comboBoxYears.Items.Add(i);
-            comboBoxYears.SelectedItem = comboBoxYears.Items[0];
-        }
-
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void buttonAccept_Click(object sender, EventArgs e)
+        private void buttonAddCar_Click(object sender, EventArgs e)
         {
-            String connectionString = "database=rentcarsdb;server=localhost;port=5432;uid=postgres;password=password;";
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
             {
                 try
                 {
                     npgSqlConnection.Open();
-                    String strSQL = "INSERT INTO car(vinnumber, brand, classcar, name, transmission, color, yearofmanufacture, idlocationcar) VALUES ('" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "', '" + textBox4.Text + "', '" + textBox5.Text + "', '" + comboBoxColor.SelectedItem + "', '" + comboBoxYears.SelectedItem + "', 1)";
+                    string strSQL = $"SELECT idrate from rate WHERE description = '{comboBoxRate.SelectedItem}'";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    string rate = null;
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            rate = reader[0].ToString();
+                        }
+                    }
+                    strSQL = $"INSERT INTO car(vinnumber, brand, classcar, name, transmission, color, yearofmanufacture, idlocationcar, rented, deleted, idrate) " +
+                        $"VALUES ('{textBoxVINnumber.Text}', " +
+                        $"'{textBoxBrand.Text}', " +
+                        $"'{textBoxClass.Text}', " +
+                        $"'{textBoxName.Text}', " +
+                        $"'{comboBoxTransmission.SelectedItem}', " +
+                        $"'{comboBoxColor.SelectedItem}', " +
+                        $"'{comboBoxYearOfManufacture.SelectedItem}', " +
+                        $"1, false, false, {rate})";
+                    cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
-                        MessageBox.Show("Запись успешно добавлена!");                    
-                    npgSqlConnection.Close();
+                    {
+                        MessageBox.Show($"Автомобиль {textBoxName.Text} успешно добавлен!", "Информация");
+                        LoadData("select * from car where rented = false AND deleted = false", dataGridViewListCars, comboBoxListCarsFirst, labelInfo);
+                        npgSqlConnection.Close();
+                        Close();
+                    }
+
                 }
-                catch (Exception ex)
+                catch (NpgsqlException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
-            String str = "SELECT * FROM car ORDER BY idcar DESC";
-            DataGridView dataGrid = dataGridViewListCars;
-            ComboBox comboBox = comboBoxListCarsFirst;
-            LoadData(str, dataGrid, comboBox);
-            Close();
+        }
+
+        private void comboBoxTransmission_Click(object sender, EventArgs e)
+        {
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    npgSqlConnection.Open();
+                    string strSQL = $"SELECT * from car";
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        ComboBoxAddItems(comboBoxTransmission, "transmission", reader);
+                    }
+                    comboBoxTransmission.SelectedItem = comboBoxTransmission.Items[0];
+                    npgSqlConnection.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void comboBoxColor_DrawItem(object sender, DrawItemEventArgs e)
@@ -137,6 +184,56 @@ namespace WindowsFormsApp1
                 g.DrawString(n, f, Brushes.Black, rect.X + 20, rect.Top);
                 g.FillRectangle(b, rect.X, rect.Y, 20, 20);
             }
+
+        }
+
+        private void formAddCar_Load(object sender, EventArgs e)
+        {
+            for (int i = DateTime.Now.Year; i >= DateTime.Now.Year - 21; i--)
+                comboBoxYearOfManufacture.Items.Add(i);
+            comboBoxYearOfManufacture.SelectedItem = comboBoxYearOfManufacture.Items[0];
+
+            ArrayList ColorList = new ArrayList();
+            Type colorType = typeof(Color);
+            PropertyInfo[] propInfoList = colorType.GetProperties(BindingFlags.Static |
+                                          BindingFlags.DeclaredOnly | BindingFlags.Public);
+            foreach (PropertyInfo c in propInfoList)
+            {
+                comboBoxColor.Items.Add(c.Name);
+            }
+            comboBoxColor.FormattingEnabled = true;
+            comboBoxColor.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBoxColor.DrawItem += new DrawItemEventHandler(comboBoxColor_DrawItem);
+            comboBoxColor.SelectedItem = comboBoxColor.Items[45];
+        }
+
+        private void comboBoxRate_Click(object sender, EventArgs e)
+        {
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    npgSqlConnection.Open();
+                    string strSQL = $"SELECT description from rate";
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        ComboBoxAddItems(comboBoxRate, "description", reader);
+                    }
+                    comboBoxRate.SelectedItem = comboBoxRate.Items[0];
+                    npgSqlConnection.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void formAddCar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formManager form = (formManager)Application.OpenForms[0];
+            form.Show();
         }
     }
 }

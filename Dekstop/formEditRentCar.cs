@@ -21,6 +21,8 @@ namespace WindowsFormsApp1
             this.idForUpdateRentCar = idForUpdateRentCar;
             this.rowIndexRentCar = rowIndexRentCar;
             this.dataGridViewRentCar = dataGridViewRentCar;
+            dateTimePickerDateOfIssue.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dateTimePickerDateOfIssue.Format = DateTimePickerFormat.Custom;
         }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace WindowsFormsApp1
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
-                        DataGridViewAddCells(dataGridView, reader, new String[] { "idrentcar", "cost", "dateofissue", "countdaysrent" });
+                        DataGridViewAddCells(dataGridView, reader, new String[] { "idrentcar", "familyname", "name", "cost", "dateofissue", "countdaysrent" });
                     }
                     npgSqlConnection.Close();
                 }
@@ -83,7 +85,7 @@ namespace WindowsFormsApp1
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        String str = "SELECT * FROM rentcar ORDER BY idrentcar";
+                        String str = "SELECT * FROM rentcar";
                         DataGridView dataGrid = dataGridViewRentCar;
                         LoadData(str, dataGrid);
                         Close();
@@ -100,9 +102,9 @@ namespace WindowsFormsApp1
 
         private void formEditRentCar_Load(object sender, EventArgs e)
         {
-            textBoxCost.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[1].Value;
-            dateTimePickerDateOfIssue.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[2].Value;
-            numericUpDownCountDaysRent.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[3].Value;
+            textBoxCost.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[3].Value;
+            dateTimePickerDateOfIssue.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[4].Value;
+            numericUpDownCountDaysRent.Text = (string)dataGridViewRentCar.Rows[rowIndexRentCar].Cells[5].Value;
         }
     }
 }

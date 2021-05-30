@@ -197,6 +197,7 @@ namespace WindowsFormsApp1
             this.Name = "formEditCar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Изменение данных автомобиля";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formEditCar_FormClosed);
             this.Load += new System.EventHandler(this.formEditCar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -217,7 +218,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label labelBrand;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.ComboBox comboBoxTransmission;
-        private System.Windows.Forms.BindingSource rentcarsdbDataSetBindingSource;
         private System.Windows.Forms.Label labelIDInfo;
         private System.Windows.Forms.Label label1;
     }
