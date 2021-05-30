@@ -1,17 +1,16 @@
 ﻿@page "/"
 
-
-<head>    
+<head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 
-<div class="navmenu">
+<div class="navmenu" id="navbarDropdown">
     <header id="header" class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0c8355;">
             <div class="container">
-                <a href="#" class="navbar-brand">Прокат автомобилей</a>
+                <a href="https://localhost:44374/#" class="navbar-brand">Прокат автомобилей</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -20,22 +19,13 @@
                 <div class="collapse navbar-collapse" id="navbarDropdown">
                     <ul class="navbar-nav me-auto mg-lg-0">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Арендовать</a>
+                            <a href="#rentcar" class="nav-link">Арендовать</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Список автомобилей</a>
+                            <a href="#listcars" class="nav-link">Список автомобилей</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">О компании</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" id="navDrop" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a href="#about" class="nav-link">О компании</a>
                         </li>
                     </ul>
                     <form action="#" class="d-flex">
@@ -92,35 +82,103 @@
     </div>
 </section>
 
-<div style="he">
-    <p>
-        <img src="images/shapka.jpg" style="width: 100%;" alt="Шапка сайта">
-    </p>
-</div
-<div>
-    <MudCard>
-        <MudCardMedia Image="_images/ladagranta.jpeg" Height="200" />
-        <MudCardContent>
-            <MudText Typo="Typo.h5">Old Paint</MudText>
-            <MudText Typo="Typo.body2">Old paint found on a stone house door.</MudText>
-            <MudText Typo="Typo.body2">This photo was taken in a small village in Istra Croatia.</MudText>
-        </MudCardContent>
-        <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton>
-            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
-        </MudCardActions>
-    </MudCard>
-</div>
-<div style="margin-left: 15%; margin-right: 70%">
-    <MudPaper Class="pa-16 ma-2" Elevation="3"></MudPaper>
-</div>
+<section id="listcars">
+    <div class="container">
+
+        <h2>Автомобили</h2>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://avatars.mds.yandex.net/get-zen_doc/1907561/pub_5fad7fbbd3198f35f75de5c9_5fad95d2a78505565aa22cf3/scale_1200" alt="Lada Granta Sport">
+                    <div class="card-body">
+                        <h5 class="card-title">Автомобиль "Lada Granta Sport"</h5>
+                        <p class="card-text text-left">Коробка передач: Механическая<br>Стоимость: 2000 руб./сутки</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary text-center">Взять в прокат</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://avatars.mds.yandex.net/get-zen_doc/1907561/pub_5fad7fbbd3198f35f75de5c9_5fad95d2a78505565aa22cf3/scale_1200" alt="Lada Granta Sport">
+                    <div class="card-body">
+                        <h5 class="card-title">Автомобиль "Lada Granta Sport"</h5>
+                        <p class="card-text text-left">Коробка передач: Механическая<br>Стоимость: 2000 руб./сутки</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary text-center">Взять в прокат</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://avatars.mds.yandex.net/get-zen_doc/1907561/pub_5fad7fbbd3198f35f75de5c9_5fad95d2a78505565aa22cf3/scale_1200" alt="Lada Granta Sport">
+                    <div class="card-body">
+                        <h5 class="card-title">Автомобиль "Lada Granta Sport"</h5>
+                        <p class="card-text text-left">Коробка передач: Механическая<br>Стоимость: 2000 руб./сутки</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary text-center">Взять в прокат</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://avatars.mds.yandex.net/get-zen_doc/1907561/pub_5fad7fbbd3198f35f75de5c9_5fad95d2a78505565aa22cf3/scale_1200" alt="Lada Granta Sport">
+                    <div class="card-body">
+                        <h5 class="card-title">Автомобиль "Lada Granta Sport"</h5>
+                        <p class="card-text text-left">Коробка передач: Механическая<br>Стоимость: 2000 руб./сутки</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary text-center">Взять в прокат</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://avatars.mds.yandex.net/get-zen_doc/1907561/pub_5fad7fbbd3198f35f75de5c9_5fad95d2a78505565aa22cf3/scale_1200" alt="Lada Granta Sport">
+                    <div class="card-body">
+                        <h5 class="card-title">Автомобиль "Lada Granta Sport"</h5>
+                        <p class="card-text text-left">Коробка передач: Механическая<br>Стоимость: 2000 руб./сутки</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary text-center">Взять в прокат</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://avatars.mds.yandex.net/get-zen_doc/1907561/pub_5fad7fbbd3198f35f75de5c9_5fad95d2a78505565aa22cf3/scale_1200" alt="Lada Granta Sport">
+                    <div class="card-body">
+                        <h5 class="card-title">Автомобиль "Lada Granta Sport"</h5>
+                        <p class="card-text text-left">Коробка передач: Механическая<br>Стоимость: 2000 руб./сутки</p>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary text-center">Взять в прокат</a>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<div style="text-align: center">
-    <div class="header-list">
-        <a href="#">Контакты</a>
     </div>
+    
+</section>
+
+<section class="contact" id="rentcar">
+    <div class="container">
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами</p>
+        <div style="width: 100%"><iframe height="1200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=1200&amp;hl=en&amp;q=%D0%9A%D0%B8%D1%80%D0%BE%D0%B2,%20%D1%83%D0%BB.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%2039+(%D0%9F%D1%80%D0%BE%D0%BA%D0%B0%D1%82%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+    </div>
+</section> 
+
+<div style="text-align: center" id="about">    
     <pre><MudLink Href="#">Арендовать авто</MudLink>  <MudLink Href="#">О сайте</MudLink>  <MudLink Href="#">Контакты</MudLink></pre>
 </div>
 
