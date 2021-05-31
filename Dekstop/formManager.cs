@@ -1,6 +1,5 @@
 ﻿using Npgsql;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -63,6 +62,8 @@ namespace WindowsFormsApp1
         private void DataGridViewAddCells(DataGridView dataGridView, NpgsqlDataReader reader, String[] parameters, Label labelInfo)
         {
             int rowNum = 0;
+            if (labelInfo !=null)
+                labelInfo.Text = String.Empty;
             if (dataGridView.RowCount != 0)
                 dataGridView.RowCount = 0;
             while (reader.Read())
@@ -74,7 +75,7 @@ namespace WindowsFormsApp1
                 }
                 if (labelInfo != null)
                 {
-                    labelInfo.Text = "Количество машин в таблице: " + dataGridView.Rows.Count.ToString();
+                    labelInfo.Text = "Количество элементов в таблице: " + dataGridView.Rows.Count.ToString();
                 }
                 rowNum++;
             }
@@ -556,7 +557,7 @@ namespace WindowsFormsApp1
             buttonEditClient.Enabled = false;
             buttonDeleteClient.Enabled = false;
             String[] column = new String[] { "idclient", "familyname", "name", "patronymic", "passportdata", "driverslicense", "numberofphone" };
-            DataLoad("SELECT * FROM client WHERE blocked = false", dataGridViewClient, column, null);
+            DataLoad("SELECT * FROM client WHERE blocked = false", dataGridViewClient, column, labelClientsInfo);
         }
 
         private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -594,7 +595,7 @@ namespace WindowsFormsApp1
                             String str = "SELECT * FROM client WHERE blocked = false";
                             DataGridView dataGrid = dataGridViewClient;
                             String[] column = new String[] { "idclient", "familyname", "name", "patronymic", "passportdata", "driverslicense", "numberofphone" };
-                            DataLoad(str, dataGrid, column, null);
+                            DataLoad(str, dataGrid, column, labelClientsInfo);
                             MessageBox.Show($"Клиент {familynameForOutput} {nameForOutput} {patronymicForOutput} заблокирован!", "Информация");
                         }
                         npgSqlConnection.Close();
@@ -621,7 +622,9 @@ namespace WindowsFormsApp1
             buttonEditRentCar.Enabled = false;
             buttonComplateOrder.Enabled = false;
             String[] column = new String[] { "idrentcar", "familyname", "name", "cost", "dateofissue", "countdaysrent" };
-            DataLoad("SELECT rentcar.idrentcar, client.familyname, car.name, rentcar.cost, rentcar.dateofissue, rentcar.countdaysrent FROM rentcar, car, client WHERE car.idcar = rentcar.idcar AND client.idclient = rentcar.idclient AND rentcar.deleted = false", dataGridViewRentCar, column, null);
+            DataLoad("SELECT rentcar.idrentcar, client.familyname, car.name, rentcar.cost, rentcar.dateofissue, rentcar.countdaysrent FROM rentcar, car, client WHERE car.idcar = rentcar.idcar AND client.idclient = rentcar.idclient AND rentcar.deleted = false", dataGridViewRentCar, column, labelRentCarInfo);
+            if (dataGridViewRentCar.Rows.Count == 0)
+                MessageBox.Show("Заказов не найдено!", "Информация");
         }
 
         private void buttonComplateOrder_Click(object sender, EventArgs e)
@@ -641,14 +644,22 @@ namespace WindowsFormsApp1
                             String str = "SELECT rentcar.idrentcar, client.familyname, car.name, rentcar.cost, rentcar.dateofissue, rentcar.countdaysrent FROM rentcar, car, client WHERE car.idcar = rentcar.idcar AND client.idclient = rentcar.idclient AND rentcar.deleted = false";
                             DataGridView dataGrid = dataGridViewRentCar;
                             String[] column = new String[] { "idrentcar", "familyname", "name", "cost", "dateofissue", "countdaysrent" };
-                            DataLoad(str, dataGrid, column, null);
+                            DataLoad(str, dataGrid, column, labelRentCarInfo);
+                            if (dataGridViewRentCar.Rows.Count == 0)
+                                MessageBox.Show("Заказов не найдено!", "Информация");
                             npgSqlConnection.Close();
                             npgSqlConnection.Open();
                             strSQL = $"UPDATE car SET rented = false WHERE idcar IN (select idcar from rentcar where idrentcar = '{idrentcar}')";
                             cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
-                            if (cmd.ExecuteNonQuery() == 1)                            
+                            if (cmd.ExecuteNonQuery() == 1)
                                 MessageBox.Show($"Заказ завершён!", "Информация");
                         }
+                        strSQL = $"select idcar from rentcar where idrentcar = '{idrentcar}'";
+                        cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        var id = cmd.ExecuteScalar();
+                        strSQL = $"INSERT INTO returncar(condition, idcar, returndate) VALUES('Отличное', '{id}', '{DateTime.Now}')";
+                        cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        cmd.ExecuteNonQuery();
                         npgSqlConnection.Close();
                     }
                     catch (Exception ex)
@@ -705,7 +716,16 @@ namespace WindowsFormsApp1
 
         private void dataGridViewClient_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+        }
+
+        private void tabControlMain_Click(object sender, EventArgs e)
+        {
+            if (tabControlMain.SelectedTab == tabPageAutopark)
+            {
+                tabControlAutopark.SelectedTab = tabPageCarsNotInRent;
+                tabPageCarsNotInRent_Enter(tabPageCarsNotInRent, null);
+            }
         }
     }
 }

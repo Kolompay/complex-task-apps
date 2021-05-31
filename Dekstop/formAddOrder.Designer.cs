@@ -51,17 +51,18 @@ namespace WindowsFormsApp1
             this.textBoxNumberPhone = new System.Windows.Forms.TextBox();
             this.groupBoxAboutRent = new System.Windows.Forms.GroupBox();
             this.groupBoxPersonalData = new System.Windows.Forms.GroupBox();
+            this.buttonFindPassportData = new System.Windows.Forms.Button();
             this.groupBoxResult = new System.Windows.Forms.GroupBox();
             this.textBoxResultCost = new System.Windows.Forms.TextBox();
             this.buttonAddOrder = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.buttonFindPassportData = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCar = new System.Windows.Forms.PictureBox();
+            this.labelDiscountInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountDays)).BeginInit();
             this.groupBoxAboutRent.SuspendLayout();
             this.groupBoxPersonalData.SuspendLayout();
             this.groupBoxResult.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNameCar
@@ -291,13 +292,24 @@ namespace WindowsFormsApp1
             this.groupBoxPersonalData.TabStop = false;
             this.groupBoxPersonalData.Text = "Персональные данные";
             // 
+            // buttonFindPassportData
+            // 
+            this.buttonFindPassportData.Location = new System.Drawing.Point(297, 68);
+            this.buttonFindPassportData.Name = "buttonFindPassportData";
+            this.buttonFindPassportData.Size = new System.Drawing.Size(117, 37);
+            this.buttonFindPassportData.TabIndex = 25;
+            this.buttonFindPassportData.Text = "Найти";
+            this.buttonFindPassportData.UseVisualStyleBackColor = true;
+            this.buttonFindPassportData.Click += new System.EventHandler(this.buttonFindPassportData_Click);
+            // 
             // groupBoxResult
             // 
+            this.groupBoxResult.Controls.Add(this.labelDiscountInfo);
             this.groupBoxResult.Controls.Add(this.textBoxResultCost);
             this.groupBoxResult.Controls.Add(this.labelResultCost);
             this.groupBoxResult.Location = new System.Drawing.Point(453, 310);
             this.groupBoxResult.Name = "groupBoxResult";
-            this.groupBoxResult.Size = new System.Drawing.Size(432, 81);
+            this.groupBoxResult.Size = new System.Drawing.Size(432, 96);
             this.groupBoxResult.TabIndex = 22;
             this.groupBoxResult.TabStop = false;
             this.groupBoxResult.Text = "Итог";
@@ -313,7 +325,7 @@ namespace WindowsFormsApp1
             // 
             // buttonAddOrder
             // 
-            this.buttonAddOrder.Location = new System.Drawing.Point(584, 411);
+            this.buttonAddOrder.Location = new System.Drawing.Point(584, 412);
             this.buttonAddOrder.Name = "buttonAddOrder";
             this.buttonAddOrder.Size = new System.Drawing.Size(214, 36);
             this.buttonAddOrder.TabIndex = 23;
@@ -323,7 +335,7 @@ namespace WindowsFormsApp1
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(584, 454);
+            this.buttonClose.Location = new System.Drawing.Point(584, 455);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(214, 36);
             this.buttonClose.TabIndex = 24;
@@ -331,25 +343,23 @@ namespace WindowsFormsApp1
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // buttonFindPassportData
+            // pictureBoxCar
             // 
-            this.buttonFindPassportData.Location = new System.Drawing.Point(297, 68);
-            this.buttonFindPassportData.Name = "buttonFindPassportData";
-            this.buttonFindPassportData.Size = new System.Drawing.Size(117, 37);
-            this.buttonFindPassportData.TabIndex = 25;
-            this.buttonFindPassportData.Text = "Найти";
-            this.buttonFindPassportData.UseVisualStyleBackColor = true;
-            this.buttonFindPassportData.Click += new System.EventHandler(this.buttonFindPassportData_Click);
+            this.pictureBoxCar.Image = global::WindowsFormsApp1.Properties.Resources.ladagranta;
+            this.pictureBoxCar.Location = new System.Drawing.Point(453, 22);
+            this.pictureBoxCar.Name = "pictureBoxCar";
+            this.pictureBoxCar.Size = new System.Drawing.Size(432, 271);
+            this.pictureBoxCar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxCar.TabIndex = 25;
+            this.pictureBoxCar.TabStop = false;
             // 
-            // pictureBox1
+            // labelDiscountInfo
             // 
-            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.ladagranta;
-            this.pictureBox1.Location = new System.Drawing.Point(453, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(432, 271);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
+            this.labelDiscountInfo.AutoSize = true;
+            this.labelDiscountInfo.Location = new System.Drawing.Point(168, 60);
+            this.labelDiscountInfo.Name = "labelDiscountInfo";
+            this.labelDiscountInfo.Size = new System.Drawing.Size(0, 17);
+            this.labelDiscountInfo.TabIndex = 26;
             // 
             // formAddOrder
             // 
@@ -357,7 +367,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(897, 523);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxCar);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonAddOrder);
             this.Controls.Add(this.groupBoxResult);
@@ -377,7 +387,7 @@ namespace WindowsFormsApp1
             this.groupBoxPersonalData.PerformLayout();
             this.groupBoxResult.ResumeLayout(false);
             this.groupBoxResult.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -410,6 +420,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.TextBox textBoxResultCost;
         private System.Windows.Forms.Button buttonFindPassportData;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxCar;
+        private System.Windows.Forms.Label labelDiscountInfo;
     }
 }

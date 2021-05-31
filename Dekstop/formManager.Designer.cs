@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formManager));
             this.tabPageClients = new System.Windows.Forms.TabPage();
+            this.labelClientsInfo = new System.Windows.Forms.Label();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,7 @@ namespace WindowsFormsApp1
             this.buttonEditClient = new System.Windows.Forms.Button();
             this.buttonUpdateClient = new System.Windows.Forms.Button();
             this.tabPageOrders = new System.Windows.Forms.TabPage();
+            this.labelRentCarInfo = new System.Windows.Forms.Label();
             this.dataGridViewRentCar = new System.Windows.Forms.DataGridView();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -120,6 +122,7 @@ namespace WindowsFormsApp1
             // 
             // tabPageClients
             // 
+            this.tabPageClients.Controls.Add(this.labelClientsInfo);
             this.tabPageClients.Controls.Add(this.dataGridViewClient);
             this.tabPageClients.Controls.Add(this.buttonDeleteClient);
             this.tabPageClients.Controls.Add(this.buttonEditClient);
@@ -133,6 +136,14 @@ namespace WindowsFormsApp1
             this.tabPageClients.Text = "Клиенты";
             this.tabPageClients.UseVisualStyleBackColor = true;
             this.tabPageClients.Enter += new System.EventHandler(this.tabPageClients_Enter);
+            // 
+            // labelClientsInfo
+            // 
+            this.labelClientsInfo.AutoSize = true;
+            this.labelClientsInfo.Location = new System.Drawing.Point(69, 459);
+            this.labelClientsInfo.Name = "labelClientsInfo";
+            this.labelClientsInfo.Size = new System.Drawing.Size(0, 18);
+            this.labelClientsInfo.TabIndex = 18;
             // 
             // dataGridViewClient
             // 
@@ -245,6 +256,7 @@ namespace WindowsFormsApp1
             // 
             // tabPageOrders
             // 
+            this.tabPageOrders.Controls.Add(this.labelRentCarInfo);
             this.tabPageOrders.Controls.Add(this.dataGridViewRentCar);
             this.tabPageOrders.Controls.Add(this.buttonComplateOrder);
             this.tabPageOrders.Controls.Add(this.buttonEditRentCar);
@@ -258,6 +270,14 @@ namespace WindowsFormsApp1
             this.tabPageOrders.Text = "Заказы";
             this.tabPageOrders.UseVisualStyleBackColor = true;
             this.tabPageOrders.Enter += new System.EventHandler(this.tabPageOrders_Enter);
+            // 
+            // labelRentCarInfo
+            // 
+            this.labelRentCarInfo.AutoSize = true;
+            this.labelRentCarInfo.Location = new System.Drawing.Point(55, 458);
+            this.labelRentCarInfo.Name = "labelRentCarInfo";
+            this.labelRentCarInfo.Size = new System.Drawing.Size(0, 18);
+            this.labelRentCarInfo.TabIndex = 15;
             // 
             // dataGridViewRentCar
             // 
@@ -889,6 +909,7 @@ namespace WindowsFormsApp1
             this.tabControlMain.Size = new System.Drawing.Size(962, 573);
             this.tabControlMain.TabIndex = 1;
             this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
+            this.tabControlMain.Click += new System.EventHandler(this.tabControlMain_Click);
             // 
             // formManager
             // 
@@ -906,8 +927,10 @@ namespace WindowsFormsApp1
             this.Text = "Прокат автомобилей";
             this.Shown += new System.EventHandler(this.formManager_Shown);
             this.tabPageClients.ResumeLayout(false);
+            this.tabPageClients.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
             this.tabPageOrders.ResumeLayout(false);
+            this.tabPageOrders.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRentCar)).EndInit();
             this.tabPageAutopark.ResumeLayout(false);
             this.tabControlAutopark.ResumeLayout(false);
@@ -997,5 +1020,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.Label labelAvailableListCars;
         private System.Windows.Forms.Label labelListCarsInRent;
+        private System.Windows.Forms.Label labelClientsInfo;
+        private System.Windows.Forms.Label labelRentCarInfo;
     }
 }

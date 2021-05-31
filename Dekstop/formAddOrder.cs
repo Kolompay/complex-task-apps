@@ -165,6 +165,37 @@ namespace WindowsFormsApp1
                     comboBoxRates.SelectedItem = comboBoxRates.Items[0];
                     costGo();
                 }
+
+                using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+                {
+                    try
+                    {
+                        npgSqlConnection.Open();
+                        String strSQL = $"SELECT urlcarphoto from car WHERE name = '{comboBoxCars.SelectedItem}'";
+                        NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows == true)
+                            {
+                                while (reader.Read())
+                                {
+                                    if (reader["urlcarphoto"].ToString() != String.Empty) 
+                                    {
+                                        pictureBoxCar.ImageLocation = reader["urlcarphoto"].ToString();
+                                        break;
+                                    }                                    
+                                    else
+                                        pictureBoxCar.ImageLocation = "https://www.plitkanadom.ru/upload/iblock/af1/674d86da9ae728c0026ff2443fa611db.jpeg";
+                                }
+                            }
+                        }
+                        npgSqlConnection.Close();
+                    }
+                    catch (NpgsqlException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка");
+                    }
+                }
             }
         }
 
@@ -191,14 +222,18 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    String strSQL = $"select cost from rate where description = '{comboBoxRates.SelectedItem}'";
+                    labelDiscountInfo.Text = String.Empty;
+                    String strSQL = $"select rate.cost, bonussystem.discountpercent from rate, bonussystem, client where rate.description = '{comboBoxRates.SelectedItem}' AND bonussystem.idbonussystem = client.idbonussystem";
                     npgSqlConnection.Open();
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            textBoxResultCost.Text = (Convert.ToInt32(numericUpDownCountDays.Value) * Convert.ToInt32(reader["cost"].ToString())).ToString() + " руб.";
+                            textBoxResultCost.Text = (Convert.ToInt32(numericUpDownCountDays.Value) * Convert.ToInt32(reader["cost"].ToString())  * (1 - Convert.ToDecimal(reader["discountpercent"].ToString()))).ToString() + " руб.";
+                            if (Convert.ToDecimal(reader["discountpercent"].ToString()) != 0)
+                                labelDiscountInfo.Text = $"Скидка для данного клиента: {Convert.ToDecimal(reader["discountpercent"].ToString()) * 100}%";
+                            break;
                         }
                     }
                     npgSqlConnection.Close();
@@ -249,6 +284,13 @@ namespace WindowsFormsApp1
             {
                 try
                 {
+                    if (textBoxFamilyName.Text == String.Empty || textBoxName.Text == String.Empty ||
+                        textBoxPatronymic.Text == String.Empty || textBoxPassportData.Text == String.Empty || 
+                        textBoxDriversLicense.Text == String.Empty || textBoxNumberPhone.Text == String.Empty)
+                    {
+                        MessageBox.Show("Заполните все поля в разделе 'Персональные данные'", "Ошибка");
+                        return;
+                    }
                     npgSqlConnection.Open();
                     String strSQL = $"SELECT passportdata, driverslicense from client where blocked = false AND passportdata = '{textBoxPassportData.Text}'";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
@@ -258,8 +300,7 @@ namespace WindowsFormsApp1
                         {
                             textBoxDriversLicense.Text = npgsqlDataReader[1].ToString();
                         }
-                    }
-                    
+                    }                    
                     if (cmd.ExecuteReader().HasRows == false)
                     {
                         npgSqlConnection.Close();
@@ -326,7 +367,7 @@ namespace WindowsFormsApp1
 
                         strSQL = $"INSERT INTO rentcar(cost, dateofissue, idcar, idclient, countdaysrent, deleted) " +
                         $"VALUES ('{textBoxResultCost.Text}', " +
-                        $"'{DateTime.Now.ToShortDateString()}', " +
+                        $"'{DateTime.Now}', " +
                         $"'{mass[0]}', " +
                         $"'{mass[1]}', " +
                         $"'{numericUpDownCountDays.Value}', false)";
@@ -339,6 +380,7 @@ namespace WindowsFormsApp1
 
                         cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                         cmd.ExecuteNonQuery();
+                        Close();
                     }
                     LoadData("select * from car where rented = false AND deleted = false ORDER BY idcar DESC", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst, labelInfo);
                     npgSqlConnection.Close();

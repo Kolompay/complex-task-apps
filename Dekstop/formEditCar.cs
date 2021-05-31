@@ -31,6 +31,18 @@ namespace WindowsFormsApp1
             LoadTransmission();
         }
 
+        /// <summary>
+        /// Заполнение ComboBox данными
+        /// </summary>
+        private void ComboBoxAddItems(ComboBox combo, String read, NpgsqlDataReader reader)
+        {
+            while (reader.Read())
+            {
+                if (!combo.Items.Contains(reader[read].ToString()))
+                    combo.Items.Add(reader[read].ToString());
+            }
+        }
+
         private void LoadTransmission()
         {
             using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
@@ -38,20 +50,18 @@ namespace WindowsFormsApp1
                 try
                 {
                     npgSqlConnection.Open();
-                    string querystring = "select * from car";
-                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(querystring, connectionString);
-                    DataSetRentCars ds = new DataSetRentCars();
-                    
-                    adapter.Fill(ds, "car");
-
-                    comboBoxTransmission.DataSource = ds.Tables["car"];
-                    comboBoxTransmission.DisplayMember = "transmission";
-                    comboBoxTransmission.ValueMember = "transmission";
+                    string strSQL = $"SELECT * from car";
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        ComboBoxAddItems(comboBoxTransmission, "transmission", reader);
+                    }
+                    comboBoxTransmission.SelectedItem = comboBoxTransmission.Items[0];
                     npgSqlConnection.Close();
                 }
-                catch (Exception ex)
+                catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
@@ -125,7 +135,7 @@ namespace WindowsFormsApp1
                 {
                     string name = nameForUpdate;
                     npgSqlConnection.Open();
-                    String strSQL = $"UPDATE car SET name='{textBoxName.Text}', brand='{textBoxBrand.Text}', classcar='{textBoxClass.Text}', transmission='{comboBoxTransmission.SelectedValue}', color='{comboBoxColor.SelectedItem}' WHERE name = '{name}'";
+                    String strSQL = $"UPDATE car SET name='{textBoxName.Text}', brand='{textBoxBrand.Text}', classcar='{textBoxClass.Text}', transmission='{comboBoxTransmission.SelectedItem}', color='{comboBoxColor.SelectedItem}' WHERE name = '{name}'";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
                     {
