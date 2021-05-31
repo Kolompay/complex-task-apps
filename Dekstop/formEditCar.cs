@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
                     npgSqlConnection.Open();
                     string querystring = "select * from car";
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(querystring, connectionString);
-                    DataSet1 ds = new DataSet1();
+                    DataSetRentCars ds = new DataSetRentCars();
                     
                     adapter.Fill(ds, "car");
 
@@ -165,7 +165,7 @@ namespace WindowsFormsApp1
 
             string querystring = "select * from car where name = '" + textBoxName.Text + "'";
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(querystring, connectionString);
-            DataSet1 ds = new DataSet1();
+            DataSetRentCars ds = new DataSetRentCars();
 
             adapter.Fill(ds, "car");
             textBoxBrand.DataBindings.Add(new System.Windows.Forms.Binding("Text", ds, "car.brand"));
@@ -180,7 +180,7 @@ namespace WindowsFormsApp1
 
             querystring = "select * from car where name = '" + textBoxName.Text + "'";
             adapter = new NpgsqlDataAdapter(querystring, connectionString);
-            ds = new DataSet1();
+            ds = new DataSetRentCars();
 
             adapter.Fill(ds, "car");
             labelIDInfo.DataBindings.Add(new System.Windows.Forms.Binding("Text", ds, "car.idcar"));

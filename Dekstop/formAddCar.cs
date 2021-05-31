@@ -94,7 +94,7 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
@@ -134,7 +134,7 @@ namespace WindowsFormsApp1
                     if (cmd.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show($"Автомобиль {textBoxName.Text} успешно добавлен!", "Информация");
-                        LoadData("select * from car where rented = false AND deleted = false", dataGridViewListCars, comboBoxListCarsFirst, labelInfo);
+                        LoadData("select * from car where rented = false AND deleted = false ORDER BY idcar DESC", dataGridViewListCars, comboBoxListCarsFirst, labelInfo);
                         npgSqlConnection.Close();
                         Close();
                     }
@@ -142,7 +142,7 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
@@ -165,7 +165,7 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
@@ -225,7 +225,7 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }

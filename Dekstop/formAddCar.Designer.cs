@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAddCar));
             this.labelIDInfo = new System.Windows.Forms.Label();
             this.comboBoxTransmission = new System.Windows.Forms.ComboBox();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -251,6 +252,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.labelClass);
             this.Controls.Add(this.labelBrand);
             this.Controls.Add(this.labelName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "formAddCar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

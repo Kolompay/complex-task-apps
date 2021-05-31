@@ -6,17 +6,17 @@
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 
-<div class="navmenu" id="navbar">
-    <header id="header" class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3eb489; ">
-            <div class="container">
-                <a href="https://localhost:44374/#" class="navbar-brand">Прокат автомобилей</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarDropdown">
+    <div class="navmenu" id="navbar">
+        <header id="header" class="fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3eb489; ">
+                <div class="container">
+                    <a href="https://localhost:44374/#" class="navbar-brand">Прокат автомобилей</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarDropdown">
                         <ul class="navbar-nav me-auto mg-lg-0">
                             <li class="nav-item">
                                 <a href="#rentcar" class="nav-link">Арендовать</a>
@@ -28,64 +28,64 @@
                                 <a href="#about" class="nav-link">О компании</a>
                             </li>
                         </ul>
-                    <form action="#" class="d-flex">
-                        <input type="search" placeholder="Search" class="form-control me-2">
-                        <button type="submit" class="btn btn-outline-light btn-primary">Поиск</button>
-                    </form>
-                    <div class="top-row px-4">
-                        <button type="button" class="btn btn-outline-light btn-primary" onclick="window.location='Identity/Account/Login'">Вход</button>
-                        <button type="button" class="btn btn-outline-light btn-primary" onclick="window.location='Identity/Account/Register'">Регистрация</button>
+                        <form action="#" class="d-flex">
+                            <input type="search" placeholder="Search" class="form-control me-2">
+                            <button type="submit" class="btn btn-outline-light btn-primary">Поиск</button>
+                        </form>
+                        <div class="top-row px-4">
+                            <button type="button" class="btn btn-outline-light btn-primary" onclick="window.location='Identity/Account/Login'">Вход</button>
+                            <button type="button" class="btn btn-outline-light btn-primary" onclick="window.location='Identity/Account/Register'">Регистрация</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-</div>
-
-<section id="hero" class="d-flex">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-10" style="margin-top: 100px;">
-                <h1>Прокат автомобилей</h1>
-                <h2>Прокат автомобилей в Кирове</h2>
-            </div>
-        </div>
-        <!--<div class="row mt-5 justify-content-center">
-            <div class="col-xl-2 col-md-4 col-6">
-                <div class="icon-box">-->
-                    @*<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" fill="#ffc451" class="bi bi-shield-check" viewBox="0 0 16 16">
-                        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
-                        <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                    </svg>*@
-                    @*<img class="card-img-top" src="http://pngimg.com/uploads/maserati/maserati_PNG103.png" alt="Lada Granta Sport">
-                    <h3><a href="#"> Скорость </a></h3>*@
-                <!--</div>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6">
-                <div class="icon-box">-->
-                    @*<svg xmlns="http://pngimg.com/uploads/mercedes/mercedes_PNG1897.png" width="3em" height="3em" fill="#ffc451" class="bi bi-shield-check" viewBox="0 0 16 16">
-                        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
-                        <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                    </svg>*@
-                    @*<img class="card-img-top" src="http://pngimg.com/uploads/mercedes/mercedes_PNG1896.png" alt="Lada Granta Sport">
-                    <h3><a href="#"> Качество </a></h3>*@
-                <!--</div>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6">
-                <div class="icon-box">-->
-                    @*<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" fill="#ffc451" class="bi bi-shield-check" viewBox="0 0 16 16">
-                        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
-                        <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                    </svg>*@
-                    @*<img class="card-img-top" src="http://pngimg.com/uploads/audi/audi_PNG99492.png" alt="Lada Granta Sport">
-                    <h3><a href="#"> Надежность </a></h3>*@
-                <!--</div>
-            </div>-->
-        @*</div>*@
+            </nav>
+        </header>
     </div>
-</section>
 
-<section id="listcars">
+    <section id="hero" class="d-flex">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-10" style="margin-top: 100px;">
+                    <h1>Прокат автомобилей</h1>
+                    <h2>Прокат автомобилей в Кирове</h2>
+                </div>
+            </div>
+            <!--<div class="row mt-5 justify-content-center">
+                <div class="col-xl-2 col-md-4 col-6">
+                    <div class="icon-box">-->
+            @*<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" fill="#ffc451" class="bi bi-shield-check" viewBox="0 0 16 16">
+                    <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+                    <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                </svg>*@
+            @*<img class="card-img-top" src="http://pngimg.com/uploads/maserati/maserati_PNG103.png" alt="Lada Granta Sport">
+                <h3><a href="#"> Скорость </a></h3>*@
+            <!--</div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-6">
+                <div class="icon-box">-->
+            @*<svg xmlns="http://pngimg.com/uploads/mercedes/mercedes_PNG1897.png" width="3em" height="3em" fill="#ffc451" class="bi bi-shield-check" viewBox="0 0 16 16">
+                    <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+                    <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                </svg>*@
+            @*<img class="card-img-top" src="http://pngimg.com/uploads/mercedes/mercedes_PNG1896.png" alt="Lada Granta Sport">
+                <h3><a href="#"> Качество </a></h3>*@
+            <!--</div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-6">
+                <div class="icon-box">-->
+            @*<svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" fill="#ffc451" class="bi bi-shield-check" viewBox="0 0 16 16">
+                    <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+                    <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                </svg>*@
+            @*<img class="card-img-top" src="http://pngimg.com/uploads/audi/audi_PNG99492.png" alt="Lada Granta Sport">
+                <h3><a href="#"> Надежность </a></h3>*@
+            <!--</div>
+            </div>-->
+            @*</div>*@
+        </div>
+    </section>
+
+    <section id="listcars">
 
         <h2>Автомобили</h2>
 
@@ -168,54 +168,54 @@
             </div>
         </div>
 
-</section>
+    </section>
 
-<section style="margin-top: 20px; margin-bottom: 20px;">
-    <div class="container">
-    @*<img class="rounded float-left" style="width: 600px; height: 400px;" src="https://im0-tub-ru.yandex.net/i?id=e69e8cd8f4c068e0c5381307c8703c17-l&n=13" alt="Lada Granta Sport">*@
-        <div class="row">
-            <div class="col-md-4"> </div>
-            <div class="col-md-4">
-                <h4>Заявка на аренду автомобиля</h4>
-                <form action="./mail.php" method="post">
-                    <div class="form-group">
-                        <label for="name">Ваше имя:</label>
-                        <input type="name" name="name" class="form-control" id="name" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email1">E-mail:</label>
-                        <input type="email" name="email" class="form-control" id="email1" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Номер телефона:</label>
-                        <input type="phone" name="phone" class="form-control" id="phone" placeholder="Phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Сообщение:</label>
-                        <textarea class="form-control" name="message" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-info">Отправить заявку</button>
-                </form>
+    <section style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="container">
+            @*<img class="rounded float-left" style="width: 600px; height: 400px;" src="https://im0-tub-ru.yandex.net/i?id=e69e8cd8f4c068e0c5381307c8703c17-l&n=13" alt="Lada Granta Sport">*@
+            <div class="row">
+                <div class="col-md-4"> </div>
+                <div class="col-md-4">
+                    <h4>Заявка на аренду автомобиля</h4>
+                    <form action="./mail.php" method="post">
+                        <div class="form-group">
+                            <label for="name">Ваше имя:</label>
+                            <input type="name" name="name" class="form-control" id="name" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email1">E-mail:</label>
+                            <input type="email" name="email" class="form-control" id="email1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Номер телефона:</label>
+                            <input type="phone" name="phone" class="form-control" id="phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение:</label>
+                            <textarea class="form-control" name="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-info">Отправить заявку</button>
+                    </form>
+                </div>
+                <div class="col-md-4"> </div>
             </div>
-            <div class="col-md-4"> </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="contact text-left" id="rentcar">
+    <section class="contact text-left" id="rentcar">
         <h2>Контакты</h2>
         <p>Свяжитесь с нами</p>
         <div style="width: 100%"><iframe height="1200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=1200&amp;hl=en&amp;q=%D0%9A%D0%B8%D1%80%D0%BE%D0%B2,%20%D1%83%D0%BB.%20%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%2039+(%D0%9F%D1%80%D0%BE%D0%BA%D0%B0%D1%82%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D0%B5%D0%B9)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
-</section>
+    </section>
 
 
-<div style="text-align: center" id="about">
-    <div class="alert alert-info" role="alert">
-        <pre><MudLink Href="#">Арендовать авто</MudLink>  <MudLink Href="#">О сайте</MudLink>  <MudLink Href="#about">Контакты</MudLink></pre>
-    </div>    
-</div>
+    <div style="text-align: center" id="about">
+        <div class="alert alert-info" role="alert">
+            <pre><MudLink Href="#">Арендовать авто</MudLink>  <MudLink Href="#">О сайте</MudLink>  <MudLink Href="#about">Контакты</MudLink></pre>
+        </div>
+    </div>
 
 
-@code {
+    @code {
 
-}
+    }

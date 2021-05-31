@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
             t.SetToolTip(buttonListCarsEdit, "Для изменения выберите автомобиль!");
 
             buttonListCarsEdit.Enabled = false;
+            buttonListCarsDel.Enabled = false;
 
             //tabPageAutopark.Font.Bold = new Font("Microsoft Sans Serif", 7.8F, Font.Bold, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204))); ;
         }
@@ -119,7 +120,7 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
@@ -140,7 +141,7 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
@@ -433,6 +434,8 @@ namespace WindowsFormsApp1
             else
                 LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst, null);
             dataGridViewListCarsInRent.ClearSelection();
+            buttonListCarsEdit.Enabled = false;
+            buttonListCarsDel.Enabled = false;
         }
 
         private void buttonListCarsEdit_Click(object sender, EventArgs e)
@@ -444,11 +447,15 @@ namespace WindowsFormsApp1
 
         private void dataGridViewListCars_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            rowIndex = e.RowIndex;
-            var name = dataGridViewListCars.Rows[e.RowIndex].Cells[0].Value;
-            nameForUpdate = Convert.ToString(name);
+            if (e.RowIndex != -1)
+            {
+                rowIndex = e.RowIndex;
+                var name = dataGridViewListCars.Rows[e.RowIndex].Cells[0].Value;
+                nameForUpdate = Convert.ToString(name);
 
-            buttonListCarsEdit.Enabled = true;
+                buttonListCarsEdit.Enabled = true;
+                buttonListCarsDel.Enabled = true;
+            }
         }
 
         private void buttonListCarsDel_Click(object sender, EventArgs e)
@@ -469,13 +476,13 @@ namespace WindowsFormsApp1
                             DataGridView dataGrid = dataGridViewListCars;
                             ComboBox comboBox = comboBoxListCarsFirst;
                             LoadData(str, dataGrid, comboBox, labelListCarsInfo);
-                            MessageBox.Show($"Автомобиль {name} удалён!");
+                            MessageBox.Show($"Автомобиль {name} удалён!", "Информация");
                         }
                         npgSqlConnection.Close();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Ошибка");
                     }
                 }
             }
@@ -554,17 +561,20 @@ namespace WindowsFormsApp1
 
         private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            rowIndexClient = e.RowIndex;
-            var passportdata = dataGridViewClient.Rows[e.RowIndex].Cells[4].Value;
-            nameForUpdateClient = Convert.ToString(passportdata);
-            var familyname = dataGridViewClient.Rows[e.RowIndex].Cells[1].Value;
-            var name = dataGridViewClient.Rows[e.RowIndex].Cells[2].Value;
-            var patronymic = dataGridViewClient.Rows[e.RowIndex].Cells[3].Value;
-            familynameForOutput = Convert.ToString(familyname);
-            nameForOutput = Convert.ToString(name);
-            patronymicForOutput = Convert.ToString(patronymic);
-            buttonEditClient.Enabled = true;
-            buttonDeleteClient.Enabled = true;
+            if (e.RowIndex != -1)
+            {
+                rowIndexClient = e.RowIndex;
+                var passportdata = dataGridViewClient.Rows[e.RowIndex].Cells[4].Value;
+                nameForUpdateClient = Convert.ToString(passportdata);
+                var familyname = dataGridViewClient.Rows[e.RowIndex].Cells[1].Value;
+                var name = dataGridViewClient.Rows[e.RowIndex].Cells[2].Value;
+                var patronymic = dataGridViewClient.Rows[e.RowIndex].Cells[3].Value;
+                familynameForOutput = Convert.ToString(familyname);
+                nameForOutput = Convert.ToString(name);
+                patronymicForOutput = Convert.ToString(patronymic);
+                buttonEditClient.Enabled = true;
+                buttonDeleteClient.Enabled = true;
+            }
         }
 
         private void buttonDeleteClient_Click(object sender, EventArgs e)
@@ -585,13 +595,13 @@ namespace WindowsFormsApp1
                             DataGridView dataGrid = dataGridViewClient;
                             String[] column = new String[] { "idclient", "familyname", "name", "patronymic", "passportdata", "driverslicense", "numberofphone" };
                             DataLoad(str, dataGrid, column, null);
-                            MessageBox.Show($"Клиент {familynameForOutput} {nameForOutput} {patronymicForOutput} заблокирован!");
+                            MessageBox.Show($"Клиент {familynameForOutput} {nameForOutput} {patronymicForOutput} заблокирован!", "Информация");
                         }
                         npgSqlConnection.Close();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Ошибка");
                     }
                 }
             }
@@ -637,13 +647,13 @@ namespace WindowsFormsApp1
                             strSQL = $"UPDATE car SET rented = false WHERE idcar IN (select idcar from rentcar where idrentcar = '{idrentcar}')";
                             cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                             if (cmd.ExecuteNonQuery() == 1)                            
-                                MessageBox.Show($"Заказ завершён!");
+                                MessageBox.Show($"Заказ завершён!", "Информация");
                         }
                         npgSqlConnection.Close();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Ошибка");
                     }
                 }
             }
@@ -651,11 +661,14 @@ namespace WindowsFormsApp1
 
         private void dataGridViewRentCar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            rowIndexRentCar = e.RowIndex;
-            var idrentcar = dataGridViewRentCar.Rows[e.RowIndex].Cells[0].Value;
-            idForUpdateRentCar = Convert.ToString(idrentcar);
-            buttonEditRentCar.Enabled = true;
-            buttonComplateOrder.Enabled = true;
+            if (e.RowIndex != -1)
+            {
+                rowIndexRentCar = e.RowIndex;
+                var idrentcar = dataGridViewRentCar.Rows[e.RowIndex].Cells[0].Value;
+                idForUpdateRentCar = Convert.ToString(idrentcar);
+                buttonEditRentCar.Enabled = true;
+                buttonComplateOrder.Enabled = true;
+            }
         }
 
         private void buttonEditRentCar_Click(object sender, EventArgs e)
@@ -688,6 +701,11 @@ namespace WindowsFormsApp1
             formAddCar formAddCar = new formAddCar(dataGridViewListCars, comboBoxListCarsFirst, labelListCarsInfo);
             formAddCar.Show();
             Hide();
+        }
+
+        private void dataGridViewClient_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

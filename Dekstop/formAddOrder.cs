@@ -205,15 +205,16 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
 
         private void LockAddCharToTextBox(TextBox textBox, uint length, KeyPressEventArgs e)
         {
-            if (textBox.TextLength > length - 1)
-                e.Handled = true;
+            if (textBox.TextLength > length - 1 && (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Delete))
+                return;
+            else if (textBox.TextLength > length - 1) e.Handled = true;
             else return;
         }
 
@@ -229,7 +230,7 @@ namespace WindowsFormsApp1
 
         private void textBoxPassportData_KeyPress(object sender, KeyPressEventArgs e)
         {
-            LockAddCharToTextBox(textBoxPassportData, 25, e);
+            LockAddCharToTextBox(textBoxPassportData, 10, e);
         }
 
         private void textBoxDriversLicense_KeyPress(object sender, KeyPressEventArgs e)
@@ -339,12 +340,56 @@ namespace WindowsFormsApp1
                         cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                         cmd.ExecuteNonQuery();
                     }
-                    LoadData("select * from car where rented = false AND deleted = false", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst, labelInfo);
+                    LoadData("select * from car where rented = false AND deleted = false ORDER BY idcar DESC", dataGridViewListCarsNotInRent, comboBoxAvailableCarsFirst, labelInfo);
                     npgSqlConnection.Close();
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
+                }
+            }
+        }
+
+        private void buttonFindPassportData_Click(object sender, EventArgs e)
+        {
+            textBoxFamilyName.Text = String.Empty;
+            textBoxName.Text = String.Empty;
+            textBoxPatronymic.Text = String.Empty;
+            textBoxDriversLicense.Text = String.Empty;
+            textBoxNumberPhone.Text = String.Empty;
+            using (NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString))
+            {
+                try
+                {
+                    String strSQL = $"select * from client where passportdata = '{textBoxPassportData.Text}' AND blocked = false";
+                    npgSqlConnection.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
+
+                    
+
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                textBoxFamilyName.Text = reader["familyname"].ToString();
+                                textBoxName.Text = reader["name"].ToString();
+                                textBoxPatronymic.Text = reader["patronymic"].ToString();
+                                textBoxDriversLicense.Text = reader["driverslicense"].ToString();
+                                textBoxNumberPhone.Text = reader["numberofphone"].ToString();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Клиент с введёнными паспортными данными не найден!", "Информация");
+                        }
+                    }
+                    npgSqlConnection.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }

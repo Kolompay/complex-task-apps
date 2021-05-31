@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
                 }
                 catch (NpgsqlException ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }
@@ -79,11 +79,11 @@ namespace WindowsFormsApp1
                 {
                     string name = nameForUpdateClient;
                     npgSqlConnection.Open();
-                    String strSQL = $"UPDATE client SET passportdata='{textBoxPassportData.Text}', driverslicense='{textBoxDriversLicense.Text}', numberofphone='{textBoxNumberofphone.Text}' WHERE familyname='{name}'";
+                    String strSQL = $"UPDATE client SET passportdata='{textBoxPassportData.Text}', driverslicense='{textBoxDriversLicense.Text}', numberofphone='{textBoxNumberofphone.Text}' WHERE passportdata='{name}'";
                     NpgsqlCommand cmd = new NpgsqlCommand(strSQL, npgSqlConnection);
                     if (cmd.ExecuteNonQuery() == 1)
                     {
-                        String str = "SELECT * FROM client ORDER BY idclient";
+                        String str = "SELECT * FROM client WHERE blocked = false ORDER BY idclient";
                         DataGridView dataGrid = dataGridViewClient;
                         LoadData(str, dataGrid);
                         Close();
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
         }

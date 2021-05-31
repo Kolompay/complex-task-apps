@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAddOrder));
             this.labelNameCar = new System.Windows.Forms.Label();
             this.labelFamilyName = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -54,10 +55,13 @@ namespace WindowsFormsApp1
             this.textBoxResultCost = new System.Windows.Forms.TextBox();
             this.buttonAddOrder = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonFindPassportData = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountDays)).BeginInit();
             this.groupBoxAboutRent.SuspendLayout();
             this.groupBoxPersonalData.SuspendLayout();
             this.groupBoxResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNameCar
@@ -72,7 +76,7 @@ namespace WindowsFormsApp1
             // labelFamilyName
             // 
             this.labelFamilyName.AutoSize = true;
-            this.labelFamilyName.Location = new System.Drawing.Point(97, 50);
+            this.labelFamilyName.Location = new System.Drawing.Point(97, 114);
             this.labelFamilyName.Name = "labelFamilyName";
             this.labelFamilyName.Size = new System.Drawing.Size(74, 17);
             this.labelFamilyName.TabIndex = 1;
@@ -81,7 +85,7 @@ namespace WindowsFormsApp1
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(132, 84);
+            this.labelName.Location = new System.Drawing.Point(132, 148);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(39, 17);
             this.labelName.TabIndex = 2;
@@ -90,7 +94,7 @@ namespace WindowsFormsApp1
             // labelPatronymic
             // 
             this.labelPatronymic.AutoSize = true;
-            this.labelPatronymic.Location = new System.Drawing.Point(96, 118);
+            this.labelPatronymic.Location = new System.Drawing.Point(96, 182);
             this.labelPatronymic.Name = "labelPatronymic";
             this.labelPatronymic.Size = new System.Drawing.Size(75, 17);
             this.labelPatronymic.TabIndex = 3;
@@ -99,7 +103,7 @@ namespace WindowsFormsApp1
             // labelPassportData
             // 
             this.labelPassportData.AutoSize = true;
-            this.labelPassportData.Location = new System.Drawing.Point(81, 150);
+            this.labelPassportData.Location = new System.Drawing.Point(81, 31);
             this.labelPassportData.Name = "labelPassportData";
             this.labelPassportData.Size = new System.Drawing.Size(90, 34);
             this.labelPassportData.TabIndex = 4;
@@ -109,7 +113,7 @@ namespace WindowsFormsApp1
             // labelDriversLicense
             // 
             this.labelDriversLicense.AutoSize = true;
-            this.labelDriversLicense.Location = new System.Drawing.Point(59, 188);
+            this.labelDriversLicense.Location = new System.Drawing.Point(59, 213);
             this.labelDriversLicense.Name = "labelDriversLicense";
             this.labelDriversLicense.Size = new System.Drawing.Size(112, 34);
             this.labelDriversLicense.TabIndex = 5;
@@ -119,7 +123,7 @@ namespace WindowsFormsApp1
             // labelNumberPhone
             // 
             this.labelNumberPhone.AutoSize = true;
-            this.labelNumberPhone.Location = new System.Drawing.Point(46, 232);
+            this.labelNumberPhone.Location = new System.Drawing.Point(46, 257);
             this.labelNumberPhone.Name = "labelNumberPhone";
             this.labelNumberPhone.Size = new System.Drawing.Size(125, 17);
             this.labelNumberPhone.TabIndex = 6;
@@ -175,6 +179,11 @@ namespace WindowsFormsApp1
             // numericUpDownCountDays
             // 
             this.numericUpDownCountDays.Location = new System.Drawing.Point(176, 123);
+            this.numericUpDownCountDays.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
             this.numericUpDownCountDays.Minimum = new decimal(new int[] {
             1,
             0,
@@ -193,7 +202,7 @@ namespace WindowsFormsApp1
             // 
             // textBoxFamilyName
             // 
-            this.textBoxFamilyName.Location = new System.Drawing.Point(176, 47);
+            this.textBoxFamilyName.Location = new System.Drawing.Point(176, 111);
             this.textBoxFamilyName.Name = "textBoxFamilyName";
             this.textBoxFamilyName.ShortcutsEnabled = false;
             this.textBoxFamilyName.Size = new System.Drawing.Size(238, 22);
@@ -202,7 +211,7 @@ namespace WindowsFormsApp1
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(176, 81);
+            this.textBoxName.Location = new System.Drawing.Point(176, 145);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.ShortcutsEnabled = false;
             this.textBoxName.Size = new System.Drawing.Size(238, 22);
@@ -211,7 +220,7 @@ namespace WindowsFormsApp1
             // 
             // textBoxPatronymic
             // 
-            this.textBoxPatronymic.Location = new System.Drawing.Point(176, 118);
+            this.textBoxPatronymic.Location = new System.Drawing.Point(176, 182);
             this.textBoxPatronymic.Name = "textBoxPatronymic";
             this.textBoxPatronymic.ShortcutsEnabled = false;
             this.textBoxPatronymic.Size = new System.Drawing.Size(238, 22);
@@ -220,7 +229,7 @@ namespace WindowsFormsApp1
             // 
             // textBoxPassportData
             // 
-            this.textBoxPassportData.Location = new System.Drawing.Point(176, 156);
+            this.textBoxPassportData.Location = new System.Drawing.Point(176, 37);
             this.textBoxPassportData.Name = "textBoxPassportData";
             this.textBoxPassportData.ShortcutsEnabled = false;
             this.textBoxPassportData.Size = new System.Drawing.Size(238, 22);
@@ -229,7 +238,7 @@ namespace WindowsFormsApp1
             // 
             // textBoxDriversLicense
             // 
-            this.textBoxDriversLicense.Location = new System.Drawing.Point(176, 194);
+            this.textBoxDriversLicense.Location = new System.Drawing.Point(176, 219);
             this.textBoxDriversLicense.Name = "textBoxDriversLicense";
             this.textBoxDriversLicense.ShortcutsEnabled = false;
             this.textBoxDriversLicense.Size = new System.Drawing.Size(238, 22);
@@ -238,7 +247,7 @@ namespace WindowsFormsApp1
             // 
             // textBoxNumberPhone
             // 
-            this.textBoxNumberPhone.Location = new System.Drawing.Point(176, 232);
+            this.textBoxNumberPhone.Location = new System.Drawing.Point(176, 257);
             this.textBoxNumberPhone.Name = "textBoxNumberPhone";
             this.textBoxNumberPhone.ShortcutsEnabled = false;
             this.textBoxNumberPhone.Size = new System.Drawing.Size(238, 22);
@@ -262,6 +271,7 @@ namespace WindowsFormsApp1
             // 
             // groupBoxPersonalData
             // 
+            this.groupBoxPersonalData.Controls.Add(this.buttonFindPassportData);
             this.groupBoxPersonalData.Controls.Add(this.textBoxNumberPhone);
             this.groupBoxPersonalData.Controls.Add(this.labelFamilyName);
             this.groupBoxPersonalData.Controls.Add(this.labelName);
@@ -285,7 +295,7 @@ namespace WindowsFormsApp1
             // 
             this.groupBoxResult.Controls.Add(this.textBoxResultCost);
             this.groupBoxResult.Controls.Add(this.labelResultCost);
-            this.groupBoxResult.Location = new System.Drawing.Point(453, 207);
+            this.groupBoxResult.Location = new System.Drawing.Point(453, 310);
             this.groupBoxResult.Name = "groupBoxResult";
             this.groupBoxResult.Size = new System.Drawing.Size(432, 81);
             this.groupBoxResult.TabIndex = 22;
@@ -303,7 +313,7 @@ namespace WindowsFormsApp1
             // 
             // buttonAddOrder
             // 
-            this.buttonAddOrder.Location = new System.Drawing.Point(584, 320);
+            this.buttonAddOrder.Location = new System.Drawing.Point(584, 411);
             this.buttonAddOrder.Name = "buttonAddOrder";
             this.buttonAddOrder.Size = new System.Drawing.Size(214, 36);
             this.buttonAddOrder.TabIndex = 23;
@@ -313,7 +323,7 @@ namespace WindowsFormsApp1
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(584, 363);
+            this.buttonClose.Location = new System.Drawing.Point(584, 454);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(214, 36);
             this.buttonClose.TabIndex = 24;
@@ -321,17 +331,39 @@ namespace WindowsFormsApp1
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // buttonFindPassportData
+            // 
+            this.buttonFindPassportData.Location = new System.Drawing.Point(297, 68);
+            this.buttonFindPassportData.Name = "buttonFindPassportData";
+            this.buttonFindPassportData.Size = new System.Drawing.Size(117, 37);
+            this.buttonFindPassportData.TabIndex = 25;
+            this.buttonFindPassportData.Text = "Найти";
+            this.buttonFindPassportData.UseVisualStyleBackColor = true;
+            this.buttonFindPassportData.Click += new System.EventHandler(this.buttonFindPassportData_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.ladagranta;
+            this.pictureBox1.Location = new System.Drawing.Point(453, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(432, 271);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // formAddOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(897, 523);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonAddOrder);
             this.Controls.Add(this.groupBoxResult);
             this.Controls.Add(this.groupBoxPersonalData);
             this.Controls.Add(this.groupBoxAboutRent);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "formAddOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -345,6 +377,7 @@ namespace WindowsFormsApp1
             this.groupBoxPersonalData.PerformLayout();
             this.groupBoxResult.ResumeLayout(false);
             this.groupBoxResult.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,5 +409,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button buttonAddOrder;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.TextBox textBoxResultCost;
+        private System.Windows.Forms.Button buttonFindPassportData;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

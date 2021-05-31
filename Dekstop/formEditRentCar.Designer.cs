@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEditRentCar));
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.textBoxCost = new System.Windows.Forms.TextBox();
@@ -42,10 +43,10 @@ namespace WindowsFormsApp1
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(265, 105);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCancel.Location = new System.Drawing.Point(353, 129);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(91, 27);
+            this.buttonCancel.Size = new System.Drawing.Size(121, 33);
             this.buttonCancel.TabIndex = 73;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -53,10 +54,10 @@ namespace WindowsFormsApp1
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(153, 105);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonUpdate.Location = new System.Drawing.Point(204, 129);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 27);
+            this.buttonUpdate.Size = new System.Drawing.Size(121, 33);
             this.buttonUpdate.TabIndex = 72;
             this.buttonUpdate.Text = "Обновить";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -64,53 +65,52 @@ namespace WindowsFormsApp1
             // 
             // textBoxCost
             // 
-            this.textBoxCost.Location = new System.Drawing.Point(152, 11);
-            this.textBoxCost.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCost.Location = new System.Drawing.Point(203, 14);
+            this.textBoxCost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCost.Multiline = true;
             this.textBoxCost.Name = "textBoxCost";
-            this.textBoxCost.Size = new System.Drawing.Size(204, 24);
+            this.textBoxCost.Size = new System.Drawing.Size(271, 29);
             this.textBoxCost.TabIndex = 69;
             // 
             // labelCountDaysRent
             // 
             this.labelCountDaysRent.AutoSize = true;
-            this.labelCountDaysRent.Location = new System.Drawing.Point(10, 70);
-            this.labelCountDaysRent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCountDaysRent.Location = new System.Drawing.Point(13, 86);
             this.labelCountDaysRent.Name = "labelCountDaysRent";
-            this.labelCountDaysRent.Size = new System.Drawing.Size(138, 13);
+            this.labelCountDaysRent.Size = new System.Drawing.Size(180, 17);
             this.labelCountDaysRent.TabIndex = 68;
             this.labelCountDaysRent.Text = "Колеиество дней аренды:";
             // 
             // labelDateOfIssue
             // 
             this.labelDateOfIssue.AutoSize = true;
-            this.labelDateOfIssue.Location = new System.Drawing.Point(7, 42);
-            this.labelDateOfIssue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDateOfIssue.Location = new System.Drawing.Point(9, 52);
             this.labelDateOfIssue.Name = "labelDateOfIssue";
-            this.labelDateOfIssue.Size = new System.Drawing.Size(141, 13);
+            this.labelDateOfIssue.Size = new System.Drawing.Size(183, 17);
             this.labelDateOfIssue.TabIndex = 67;
             this.labelDateOfIssue.Text = "Дата аренды автомобиля:";
             // 
             // labelCost
             // 
             this.labelCost.AutoSize = true;
-            this.labelCost.Location = new System.Drawing.Point(44, 14);
-            this.labelCost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCost.Location = new System.Drawing.Point(59, 17);
             this.labelCost.Name = "labelCost";
-            this.labelCost.Size = new System.Drawing.Size(104, 13);
+            this.labelCost.Size = new System.Drawing.Size(131, 17);
             this.labelCost.TabIndex = 66;
             this.labelCost.Text = "Стоимость заказа:";
             // 
             // dateTimePickerDateOfIssue
             // 
-            this.dateTimePickerDateOfIssue.Location = new System.Drawing.Point(152, 40);
+            this.dateTimePickerDateOfIssue.Location = new System.Drawing.Point(203, 49);
+            this.dateTimePickerDateOfIssue.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerDateOfIssue.Name = "dateTimePickerDateOfIssue";
-            this.dateTimePickerDateOfIssue.Size = new System.Drawing.Size(204, 20);
+            this.dateTimePickerDateOfIssue.Size = new System.Drawing.Size(271, 22);
             this.dateTimePickerDateOfIssue.TabIndex = 74;
             // 
             // numericUpDownCountDaysRent
             // 
-            this.numericUpDownCountDaysRent.Location = new System.Drawing.Point(153, 66);
+            this.numericUpDownCountDaysRent.Location = new System.Drawing.Point(204, 81);
+            this.numericUpDownCountDaysRent.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDownCountDaysRent.Maximum = new decimal(new int[] {
             999,
             0,
@@ -122,7 +122,7 @@ namespace WindowsFormsApp1
             0,
             0});
             this.numericUpDownCountDaysRent.Name = "numericUpDownCountDaysRent";
-            this.numericUpDownCountDaysRent.Size = new System.Drawing.Size(203, 20);
+            this.numericUpDownCountDaysRent.Size = new System.Drawing.Size(271, 22);
             this.numericUpDownCountDaysRent.TabIndex = 75;
             this.numericUpDownCountDaysRent.Value = new decimal(new int[] {
             1,
@@ -132,9 +132,10 @@ namespace WindowsFormsApp1
             // 
             // formEditRentCar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 137);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(495, 169);
             this.Controls.Add(this.numericUpDownCountDaysRent);
             this.Controls.Add(this.dateTimePickerDateOfIssue);
             this.Controls.Add(this.buttonCancel);
@@ -143,8 +144,10 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.labelCountDaysRent);
             this.Controls.Add(this.labelDateOfIssue);
             this.Controls.Add(this.labelCost);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "formEditRentCar";
-            this.Text = "formEditRentCar";
+            this.Text = "Изменение данных аренды";
             this.Load += new System.EventHandler(this.formEditRentCar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountDaysRent)).EndInit();
             this.ResumeLayout(false);
