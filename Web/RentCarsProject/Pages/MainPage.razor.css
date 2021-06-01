@@ -67,8 +67,9 @@ body {
 
 #hero {
     width: 100%;
-    height: 80vh;
-    background: url(https://a.d-cd.net/c1384f1s-960.jpg) fixed top center;
+    height: 60vh;
+    background: url(https://s1.1zoom.ru/big3/566/335808-svetik.jpg) fixed bottom;
+    /*background: url(https://a.d-cd.net/c1384f1s-960.jpg) fixed top center;*/
     background-size: cover;
     position: relative;
 }

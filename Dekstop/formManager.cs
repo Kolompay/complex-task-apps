@@ -433,6 +433,7 @@ namespace WindowsFormsApp1
             else
                 LoadData("SELECT * FROM car WHERE deleted = false", dataGridViewListCars, comboBoxListCarsFirst, null);
             dataGridViewListCarsInRent.ClearSelection();
+            buttonListCarsEdit.Enabled = false;
         }
 
         private void buttonListCarsEdit_Click(object sender, EventArgs e)

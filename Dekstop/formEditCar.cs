@@ -203,7 +203,6 @@ namespace WindowsFormsApp1
                 g.DrawString(n, f, Brushes.Black, rect.X + 20, rect.Top);
                 g.FillRectangle(b, rect.X, rect.Y, 20, 20);
             }
-
         }
 
         private void formEditCar_FormClosed(object sender, FormClosedEventArgs e)
