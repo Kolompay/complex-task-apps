@@ -134,7 +134,7 @@ namespace WindowsFormsApp1
                     if (cmd.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show($"Автомобиль {textBoxName.Text} успешно добавлен!", "Информация");
-                        LoadData("select * from car where rented = false AND deleted = false", dataGridViewListCars, comboBoxListCarsFirst, labelInfo);
+                        LoadData("select * from car where rented = false AND deleted = false order by idcar", dataGridViewListCars, comboBoxListCarsFirst, labelInfo);
                         npgSqlConnection.Close();
                         Close();
                     }
